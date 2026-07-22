@@ -1,0 +1,75 @@
+import React, { createContext, useContext, useState } from 'react';
+
+export type CurrencyCode = 'USD' | 'BDT' | 'INR';
+
+export interface CurrencyConfig {
+  code: CurrencyCode;
+  symbol: string;
+  flag: string;
+  name: string;
+  rate: number;
+}
+
+export const CURRENCIES: Record<CurrencyCode, CurrencyConfig> = {
+  USD: { code: 'USD', symbol: '$', flag: '🇺🇸', name: 'US Dollar', rate: 1 },
+  BDT: { code: 'BDT', symbol: '৳', flag: '🇧🇩', name: 'Bangladeshi Taka', rate: 118 },
+  INR: { code: 'INR', symbol: '₹', flag: '🇮🇳', name: 'Indian Rupee', rate: 83.5 },
+};
+
+interface CurrencyContextType {
+  currency: CurrencyCode;
+  setCurrency: (code: CurrencyCode) => void;
+  currencyConfig: CurrencyConfig;
+  formatPrice: (usdAmount: number, options?: { showCents?: boolean }) => string;
+  getRawPrice: (usdAmount: number) => number;
+}
+
+const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
+
+export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currency, setCurrency] = useState<CurrencyCode>('USD');
+
+  const currencyConfig = CURRENCIES[currency];
+
+  const getRawPrice = (usdAmount: number): number => {
+    return usdAmount * currencyConfig.rate;
+  };
+
+  const formatPrice = (usdAmount: number, options?: { showCents?: boolean }): string => {
+    const config = CURRENCIES[currency];
+    const converted = usdAmount * config.rate;
+
+    if (currency === 'USD') {
+      const showDecimals = options?.showCents !== undefined ? options.showCents : !Number.isInteger(usdAmount);
+      return showDecimals ? `$${converted.toFixed(2)}` : `$${converted}`;
+    } else if (currency === 'BDT') {
+      const rounded = Math.round(converted);
+      return `৳${rounded.toLocaleString('en-US')}`;
+    } else {
+      const rounded = Math.round(converted);
+      return `₹${rounded.toLocaleString('en-US')}`;
+    }
+  };
+
+  return (
+    <CurrencyContext.Provider
+      value={{
+        currency,
+        setCurrency,
+        currencyConfig,
+        formatPrice,
+        getRawPrice,
+      }}
+    >
+      {children}
+    </CurrencyContext.Provider>
+  );
+};
+
+export const useCurrency = (): CurrencyContextType => {
+  const context = useContext(CurrencyContext);
+  if (!context) {
+    throw new Error('useCurrency must be used within a CurrencyProvider');
+  }
+  return context;
+};
