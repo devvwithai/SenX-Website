@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { CurrencyProvider } from './context/CurrencyContext';
 import { BackgroundVideo } from './components/BackgroundVideo';
 import { BackgroundParticles } from './components/BackgroundParticles';
@@ -113,6 +114,7 @@ export default function App() {
         {/* Interactive Modal Portal for Deployment / Client Area */}
         <ContentModal activeTab={activeModalTab} onClose={handleCloseModal} />
       </div>
+      <SpeedInsights />
     </CurrencyProvider>
   );
 }
