@@ -1,71 +1,109 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { Volume2, VolumeX, Play, Pause } from 'lucide-react';
 
 export const BackgroundVideo: React.FC = React.memo(() => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const userPausedRef = useRef<boolean>(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
 
+  // Exclusive background video URL specified by user
+  const videoSource = 'https://ztnjuprlvjakecnimtrg.supabase.co/storage/v1/object/sign/SenX-Website/From%20Klickpin.com-%20Explore%20Easy%20boho%20home%20decor%20that%20are%20trending%20right%20now%20across%20Pinterest%20boards%20for%20a%20result%20that%20feels%20elegant%20and%20share-wort.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMGE5OGFiOC0xZTg2LTQ0Y2MtYmI4OC0wM2MyNTg5YWViMTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTZW5YLVdlYnNpdGUvRnJvbSBLbGlja3Bpbi5jb20tIEV4cGxvcmUgRWFzeSBib2hvIGhvbWUgZGVjb3IgdGhhdCBhcmUgdHJlbmRpbmcgcmlnaHQgbm93IGFjcm9zcyBQaW50ZXJlc3QgYm9hcmRzIGZvciBhIHJlc3VsdCB0aGF0IGZlZWxzIGVsZWdhbnQgYW5kIHNoYXJlLXdvcnQubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NDkxNzM1NCwiZXhwIjoxODE2NDUzMzU0fQ.BBOnZ17IBmMMjjv2kCpT3DdhM_TWvR-g0Z4H0kMTqno';
+
+  const attemptPlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || userPausedRef.current) return;
+
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setIsPlaying(true);
+        })
+        .catch(() => {
+          // Retry playing muted on user interaction or DOM load
+          setIsPlaying(false);
+        });
+    }
+  }, []);
+
   useEffect(() => {
+    attemptPlay();
+
     const video = videoRef.current;
     if (!video) return;
 
-    video.play().catch(() => {
-      video.muted = true;
-      video.play().catch(() => setIsPlaying(false));
-    });
-
-    const handleVisibilityChange = () => {
-      if (!video) return;
-      if (document.hidden) {
-        video.pause();
-      } else if (isPlaying) {
-        video.play().catch(() => {});
+    // Prevent unexpected pausing by auto-resuming if the video gets paused by browser heuristics
+    const handlePause = () => {
+      if (!userPausedRef.current) {
+        attemptPlay();
       }
     };
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    // Ensure video resumes when tab regains focus or iframe refreshes
+    const handleVisibilityChange = () => {
+      if (!document.hidden && !userPausedRef.current) {
+        attemptPlay();
+      }
     };
-  }, [isPlaying]);
+
+    video.addEventListener('pause', handlePause);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleVisibilityChange);
+
+    return () => {
+      video.removeEventListener('pause', handlePause);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleVisibilityChange);
+    };
+  }, [attemptPlay]);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
     if (isPlaying) {
+      userPausedRef.current = true;
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play().catch(() => {});
-      setIsPlaying(true);
+      userPausedRef.current = false;
+      videoRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        attemptPlay();
+      });
     }
   };
 
   const toggleMute = () => {
     if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+    const nextMuteState = !isMuted;
+    videoRef.current.muted = nextMuteState;
+    setIsMuted(nextMuteState);
   };
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0 bg-[#050606]">
       
-      {/* 1. Rotated Portrait Video to Landscape Fill with Aspect Ratio Preservation */}
+      {/* 1. Video Container with User Specified Video Source */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <video
           ref={videoRef}
-          src="https://v1.pinterest.com/videos/iht/expMp4/f2/40/1e/f2401ef11bc48a265c1a5edabe8f888a_720w.mp4"
           autoPlay
           loop
           muted={isMuted}
           playsInline
+          referrerPolicy="no-referrer"
           className="min-w-[130vh] min-h-[130vw] w-[180vh] h-[180vw] max-w-none max-h-none object-cover rotate-90 transform origin-center opacity-75 will-change-transform"
-        />
+        >
+          <source src={videoSource} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* 2. Premium Overlays */}
       
-      {/* Dark Overlay (40%) */}
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-[#050606]/45 z-10" />
 
       {/* Bottom Gradient for Smooth Fade into Page Content */}
@@ -100,7 +138,7 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
           title={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
         >
-          {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+          {isPlaying ? <Pause className="w-3.5 h-3.5 text-[#A3E854]" /> : <Play className="w-3.5 h-3.5 text-zinc-400" />}
         </button>
         <div className="w-[1px] h-3 bg-white/10" />
         <button
@@ -108,7 +146,7 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
           title={isMuted ? 'Unmute Background Video' : 'Mute Background Video'}
         >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+          {isMuted ? <VolumeX className="w-3.5 h-3.5 text-zinc-400" /> : <Volume2 className="w-3.5 h-3.5 text-[#A3E854]" />}
         </button>
       </div>
 

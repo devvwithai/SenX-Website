@@ -12,6 +12,8 @@ import { GameHostingSection } from './components/GameHostingSection';
 import { ControlPanelSection } from './components/ControlPanelSection';
 import { PricingSection } from './components/PricingSection';
 import { ReviewsSection } from './components/ReviewsSection';
+import { FAQSection } from './components/FAQSection';
+import { SEOHead } from './components/SEOHead';
 import { Footer } from './components/Footer';
 import { ContentModal } from './components/ContentModal';
 
@@ -42,21 +44,23 @@ export default function App() {
     };
   }, []);
 
+  const CLIENT_URL = 'https://client.senxcloud.com/';
+
   const handleNavClick = useCallback((item: string) => {
-    if (item === 'login') {
-      setActiveModalTab('login');
+    if (item === 'login' || item === 'support' || item === 'status') {
+      window.location.href = CLIENT_URL;
       return;
     }
     const element = document.getElementById(item);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      setActiveModalTab(item);
+      window.location.href = CLIENT_URL;
     }
   }, []);
 
   const handleGetStarted = useCallback(() => {
-    setActiveModalTab('deploy');
+    window.location.href = CLIENT_URL;
   }, []);
 
   const handleViewPricing = useCallback(() => {
@@ -64,7 +68,7 @@ export default function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      setActiveModalTab('deploy');
+      window.location.href = CLIENT_URL;
     }
   }, []);
 
@@ -74,6 +78,7 @@ export default function App() {
 
   return (
     <CurrencyProvider>
+      <SEOHead />
       <div className="relative min-h-screen bg-[#050606] text-[#F7F7F7] selection:bg-[#A3E854]/30 selection:text-[#A3E854] overflow-x-hidden font-inter">
         {/* Full-Screen Infrastructure Background Video with Layered Overlays */}
         <BackgroundVideo />
@@ -109,6 +114,9 @@ export default function App() {
 
           {/* Verified Reviews Section */}
           <ReviewsSection />
+
+          {/* Search Engine & AI Answer Engine (AEO) FAQ Section */}
+          <FAQSection />
 
           {/* Footer */}
           <Footer />

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Explicit permissions for AI & Answer Engine crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://senxcloud.com/sitemap.xml

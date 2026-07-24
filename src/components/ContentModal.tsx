@@ -21,7 +21,7 @@ export const ContentModal: React.FC<ContentModalProps> = React.memo(({ activeTab
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    window.location.href = 'https://client.senxcloud.com/';
   };
 
   return (
@@ -76,8 +76,7 @@ export const ContentModal: React.FC<ContentModalProps> = React.memo(({ activeTab
                 </p>
                 <MagneticButton
                   onClick={() => {
-                    setFormSubmitted(false);
-                    onClose();
+                    window.location.href = 'https://client.senxcloud.com/';
                   }}
                   variant="lime"
                   className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 text-xs font-black uppercase tracking-wider justify-center"
