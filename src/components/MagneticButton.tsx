@@ -10,7 +10,7 @@ interface MagneticButtonProps {
   disabled?: boolean;
 }
 
-export const MagneticButton: React.FC<MagneticButtonProps> = ({
+export const MagneticButton: React.FC<MagneticButtonProps> = React.memo(({
   children,
   onClick,
   className = '',
@@ -116,4 +116,4 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       </span>
     </motion.button>
   );
-};
+});

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Terminal, Folder, BarChart3, Shield, Settings, Play, Pause, RefreshCw, HardDrive, Cpu, Wifi } from 'lucide-react';
 
-export const ControlPanelSection: React.FC = () => {
+export const ControlPanelSection: React.FC = React.memo(() => {
   const [activeTab, setActiveTab] = useState<'console' | 'files' | 'metrics' | 'backups' | 'startup'>('console');
   const [consoleInput, setConsoleInput] = useState('');
   const [consoleLogs, setConsoleLogs] = useState<string[]>([
@@ -239,4 +239,4 @@ export const ControlPanelSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});

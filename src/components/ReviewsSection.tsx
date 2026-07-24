@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Star, ShieldCheck, Quote, Server } from 'lucide-react';
 
-export const ReviewsSection: React.FC = () => {
-  const reviews = [
+export const ReviewsSection: React.FC = React.memo(() => {
+  const reviews = useMemo(() => [
     {
       name: 'Alexandre Mercer',
       role: 'Lead Dev, CraftHQ Network',
@@ -36,7 +36,7 @@ export const ReviewsSection: React.FC = () => {
       comment: 'Oxide plugins load instantly. Map wipes take seconds instead of minutes on Gen4 NVMe RAID storage. Absolutely worth every single penny.',
       avatar: 'MC',
     },
-  ];
+  ], []);
 
   return (
     <section className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto overflow-hidden">
@@ -100,4 +100,4 @@ export const ReviewsSection: React.FC = () => {
       </div>
     </section>
   );
-};
+});

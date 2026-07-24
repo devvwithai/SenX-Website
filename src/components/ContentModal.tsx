@@ -9,7 +9,7 @@ interface ContentModalProps {
   onClose: () => void;
 }
 
-export const ContentModal: React.FC<ContentModalProps> = ({ activeTab, onClose }) => {
+export const ContentModal: React.FC<ContentModalProps> = React.memo(({ activeTab, onClose }) => {
   const { formatPrice } = useCurrency();
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [serverPreset, setServerPreset] = useState('Minecraft');
@@ -173,4 +173,4 @@ export const ContentModal: React.FC<ContentModalProps> = ({ activeTab, onClose }
       </div>
     </AnimatePresence>
   );
-};
+});

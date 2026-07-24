@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Gamepad2, Server, Cpu, Shield, ArrowRight, Check, Zap, Layers, Globe } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
@@ -19,11 +19,11 @@ interface ProductItem {
   silhouetteSvg: React.ReactNode;
 }
 
-export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) => void }> = ({ onSelectGame }) => {
+export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) => void }> = React.memo(({ onSelectGame }) => {
   const [activeCategory, setActiveCategory] = useState<'game' | 'vps' | 'dedicated' | 'proxy'>('game');
   const { formatPrice } = useCurrency();
 
-  const products: ProductItem[] = [
+  const products: ProductItem[] = useMemo(() => [
     // GAME HOSTING PRODUCTS
     {
       id: 'minecraft',
@@ -256,9 +256,9 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
         </svg>
       ),
     },
-  ];
+  ], []);
 
-  const filteredProducts = products.filter((p) => p.category === activeCategory);
+  const filteredProducts = useMemo(() => products.filter((p) => p.category === activeCategory), [products, activeCategory]);
 
   return (
     <section id="game-hosting" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
@@ -394,4 +394,4 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       </AnimatePresence>
     </section>
   );
-};
+});

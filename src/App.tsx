@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import { CurrencyProvider } from './context/CurrencyContext';
 import { BackgroundVideo } from './components/BackgroundVideo';
@@ -20,6 +20,7 @@ export default function App() {
 
   // Initialize Lenis Smooth Scrolling
   useEffect(() => {
+    let animId: number;
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -27,18 +28,21 @@ export default function App() {
     });
 
     function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      if (!document.hidden) {
+        lenis.raf(time);
+      }
+      animId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(animId);
       lenis.destroy();
     };
   }, []);
 
-  const handleNavClick = (item: string) => {
+  const handleNavClick = useCallback((item: string) => {
     if (item === 'login') {
       setActiveModalTab('login');
       return;
@@ -49,24 +53,24 @@ export default function App() {
     } else {
       setActiveModalTab(item);
     }
-  };
+  }, []);
 
-  const handleGetStarted = () => {
+  const handleGetStarted = useCallback(() => {
     setActiveModalTab('deploy');
-  };
+  }, []);
 
-  const handleViewPricing = () => {
+  const handleViewPricing = useCallback(() => {
     const element = document.getElementById('pricing');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
       setActiveModalTab('deploy');
     }
-  };
+  }, []);
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setActiveModalTab(null);
-  };
+  }, []);
 
   return (
     <CurrencyProvider>

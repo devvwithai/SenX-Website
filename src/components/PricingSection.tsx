@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Check, Zap, Sparkles, ArrowRight } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
@@ -20,11 +20,11 @@ interface PricingPlan {
   features: string[];
 }
 
-export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> = ({ onSelectPlan }) => {
+export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> = React.memo(({ onSelectPlan }) => {
   const [isAnnual, setIsAnnual] = useState(false);
   const { formatPrice } = useCurrency();
 
-  const plans: PricingPlan[] = [
+  const plans: PricingPlan[] = useMemo(() => [
     {
       id: 'starter',
       name: 'Starter Node',
@@ -88,7 +88,7 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
         'Custom BGP IP Route Announcement',
       ],
     },
-  ];
+  ], []);
 
   return (
     <section id="pricing" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
@@ -221,4 +221,4 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
       </div>
     </section>
   );
-};
+});

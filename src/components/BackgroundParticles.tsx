@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-export const BackgroundParticles: React.FC = () => {
+export const BackgroundParticles: React.FC = React.memo(() => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -10,11 +10,12 @@ export const BackgroundParticles: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let isVisible = true;
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
     // Subtle Particle Setup
-    const particleCount = Math.min(Math.floor(width / 24), 40);
+    const particleCount = Math.min(Math.floor(width / 24), 35);
     interface Particle {
       x: number;
       y: number;
@@ -39,10 +40,10 @@ export const BackgroundParticles: React.FC = () => {
     }
 
     const render = () => {
-      animationFrameId = requestAnimationFrame(render);
+      if (!isVisible) return;
       ctx.clearRect(0, 0, width, height);
 
-      // Draw & Update Subtle Upward Particles
+      // Draw & Update Subtle Upward Particles without expensive shadowBlur
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
@@ -58,31 +59,59 @@ export const BackgroundParticles: React.FC = () => {
         if (p.x < -10) p.x = width + 10;
         if (p.x > width + 10) p.x = -10;
 
-        const currentAlpha = p.alpha + Math.sin(p.pulse) * 0.1;
+        const currentAlpha = Math.max(0.05, p.alpha + Math.sin(p.pulse) * 0.1);
 
-        // Draw particle dot
+        // Draw particle dot without costly shadowBlur rasterization
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(163, 232, 84, ${Math.max(0.05, currentAlpha)})`;
-        ctx.shadowColor = '#A3E854';
-        ctx.shadowBlur = 4;
+        ctx.fillStyle = `rgba(163, 232, 84, ${currentAlpha})`;
         ctx.fill();
-        ctx.shadowBlur = 0;
       }
+
+      animationFrameId = requestAnimationFrame(render);
+    };
+
+    const startAnimation = () => {
+      if (!isVisible) {
+        isVisible = true;
+        render();
+      }
+    };
+
+    const stopAnimation = () => {
+      isVisible = false;
+      cancelAnimationFrame(animationFrameId);
     };
 
     render();
 
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+    // Pause animation when tab/page is hidden
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopAnimation();
+      } else {
+        startAnimation();
+      }
     };
 
-    window.addEventListener('resize', handleResize);
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        if (!canvas) return;
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }, 150);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
+      stopAnimation();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationFrameId);
+      clearTimeout(resizeTimeout);
     };
   }, []);
 
@@ -92,4 +121,4 @@ export const BackgroundParticles: React.FC = () => {
       className="fixed inset-0 w-full h-full pointer-events-none z-10"
     />
   );
-};
+});

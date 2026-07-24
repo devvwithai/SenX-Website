@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Cpu, HardDrive, Zap, ShieldAlert, Globe, Server, Code, RefreshCw } from 'lucide-react';
 
-export const BentoGrid: React.FC = () => {
+export const BentoGrid: React.FC = React.memo(() => {
   return (
     <section id="features" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
       {/* Section Header */}
@@ -233,4 +233,4 @@ export const BentoGrid: React.FC = () => {
       </div>
     </section>
   );
-};
+});

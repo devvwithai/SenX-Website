@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Menu, X, ArrowUpRight, UserCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MagneticButton } from './MagneticButton';
@@ -10,20 +10,27 @@ interface NavbarProps {
   onGetStarted: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavClick, onGetStarted }) => {
+export const Navbar: React.FC<NavbarProps> = React.memo(({ onNavClick, onGetStarted }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 70);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 70);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: 'Game Hosting', id: 'game-hosting' },
     { name: 'Cloud VPS', id: 'cloud-vps' },
     { name: 'Dedicated', id: 'dedicated' },
@@ -31,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick, onGetStarted }) => {
     { name: 'Support', id: 'support' },
     { name: 'Status', id: 'status', badge: 'Online' },
     { name: 'Login', id: 'login' },
-  ];
+  ], []);
 
   const handleLinkClick = (id: string) => {
     onNavClick(id);
@@ -217,4 +224,4 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick, onGetStarted }) => {
       </AnimatePresence>
     </>
   );
-};
+});

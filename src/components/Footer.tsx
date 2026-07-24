@@ -2,7 +2,7 @@ import React from 'react';
 import { Cloud, Github, Disc as Discord, Shield, BookOpen, Activity, ArrowUpRight } from 'lucide-react';
 import { SenXLogo } from './SenXLogo';
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = React.memo(() => {
   return (
     <footer className="relative z-20 border-t border-white/[0.08] bg-[#050606] pt-12 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 pb-[calc(2rem+env(safe-area-inset-bottom))]">
       <div className="max-w-7xl mx-auto">
@@ -88,4 +88,4 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});

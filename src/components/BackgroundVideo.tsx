@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Volume2, VolumeX, Play, Pause } from 'lucide-react';
 
-export const BackgroundVideo: React.FC = () => {
+export const BackgroundVideo: React.FC = React.memo(() => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -14,7 +14,21 @@ export const BackgroundVideo: React.FC = () => {
       video.muted = true;
       video.play().catch(() => setIsPlaying(false));
     });
-  }, []);
+
+    const handleVisibilityChange = () => {
+      if (!video) return;
+      if (document.hidden) {
+        video.pause();
+      } else if (isPlaying) {
+        video.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -40,12 +54,12 @@ export const BackgroundVideo: React.FC = () => {
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <video
           ref={videoRef}
-          src="https://v1.pinimg.com/videos/iht/expMp4/f2/40/1e/f2401ef11bc48a265c1a5edabe8f888a_720w.mp4"
+          src="https://v1.pinterest.com/videos/iht/expMp4/f2/40/1e/f2401ef11bc48a265c1a5edabe8f888a_720w.mp4"
           autoPlay
           loop
           muted={isMuted}
           playsInline
-          className="min-w-[130vh] min-h-[130vw] w-[180vh] h-[180vw] max-w-none max-h-none object-cover rotate-90 transform origin-center opacity-75"
+          className="min-w-[130vh] min-h-[130vw] w-[180vh] h-[180vw] max-w-none max-h-none object-cover rotate-90 transform origin-center opacity-75 will-change-transform"
         />
       </div>
 
@@ -100,4 +114,4 @@ export const BackgroundVideo: React.FC = () => {
 
     </div>
   );
-};
+});

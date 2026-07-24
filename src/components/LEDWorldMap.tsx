@@ -26,7 +26,57 @@ interface ArcConnection {
   to: DatacenterLocation;
 }
 
-export const LEDWorldMap: React.FC = () => {
+// Continent land mask precomputation helper
+const COLS = 120;
+const ROWS = 60;
+
+const checkIsLand = (normX: number, normY: number): boolean => {
+  // North America
+  if (normX >= 0.08 && normX <= 0.30 && normY >= 0.12 && normY <= 0.28) return true;
+  if (normX >= 0.12 && normX <= 0.29 && normY >= 0.28 && normY <= 0.42) return true;
+  if (normX >= 0.18 && normX <= 0.28 && normY >= 0.42 && normY <= 0.52) return true;
+
+  // South America
+  if (normX >= 0.27 && normX <= 0.39 && normY >= 0.50 && normY <= 0.65) return true;
+  if (normX >= 0.30 && normX <= 0.37 && normY >= 0.65 && normY <= 0.86) return true;
+
+  // Europe & Nordics
+  if (normX >= 0.44 && normX <= 0.55 && normY >= 0.18 && normY <= 0.34) return true;
+  if (normX >= 0.50 && normX <= 0.62 && normY >= 0.10 && normY <= 0.24) return true;
+  if (normX >= 0.55 && normX <= 0.66 && normY >= 0.18 && normY <= 0.32) return true;
+
+  // Africa
+  if (normX >= 0.42 && normX <= 0.62 && normY >= 0.35 && normY <= 0.48) return true;
+  if (normX >= 0.48 && normX <= 0.62 && normY >= 0.48 && normY <= 0.76) return true;
+
+  // Middle East
+  if (normX >= 0.58 && normX <= 0.68 && normY >= 0.30 && normY <= 0.45) return true;
+
+  // Asia
+  if (normX >= 0.60 && normX <= 0.92 && normY >= 0.08 && normY <= 0.25) return true;
+  if (normX >= 0.68 && normX <= 0.88 && normY >= 0.25 && normY <= 0.42) return true;
+  if (normX >= 0.68 && normX <= 0.74 && normY >= 0.35 && normY <= 0.52) return true; // India
+  if (normX >= 0.74 && normX <= 0.77 && normY >= 0.34 && normY <= 0.44) return true; // Bangladesh
+  if (normX >= 0.76 && normX <= 0.85 && normY >= 0.42 && normY <= 0.55) return true; // SE Asia
+  if (normX >= 0.77 && normX <= 0.88 && normY >= 0.52 && normY <= 0.62) return true;
+
+  // Australia
+  if (normX >= 0.78 && normX <= 0.91 && normY >= 0.62 && normY <= 0.82) return true;
+
+  return false;
+};
+
+// Precompute land mask once at module load
+const LAND_GRID = new Uint8Array(ROWS * COLS);
+for (let r = 0; r < ROWS; r++) {
+  for (let c = 0; c < COLS; c++) {
+    const normX = c / COLS;
+    const normY = r / ROWS;
+    LAND_GRID[r * COLS + c] = checkIsLand(normX, normY) ? 1 : 0;
+  }
+}
+
+export const LEDWorldMap: React.FC = React.memo(() => {
   // Exactly 5 Active SenX Cloud Datacenter Locations
   const locations: DatacenterLocation[] = [
     {
@@ -172,73 +222,47 @@ export const LEDWorldMap: React.FC = () => {
 
     let animationFrameId: number;
     let time = 0;
+    let isVisible = true;
+    let isTabActive = !document.hidden;
+
+    let width = (canvas.width = canvas.offsetWidth * 2 || 1600);
+    let height = (canvas.height = canvas.offsetHeight * 2 || 800);
+
+    const resizeCanvas = () => {
+      if (!canvas) return;
+      const w = canvas.offsetWidth * 2;
+      const h = canvas.offsetHeight * 2;
+      if (w > 0 && h > 0 && (canvas.width !== w || canvas.height !== h)) {
+        width = canvas.width = w;
+        height = canvas.height = h;
+      }
+    };
+
+    resizeCanvas();
 
     const renderDots = () => {
+      if (!isVisible || !isTabActive) return;
+
       time += 0.025;
-      const width = (canvas.width = canvas.offsetWidth * 2);
-      const height = (canvas.height = canvas.offsetHeight * 2);
       ctx.clearRect(0, 0, width, height);
 
-      const cols = 120;
-      const rows = 60;
-      const stepX = width / cols;
-      const stepY = height / rows;
+      const stepX = width / COLS;
+      const stepY = height / ROWS;
 
-      // Continent mask
-      const isLand = (normX: number, normY: number) => {
-        // North America
-        if (normX >= 0.08 && normX <= 0.30 && normY >= 0.12 && normY <= 0.28) return true;
-        if (normX >= 0.12 && normX <= 0.29 && normY >= 0.28 && normY <= 0.42) return true;
-        if (normX >= 0.18 && normX <= 0.28 && normY >= 0.42 && normY <= 0.52) return true;
-
-        // South America
-        if (normX >= 0.27 && normX <= 0.39 && normY >= 0.50 && normY <= 0.65) return true;
-        if (normX >= 0.30 && normX <= 0.37 && normY >= 0.65 && normY <= 0.86) return true;
-
-        // Europe & Nordics
-        if (normX >= 0.44 && normX <= 0.55 && normY >= 0.18 && normY <= 0.34) return true;
-        if (normX >= 0.50 && normX <= 0.62 && normY >= 0.10 && normY <= 0.24) return true;
-        if (normX >= 0.55 && normX <= 0.66 && normY >= 0.18 && normY <= 0.32) return true;
-
-        // Africa
-        if (normX >= 0.42 && normX <= 0.62 && normY >= 0.35 && normY <= 0.48) return true;
-        if (normX >= 0.48 && normX <= 0.62 && normY >= 0.48 && normY <= 0.76) return true;
-
-        // Middle East
-        if (normX >= 0.58 && normX <= 0.68 && normY >= 0.30 && normY <= 0.45) return true;
-
-        // Asia
-        if (normX >= 0.60 && normX <= 0.92 && normY >= 0.08 && normY <= 0.25) return true;
-        if (normX >= 0.68 && normX <= 0.88 && normY >= 0.25 && normY <= 0.42) return true;
-        if (normX >= 0.68 && normX <= 0.74 && normY >= 0.35 && normY <= 0.52) return true; // India
-        if (normX >= 0.74 && normX <= 0.77 && normY >= 0.34 && normY <= 0.44) return true; // Bangladesh
-        if (normX >= 0.76 && normX <= 0.85 && normY >= 0.42 && normY <= 0.55) return true; // SE Asia
-        if (normX >= 0.77 && normX <= 0.88 && normY >= 0.52 && normY <= 0.62) return true;
-
-        // Australia
-        if (normX >= 0.78 && normX <= 0.91 && normY >= 0.62 && normY <= 0.82) return true;
-
-        return false;
-      };
-
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const normX = c / cols;
-          const normY = r / rows;
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
           const x = c * stepX + stepX / 2;
           const y = r * stepY + stepY / 2;
 
-          const land = isLand(normX, normY);
+          const isLand = LAND_GRID[r * COLS + c] === 1;
           const wave = Math.sin(time + c * 0.1 + r * 0.1) * 0.15 + 0.85;
 
-          if (land) {
-            // Active SenX Land Dots - Lime Accent (#A3E854)
+          if (isLand) {
             ctx.fillStyle = `rgba(163, 232, 84, ${0.65 * wave})`;
             ctx.beginPath();
             ctx.arc(x, y, 2.2, 0, Math.PI * 2);
             ctx.fill();
           } else {
-            // Subtle Ocean Matrix Grid - rgba(255,255,255,0.10)
             ctx.fillStyle = `rgba(255, 255, 255, ${0.10 * wave})`;
             ctx.beginPath();
             ctx.arc(x, y, 1.2, 0, Math.PI * 2);
@@ -252,8 +276,42 @@ export const LEDWorldMap: React.FC = () => {
 
     renderDots();
 
+    // IntersectionObserver to pause when offscreen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry ? entry.isIntersecting : true;
+        if (isVisible && isTabActive) {
+          renderDots();
+        } else {
+          cancelAnimationFrame(animationFrameId);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
+
+    const handleVisibilityChange = () => {
+      isTabActive = !document.hidden;
+      if (isTabActive && isVisible) {
+        renderDots();
+      } else {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+
+    const handleResize = () => {
+      resizeCanvas();
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('resize', handleResize, { passive: true });
+
     return () => {
       cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -501,4 +559,4 @@ export const LEDWorldMap: React.FC = () => {
       </div>
     </section>
   );
-};
+});

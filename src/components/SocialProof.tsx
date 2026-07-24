@@ -8,7 +8,7 @@ interface MarqueeRowProps {
   speed: number;
 }
 
-const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, direction, speed }) => {
+const MarqueeRow: React.FC<MarqueeRowProps> = React.memo(({ items, direction, speed }) => {
   const [isPaused, setIsPaused] = useState(false);
 
   // Repeat items 4x to ensure a continuous wide loop with no empty space
@@ -24,7 +24,7 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, direction, speed }) => {
       onMouseLeave={() => setIsPaused(false)}
     >
       <motion.div
-        className="flex space-x-3.5 w-max"
+        className="flex space-x-3.5 w-max will-change-transform"
         animate={{
           x: [animateFrom, animateTo],
         }}
@@ -56,9 +56,9 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, direction, speed }) => {
       </motion.div>
     </div>
   );
-};
+});
 
-export const SocialProof: React.FC = () => {
+export const SocialProof: React.FC = React.memo(() => {
   const stats = [
     { num: '99.99%', label: 'SLA Guaranteed Uptime' },
     { num: '<10ms', label: 'Average Global Latency' },
@@ -142,4 +142,4 @@ export const SocialProof: React.FC = () => {
       </div>
     </section>
   );
-};
+});

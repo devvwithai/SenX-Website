@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useMemo, useCallback } from 'react';
 
 export type CurrencyCode = 'USD' | 'BDT' | 'INR';
 
@@ -29,13 +29,13 @@ const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined
 export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [currency, setCurrency] = useState<CurrencyCode>('USD');
 
-  const currencyConfig = CURRENCIES[currency];
+  const currencyConfig = useMemo(() => CURRENCIES[currency], [currency]);
 
-  const getRawPrice = (usdAmount: number): number => {
-    return usdAmount * currencyConfig.rate;
-  };
+  const getRawPrice = useCallback((usdAmount: number): number => {
+    return usdAmount * CURRENCIES[currency].rate;
+  }, [currency]);
 
-  const formatPrice = (usdAmount: number, options?: { showCents?: boolean }): string => {
+  const formatPrice = useCallback((usdAmount: number, options?: { showCents?: boolean }): string => {
     const config = CURRENCIES[currency];
     const converted = usdAmount * config.rate;
 
@@ -49,18 +49,18 @@ export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       const rounded = Math.round(converted);
       return `₹${rounded.toLocaleString('en-US')}`;
     }
-  };
+  }, [currency]);
+
+  const value = useMemo(() => ({
+    currency,
+    setCurrency,
+    currencyConfig,
+    formatPrice,
+    getRawPrice,
+  }), [currency, currencyConfig, formatPrice, getRawPrice]);
 
   return (
-    <CurrencyContext.Provider
-      value={{
-        currency,
-        setCurrency,
-        currencyConfig,
-        formatPrice,
-        getRawPrice,
-      }}
-    >
+    <CurrencyContext.Provider value={value}>
       {children}
     </CurrencyContext.Provider>
   );

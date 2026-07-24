@@ -8,7 +8,7 @@ interface HeroSectionProps {
   onViewPricing: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPricing }) => {
+export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarted, onViewPricing }) => {
   return (
     <section className="relative min-h-[85vh] sm:min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-12 pt-28 sm:pt-36 pb-16 sm:pb-24 overflow-hidden z-20 select-none">
 
@@ -194,4 +194,4 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
       </div>
     </section>
   );
-};
+});
