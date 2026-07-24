@@ -29,11 +29,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'minecraft',
       category: 'game',
       name: 'Minecraft Hosting',
-      cpu: 'Ryzen 9950X',
+      cpu: 'Ryzen 9 5950X',
       ram: 'DDR5 Memory',
       storage: 'NVMe SSD',
-      region: 'Singapore',
-      price: 4.99,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 1.59,
       badge: 'INSTANT READY',
       features: ['Paper, Spigot & Modpack Engine', 'Sub-domain Creator Included', 'Unlimited Player Slots'],
       silhouetteSvg: (
@@ -49,11 +49,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'palworld',
       category: 'game',
       name: 'Palworld Hosting',
-      cpu: 'Ryzen 9950X',
+      cpu: 'Ryzen 5950X',
       ram: '32GB DDR5',
       storage: 'Gen4 NVMe',
-      region: 'Singapore / Frankfurt',
-      price: 19.99,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 4.49,
       badge: 'POPULAR',
       features: ['Unreal Engine 5 Anti-Crash', '32 Dedicated Player Slots', 'Daily Automated Backups'],
       silhouetteSvg: (
@@ -70,8 +70,8 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       cpu: 'Ryzen 9950X',
       ram: '16GB DDR5',
       storage: 'RAID-1 NVMe',
-      region: 'Virginia US',
-      price: 14.50,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 10.38,
       badge: 'HIGH PERFORMANCE',
       features: ['Oxide & Carbon Plugin Host', '3.2 Tbps Rust DDoS Shield', 'Instant Wipe Scheduler'],
       silhouetteSvg: (
@@ -87,8 +87,8 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       cpu: 'AMD EPYC',
       ram: '16GB DDR5',
       storage: 'NVMe SSD',
-      region: 'Frankfurt / Singapore',
-      price: 12.00,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 7.99,
       features: ['Pre-configured txAdmin Panel', 'OneSync Infinity Ready', 'Unlimited MySQL Databases'],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
@@ -97,14 +97,14 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       ),
     },
     {
-      id: 'terraria',
+      id: 'bedrock',
       category: 'game',
-      name: 'Terraria Hosting',
+      name: 'Bedrock Hosting',
       cpu: 'Ryzen 7950X',
       ram: '4GB DDR5',
       storage: 'NVMe SSD',
       region: 'Global Anycast',
-      price: 3.99,
+      price: 1.59,
       features: ['tModLoader 1-Click Installer', 'Auto Save World Daemon', 'Crossplay Enabled'],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
@@ -114,14 +114,14 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       ),
     },
     {
-      id: 'valheim',
+      id: 'bot',
       category: 'game',
-      name: 'Valheim Hosting',
+      name: 'Bot Hosting',
       cpu: 'Ryzen 7950X',
       ram: '8GB DDR5',
       storage: 'NVMe SSD',
-      region: 'Singapore / Mumbai',
-      price: 9.99,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 0.19,
       features: ['ValheimPlus Mod Host', 'Dedicated Crossplay Node', 'Daily World Snapshot'],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
@@ -135,11 +135,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'vps-starter',
       category: 'vps',
       name: 'Ryzen 9 Cloud VPS',
-      cpu: '2 Dedicated Cores',
-      ram: '8GB DDR5 ECC',
-      storage: '100GB Gen4 NVMe',
+      cpu: '8 Dedicated Cores',
+      ram: '32GB DDR5 ECC',
+      storage: '200GB Gen4 NVMe',
       region: 'Global Anycast',
-      price: 14.99,
+      price: 48.66,
       badge: 'FAST PROVISIONING',
       features: ['KVM Virtualization Architecture', 'Full Root Access & Custom ISO', 'Weekly Automated Snapshots'],
       silhouetteSvg: (
@@ -153,11 +153,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'vps-pro',
       category: 'vps',
       name: 'High-RAM Compute VPS',
-      cpu: '4 Dedicated Cores',
-      ram: '16GB DDR5 ECC',
-      storage: '250GB Gen4 NVMe',
-      region: 'Frankfurt / Singapore',
-      price: 29.99,
+      cpu: '1 Dedicated Cores',
+      ram: '1GB DDR5 ECC',
+      storage: '10GB Gen4 NVMe',
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 4.05,
       badge: 'BEST VALUE',
       features: ['Dedicated IPv4 + /64 IPv6 Subnet', '3.2 Tbps DDoS Scrubbing Included', 'Custom BGP Route Injection'],
       silhouetteSvg: (
@@ -170,11 +170,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'vps-ultra',
       category: 'vps',
       name: 'Ultra NVMe VPS',
-      cpu: '8 Dedicated Cores',
+      cpu: '10 Dedicated Cores',
       ram: '32GB DDR5 ECC',
-      storage: '500GB RAID-1 NVMe',
-      region: 'Virginia US-East',
-      price: 59.99,
+      storage: '60GB RAID-1 NVMe',
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 28.38,
       badge: 'HEAVY WORKLOAD',
       features: ['20 Gbps Unmetered Port Speed', 'Hot Standby Replica Node', 'REST API Control Integration'],
       silhouetteSvg: (
@@ -192,8 +192,8 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       cpu: '16 Cores / 32 Threads',
       ram: '64GB DDR5 ECC',
       storage: '2x 1TB NVMe RAID',
-      region: 'Singapore SG-1',
-      price: 129.00,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 162.19,
       badge: 'BARE METAL',
       features: ['100% Dedicated Unshared Hardware', 'IPMI / Out-of-band KVM Over IP', 'Custom Network BGP Peering'],
       silhouetteSvg: (
@@ -209,8 +209,8 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       cpu: '64 Cores / 128 Threads',
       ram: '256GB DDR5 ECC',
       storage: '4x 2TB Gen4 RAID-10',
-      region: 'Frankfurt DE-1',
-      price: 299.00,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 405.47,
       badge: 'ENTERPRISE',
       features: ['Extreme Multi-Thread Throughput', '25 Gbps Dual Uplink Redundancy', '15-Minute Guaranteed Hardware SLA'],
       silhouetteSvg: (
@@ -225,14 +225,14 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     {
       id: 'proxy-bgp',
       category: 'proxy',
-      name: 'BGP Anycast Shield Proxy',
-      cpu: 'Distributed Edge',
-      ram: 'Global Anycast',
-      storage: 'Edge Cache',
-      region: '7 Global PoPs',
-      price: 19.00,
-      badge: 'DDOS SHIELD',
-      features: ['Global GRE & IPIP Tunnel Endpoints', 'Layer 3/4 Anti-DDoS Scrubbing', 'Sub-1ms Anycast Edge Routing'],
+      name: 'Minecraft Proxy',
+      cpu: 'Global Anycast',
+      ram: 'Velocity & BungeeCord',
+      storage: 'DDoS Protected',
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 0.80,
+      badge: 'LOW LATENCY',
+      features: ['Velocity & BungeeCord Ready', 'Layer 3/4 Anti-DDoS Protection', 'Sub-1ms Anycast Edge Routing'],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <path d="M 50,15 L 85,35 L 85,65 L 50,85 L 15,65 L 15,35 Z" />
@@ -246,8 +246,8 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       cpu: 'Packet Filter Core',
       ram: 'Zero-Copy Engine',
       storage: 'Rule Engine',
-      region: 'Singapore / Frankfurt',
-      price: 29.00,
+      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      price: 10.00,
       badge: 'CUSTOM RULES',
       features: ['UDP Protocol Handshake Validation', 'Waterwall Packet Inspector', 'Real-Time Attack Analytics'],
       silhouetteSvg: (
@@ -277,7 +277,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
           Ultra-Performance <span className="text-[#A3E854]">Product Suite.</span>
         </h2>
         <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
-          Powered by high-frequency AMD Ryzen 9950X cores, Gen4 NVMe arrays, and 3.2 Tbps BGP DDoS mitigation.
+          Powered by high-frequency AMD Ryzen 9 5950X cores, Gen4 NVMe arrays, and 3.2 Tbps BGP DDoS mitigation.
         </p>
 
         {/* Product Category Selector Tabs */}

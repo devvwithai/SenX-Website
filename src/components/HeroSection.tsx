@@ -30,12 +30,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Network</div>
               <div className="text-xs font-bold font-inter text-[#F7F7F7]">Global BGP Anycast</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">7 Edge Regions</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">6 Edge Regions</div>
             </div>
           </div>
         </motion.div>
 
-        {/* LEFT 2: Middle Left - Ryzen 9 7950X3D */}
+        {/* LEFT 2: Middle Left - Ryzen 9 5950X */}
         <motion.div
           animate={{ y: [0, -12, 0], rotate: [0, -1, 0, 1, 0] }}
           transition={{ duration: 6.8, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
@@ -47,8 +47,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Processor</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Ryzen 9 7950X3D</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">5.7 GHz • DDR5 ECC</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Ryzen 9 5950X</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">4.9 GHz • DDR5 ECC</div>
             </div>
           </div>
         </motion.div>
@@ -66,14 +66,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Deployment</div>
               <div className="text-xs font-bold font-inter text-[#F7F7F7]">Instant Provisioning</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">Sub-10s Automated</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">Sub-60s Automated</div>
             </div>
           </div>
         </motion.div>
 
         {/* ================= RIGHT SIDE (3 CARDS) ================= */}
 
-        {/* RIGHT 1: Top Right - Singapore SG-1 */}
+        {/* RIGHT 1: Top Right - Bangladesh BDIX */}
         <motion.div
           animate={{ y: [0, -11, 0], rotate: [0, -1, 0, 1, 0] }}
           transition={{ duration: 6.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
@@ -85,8 +85,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Primary Node</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Singapore SG-1</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">12ms Latency</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Bangladesh BDIX</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">&lt;10ms Latency</div>
             </div>
           </div>
         </motion.div>
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Storage</div>
               <div className="text-xs font-bold font-inter text-[#F7F7F7]">Gen4 NVMe RAID-1</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">7,500 MB/s Read</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">9,500 MB/s Read</div>
             </div>
           </div>
         </motion.div>
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
           className="liquid-glass inline-flex items-center space-x-2 px-3.5 sm:px-4 py-1.5 rounded-full border border-white/20 text-[11px] sm:text-xs font-mono text-[#F7F7F7] shadow-xl max-w-full"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
-          <span className="font-semibold tracking-wide truncate">NEXT-GEN CLOUD OPERATING SYSTEM</span>
+          <span className="font-semibold tracking-wide truncate">NEXT-GEN CLOUD GAME HOSING</span>
         </motion.div>
 
         {/* Main Hero Headline */}
@@ -177,7 +177,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onGetStarted, onViewPr
             variant="lime"
             className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 text-xs font-black uppercase tracking-wider justify-center"
           >
-            <span>Launch Cloud Instance</span>
+            <span>Launch Game Server</span>
             <ArrowRight className="w-4 h-4 ml-2" />
           </MagneticButton>
 

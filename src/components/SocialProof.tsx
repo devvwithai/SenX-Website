@@ -60,26 +60,26 @@ const MarqueeRow: React.FC<MarqueeRowProps> = ({ items, direction, speed }) => {
 
 export const SocialProof: React.FC = () => {
   const stats = [
-    { num: '5,000+', label: 'Active Game Nodes' },
-    { num: '99.99%', label: 'Uptime SLA' },
-    { num: '1.2 Tbps', label: 'Peak Network Volume' },
-    { num: '<18ms', label: 'Avg Global Ping' },
+    { num: '99.99%', label: 'SLA Guaranteed Uptime' },
+    { num: '<10ms', label: 'Average Global Latency' },
+    { num: '3.2 Tbps', label: 'DDoS Shield Capacity' },
+    { num: '200+', label: 'Active Game Instances' },
   ];
 
   const row1Items = [
-    { text: '99.99% SLA UPTIME GUARANTEE', icon: <CheckCircle2 className="w-3.5 h-3.5" />, highlight: true },
+    { text: '99.99% UPTIME GUARANTEE', icon: <CheckCircle2 className="w-3.5 h-3.5" />, highlight: true },
     { text: 'GLOBAL BGP ANYCAST NETWORK', icon: <Globe className="w-3.5 h-3.5" /> },
-    { text: 'SINGAPORE SG-1 CORE NODE', icon: <Server className="w-3.5 h-3.5" /> },
-    { text: 'SUB-10s INSTANT PROVISIONING', icon: <Zap className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'AMD RYZEN 9 7950X3D (5.7GHz)', icon: <Cpu className="w-3.5 h-3.5" /> },
-    { text: 'GEN4 NVMe RAID-1 (7,500 MB/s)', icon: <HardDrive className="w-3.5 h-3.5" /> },
-    { text: '3.2 TBPS DDOS MITIGATION', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'BANGLADESH BDIX CORE NODE', icon: <Server className="w-3.5 h-3.5" /> },
+    { text: 'SUB-60s AUTOMATED SETUP', icon: <Zap className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'AMD RYZEN 5950X POWERED', icon: <Cpu className="w-3.5 h-3.5" /> },
+    { text: 'GEN4 NVMe RAID-1 (9,500 MB/s)', icon: <HardDrive className="w-3.5 h-3.5" /> },
+    { text: '3.2 TBPS ANTI-DDOS MITIGATION', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
   ];
 
   const row2Items = [
     { text: 'FRANKFURT DE-1 CENTRAL HUB', icon: <Server className="w-3.5 h-3.5" /> },
-    { text: 'MUMBAI IN-1 EDGE FACILITY', icon: <Globe className="w-3.5 h-3.5" /> },
-    { text: 'DHAKA BD-1 EDGE REGION', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'MUMBAI CORE FACILITY', icon: <Globe className="w-3.5 h-3.5" /> },
+    { text: 'DHAKA REGIONAL EDGE', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
     { text: 'ASHBURN US-EAST PIPELINE', icon: <Server className="w-3.5 h-3.5" /> },
     { text: '10 GBPS DIRECT UNMETERED', icon: <Zap className="w-3.5 h-3.5" /> },
     { text: 'SUB-1MS NETWORK JITTER', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
@@ -88,12 +88,12 @@ export const SocialProof: React.FC = () => {
 
   const row3Items = [
     { text: 'AUTOMATED HOURLY BACKUPS', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
-    { text: 'PTERODACTYL CONTROL PANEL', icon: <Sparkles className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'PTERODACTYL GAME WINGS', icon: <Sparkles className="w-3.5 h-3.5" />, highlight: true },
     { text: 'ONE-CLICK GAME SERVER DEPLOY', icon: <Zap className="w-3.5 h-3.5" /> },
     { text: 'CUSTOM DOMAIN DNS ROUTING', icon: <Globe className="w-3.5 h-3.5" /> },
     { text: 'ZERO DOWNTIME CLUSTER MIGRATION', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
     { text: 'REST API & CLI CONTROLLER', icon: <Cpu className="w-3.5 h-3.5" /> },
-    { text: '24/7 DEDICATED DEV SUPPORT', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+    { text: '24/7/365 PRIORITY SUPPORT', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
   ];
 
   return (

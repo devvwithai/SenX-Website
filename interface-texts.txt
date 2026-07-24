@@ -1,0 +1,540 @@
+================================================================================
+SENX CLOUD WEBSITE INTERFACE TEXT MASTER FILE
+================================================================================
+This file contains the centralized interface text key-value pairs for the website.
+To update any text on the website, edit the text values corresponding to their keys below.
+================================================================================
+
+[NAVBAR]
+BrandName = SenX Cloud
+StatusText = ONLINE
+Nav_GameHosting = Game Hosting
+Nav_CloudVPS = Cloud VPS
+Nav_Panel = Panel
+Nav_Infrastructure = Infrastructure
+Nav_Pricing = Pricing
+Nav_Reviews = Reviews
+Button_ClientArea = Client Area
+Mobile_Menu_Close = Close Navigation Menu
+Mobile_Menu_Open = Open Navigation Menu
+
+--------------------------------------------------------------------------------
+
+[CURRENCY_SELECTOR]
+PrefixLabel = CURRENCY
+DropdownHeader = SELECT CURRENCY
+Currency_USD_Code = USD
+Currency_USD_Name = US Dollar
+Currency_BDT_Code = BDT
+Currency_BDT_Name = Bangladeshi Taka
+Currency_INR_Code = INR
+Currency_INR_Name = Indian Rupee
+
+--------------------------------------------------------------------------------
+
+[HERO]
+Badge = NEXT-GEN CLOUD GAME HOSING
+MainTitleLine1 = Global Infrastructure
+MainTitleLine2 = Reimagined.
+Subtitle = Ultra-low latency game hosting, high-RAM bare metal instances, and distributed cloud computing — engineered for zero lag and absolute authority.
+PrimaryCTA = Launch Game Server
+SecondaryCTA = Explore Pricing
+
+--------------------------------------------------------------------------------
+
+[HERO_ORBITING_CARDS]
+Card1_Title = NETWORK
+Card1_Value = Global BGP Anycast
+Card1_Detail = 6 Edge Regions
+
+Card2_Title = PROCESSOR
+Card2_Value = Ryzen 9 5950X
+Card2_Detail = 4.9 GHz • DDR5 ECC
+
+Card3_Title = DEPLOYMENT
+Card3_Value = Instant Provisioning
+Card3_Detail = Sub-60s Automated
+
+Card4_Title = PRIMARY NODE
+Card4_Value = Bangladesh BDIX
+Card4_Detail = <10ms Latency
+
+Card5_Title = STORAGE
+Card5_Value = Gen4 NVMe RAID-1
+Card5_Detail = 9,500 MB/s Read
+
+Card6_Title = SECURITY
+Card6_Value = 3.2 Tbps DDoS Shield
+Card6_Detail = Always-On Filter
+
+--------------------------------------------------------------------------------
+
+[SOCIAL_PROOF]
+Marquee_DDoS = 3.2 Tbps Anti-DDoS Mitigation
+Marquee_Uptime = 99.99% Uptime Guarantee
+Marquee_CPU = AMD Ryzen 5950X Powered
+Marquee_Panel = Pterodactyl Game Wings
+Marquee_Setup = Sub-60s Automated Setup
+Marquee_Support = 24/7/365 Priority Support
+
+--------------------------------------------------------------------------------
+
+[STATISTICS]
+Stat1_Value = 99.99%
+Stat1_Label = SLA Guaranteed Uptime
+
+Stat2_Value = <10ms
+Stat2_Label = Average Global Latency
+
+Stat3_Value = 3.2 Tbps
+Stat3_Label = DDoS Shield Capacity
+
+Stat4_Value = 200+
+Stat4_Label = Active Game Instances
+
+--------------------------------------------------------------------------------
+
+[BENTO_GRID]
+Badge = SENX ARCHITECTURE & BENCHMARKS
+Title = Engineered for Speed. Built for Scale.
+Subtitle = Purpose-built cloud infrastructure engineered for zero-throttling workloads, low jitter, and maximum sustained clock speeds.
+
+Card1_Badge = PROCESSOR PERFORMANCE
+Card1_Title = AMD Ryzen 5950X Engine
+Card1_Description = High-frequency 4.9 GHz Zen 16 cores optimized for single-thread game loop performance.
+Card1_Tag1 = Zen 5 Architecture
+Card1_Tag2 = DDR5 5600MHz ECC
+Card1_Tag3 = Zero Throttling
+
+Card2_Badge = STORAGE BENCHMARK
+Card2_Title = Gen4 NVMe RAID-1 Arrays
+Card2_Description = Sub-millisecond disk I/O for instant world loads, chunk loading, and heavy database read/writes.
+Card2_StatValue = 9,500 MB/s
+Card2_StatLabel = Read Speed
+
+Card3_Badge = EDGE SECURITY
+Card3_Title = 3.2 Tbps L3/L4/L7 DDoS Scrubbing
+Card3_Description = Always-on volumetric DDoS filtering with custom game protocol inspection engines for Minecraft, Rust, and FiveM.
+Card3_StatusTag = Active Packet Filter
+
+Card4_Badge = GLOBAL NETWORK
+Card4_Title = Global BGP Anycast Mesh
+Card4_Description = Direct peering at major Internet Exchange Points (IXPs) ensures ultra-low ping for players globally.
+Card4_Regions = Singapore / Frankfurt / Mumbai / Dhaka / USA
+
+--------------------------------------------------------------------------------
+
+[INFRASTRUCTURE_WORLD_MAP]
+Badge = NETWORK OPERATIONS CENTER
+Title = Global Infrastructure
+Subtitle = Our global network delivers ultra-low latency, enterprise-grade performance, and reliable connectivity across multiple regions worldwide.
+StatusBadge = 5 Global Enterprise PoPs • Anycast Mesh Active
+
+Node1_Name = United States (Ashburn US-East Core)
+Node1_Location = Ashburn, United States
+Node1_Ping = 24 ms
+Node1_CPU = AMD Ryzen 9 7950X3D
+Node1_Storage = Gen4 NVMe RAID 1
+Node1_Network = 10 Gbps
+Node1_Status = Online
+Node1_Uptime = 99.99%
+
+Node2_Name = Germany (Frankfurt DE-1 Hub)
+Node2_Location = Frankfurt, Germany
+Node2_Ping = 18 ms
+Node2_CPU = AMD EPYC 9654
+Node2_Storage = Gen4 NVMe RAID 1
+Node2_Network = 20 Gbps
+Node2_Status = Online
+Node2_Uptime = 100.00%
+
+Node3_Name = India (Mumbai Core Facility)
+Node3_Location = Mumbai, India
+Node3_Ping = 16 ms
+Node3_CPU = AMD Ryzen 9 7900X
+Node3_Storage = Gen4 NVMe RAID 1
+Node3_Network = 10 Gbps
+Node3_Status = Online
+Node3_Uptime = 99.99%
+
+Node4_Name = Bangladesh (Dhaka Regional Edge)
+Node4_Location = Dhaka, Bangladesh
+Node4_Ping = 19 ms
+Node4_CPU = Intel Xeon E5-2680 v4
+Node4_Storage = Gen4 NVMe RAID 1
+Node4_Network = 10 Gbps
+Node4_Status = Online
+Node4_Uptime = 99.98%
+
+Node5_Name = Singapore (Singapore SG-1 Core)
+Node5_Location = Singapore, Singapore
+Node5_Ping = 12 ms
+Node5_CPU = AMD Ryzen 9 9950X
+Node5_Storage = Gen4 NVMe RAID 1
+Node5_Network = 20 Gbps
+Node5_Status = Online
+Node5_Uptime = 100.00%
+
+--------------------------------------------------------------------------------
+
+[PRODUCTS_CATALOG]
+Badge = SENX CLOUD INFRASTRUCTURE CATALOG
+Title = Ultra-Performance Product Suite.
+Subtitle = Powered by high-frequency AMD Ryzen 9 5950X cores, Gen4 NVMe arrays, and 3.2 Tbps BGP DDoS mitigation.
+
+Tab_GameHosting = Game Hosting
+Tab_CloudVPS = Cloud VPS
+Tab_Dedicated = Dedicated Servers
+Tab_ProxyHosting = Proxy Hosting
+
+Product1_Name = Minecraft Hosting
+Product1_Badge = INSTANT READY
+Product1_Hardware = Ryzen 9 5950X | DDR5 Memory | NVMe SSD | Bangladesh | India | Singapore | Frankfurt | USA
+Product1_Price = $1.59
+Product1_Period = /mo
+Product1_Feature1 = Paper, Spigot & Modpack Engine
+Product1_Feature2 = Sub-domain Creator Included
+Product1_Feature3 = Unlimited Player Slots
+Product1_Button = Configure Minecraft
+
+Product2_Name = Palworld Hosting
+Product2_Badge = POPULAR
+Product2_Hardware = Ryzen 5950X | 32GB DDR5 | Gen4 NVMe | Bangladesh | India | Singapore | Frankfurt | USA
+Product2_Price = $4.49
+Product2_Period = /mo
+Product2_Feature1 = Unreal Engine 5 Anti-Crash
+Product2_Feature2 = 32 Dedicated Player Slots
+Product2_Feature3 = Daily Automated Backups
+Product2_Button = Configure Palworld
+
+Product3_Name = Rust Hosting
+Product3_Badge = HIGH PERFORMANCE
+Product3_Hardware = Ryzen 9950X | 16GB DDR5 | RAID-1 NVMe | Bangladesh | India | Singapore | Frankfurt | USA
+Product3_Price = $10.38
+Product3_Period = /mo
+Product3_Feature1 = Oxide & Carbon Plugin Host
+Product3_Feature2 = 3.2 Tbps Rust DDoS Shield
+Product3_Feature3 = Instant Wipe Scheduler
+Product3_Button = Configure Rust
+
+Product4_Name = FiveM / GTA V
+Product4_Hardware = AMD EPYC | 16GB DDR5 | NVMe SSD | Bangladesh | India | Singapore | Frankfurt | USA
+Product4_Price = $7.99
+Product4_Period = /mo
+Product4_Feature1 = Pre-configured txAdmin Panel
+Product4_Feature2 = OneSync Infinity Ready
+Product4_Feature3 = Unlimited MySQL Databases
+Product4_Button = Configure FiveM
+
+Product5_Name = Bedrock Hosting
+Product5_Hardware = Ryzen 7950X | 4GB DDR5 | NVMe SSD | Global Anycast
+Product5_Price = $1.59
+Product5_Period = /mo
+Product5_Feature1 = tModLoader 1-Click Installer
+Product5_Feature2 = Auto Save World Daemon
+Product5_Feature3 = Crossplay Enabled
+Product5_Button = Configure Terraria
+
+Product6_Name = Bot Hosting
+Product6_Hardware = Ryzen 7950X | 8GB DDR5 | NVMe SSD | Bangladesh | India | Singapore | Frankfurt | USA
+Product6_Price = $0.19
+Product6_Period = /mo
+Product6_Feature1 = ValheimPlus Mod Host
+Product6_Feature2 = Dedicated Crossplay Node
+Product6_Feature3 = Daily World Snapshot
+Product6_Button = Configure Valheim
+
+Product7_Name = Ryzen 9 Cloud VPS
+Product7_Badge = FAST PROVISIONING
+Product7_Hardware = 8 Dedicated Cores | 32GB DDR5 ECC | 200GB Gen4 NVMe | Global Anycast
+Product7_Price = $48.66
+Product7_Period = /mo
+Product7_Feature1 = KVM Virtualization Architecture
+Product7_Feature2 = Full Root Access & Custom ISO
+Product7_Feature3 = Weekly Automated Snapshots
+Product7_Button = Configure Ryzen
+
+Product8_Name = High-RAM Compute VPS
+Product8_Badge = BEST VALUE
+Product8_Hardware = 1 Dedicated Cores | 1GB DDR5 ECC | 10GB Gen4 NVMe | Bangladesh | India | Singapore | Frankfurt | USA
+Product8_Price = $4.05
+Product8_Period = /mo
+Product8_Feature1 = Dedicated IPv4 + /64 IPv6 Subnet
+Product8_Feature2 = 3.2 Tbps DDoS Scrubbing Included
+Product8_Feature3 = Custom BGP Route Injection
+Product8_Button = Configure High-RAM
+
+Product9_Name = Ultra NVMe VPS
+Product9_Badge = HEAVY WORKLOAD
+Product9_Hardware = 10 Dedicated Cores | 32GB DDR5 ECC | 60GB RAID-1 NVMe | Bangladesh | India | Singapore | Frankfurt | USA
+Product9_Price = $28.38
+Product9_Period = /mo
+Product9_Feature1 = 20 Gbps Unmetered Port Speed
+Product9_Feature2 = Hot Standby Replica Node
+Product9_Feature3 = REST API Control Integration
+Product9_Button = Configure Ultra
+
+Product10_Name = AMD Ryzen 9950X Bare Metal
+Product10_Badge = BARE METAL
+Product10_Hardware = 16 Cores / 32 Threads | 64GB DDR5 ECC | 2x 1TB NVMe RAID | Bangladesh | India | Singapore | Frankfurt | USA
+Product10_Price = $162.19
+Product10_Period = /mo
+Product10_Feature1 = 100% Dedicated Unshared Hardware
+Product10_Feature2 = IPMI / Out-of-band KVM Over IP
+Product10_Feature3 = Custom Network BGP Peering
+Product10_Button = Configure AMD
+
+Product11_Name = Dual AMD EPYC Monster
+Product11_Badge = ENTERPRISE
+Product11_Hardware = 64 Cores / 128 Threads | 256GB DDR5 ECC | 4x 2TB Gen4 RAID-10 | Bangladesh | India | Singapore | Frankfurt | USA
+Product11_Price = $405.47
+Product11_Period = /mo
+Product11_Feature1 = Extreme Multi-Thread Throughput
+Product11_Feature2 = 25 Gbps Dual Uplink Redundancy
+Product11_Feature3 = 15-Minute Guaranteed Hardware SLA
+Product11_Button = Configure Dual
+
+Product12_Name = Minecraft Proxy
+Product12_Badge = LOW LATENCY
+Product12_Hardware = Global Anycast | Velocity & BungeeCord | DDoS Protected | Bangladesh | India | Singapore | Frankfurt | USA
+Product12_Price = $0.80
+Product12_Period = /mo
+Product12_Feature1 = Velocity & BungeeCord Ready
+Product12_Feature2 = Layer 3/4 Anti-DDoS Protection
+Product12_Feature3 = Sub-1ms Anycast Edge Routing
+Product12_Button = Configure Proxy
+
+Product13_Name = L7 Game Firewall Proxy
+Product13_Badge = CUSTOM RULES
+Product13_Hardware = Packet Filter Core | Zero-Copy Engine | Rule Engine | Bangladesh | India | Singapore | Frankfurt | USA
+Product13_Price = $10.00
+Product13_Period = /mo
+Product13_Feature1 = UDP Protocol Handshake Validation
+Product13_Feature2 = Waterwall Packet Inspector
+Product13_Feature3 = Real-Time Attack Analytics
+Product13_Button = Configure L7
+
+--------------------------------------------------------------------------------
+
+[CONTROL_PANEL]
+Badge = SENX GAME WINGS ENGINE
+Title = Next-Gen Server Management.
+Subtitle = A bespoke, ultra-fast control dashboard designed for low latency, live sub-second websocket streaming, and complete server authority.
+
+URL_Bar = panel.senxcloud.com/server/9f2a0b12
+
+Tab_Console = Console
+Tab_FileManager = File Manager
+Tab_ResourceGraphs = Resource Graphs
+Tab_Backups = Backups
+Tab_Startup = Startup
+
+Console_Status = ONLINE
+Console_NodeInfo = Node: BDIX
+Console_PortLabel = Port: 25565
+Console_PingLabel = Ping: 4ms
+Console_Log1 = [17:42:01 INFO]: Preparing level "world"
+Console_Log2 = [17:42:02 INFO]: Preparing start region for level 0 (Seed: -48291038201)
+Console_Log3 = [17:42:03 INFO]: Time elapsed: 1420 ms
+Console_Log4 = [17:42:03 INFO]: Done (2.102s)! For help, type "help"
+Console_Log5 = [17:42:15 INFO]: [SenX-Shield] DDoS filter engaged • 0 malicious packets dropped
+Console_Log6 = [17:42:30 INFO]: Player "Steve" joined the game from 139.99.18.241 (12ms)
+Console_InputPlaceholder = Type command (e.g. list, reload)...
+Console_SendButton = Send
+
+FileManager_Path = /home/container
+FileManager_Quota = Size: 1.4 GB / 50 GB
+FileManager_File1_Name = server.properties
+FileManager_File1_Type = Configuration
+FileManager_File1_Size = 2.4 KB
+FileManager_File2_Name = paper.yml
+FileManager_File2_Type = Config
+FileManager_File2_Size = 12.8 KB
+FileManager_File3_Name = spigot.yml
+FileManager_File3_Type = Config
+FileManager_File3_Size = 8.1 KB
+FileManager_File4_Name = plugins/
+FileManager_File4_Type = Folder
+FileManager_File4_Size = 428 MB
+FileManager_File5_Name = world/
+FileManager_File5_Type = Folder
+FileManager_File5_Size = 890 MB
+FileManager_File6_Name = logs/latest.log
+FileManager_File6_Type = Log
+FileManager_File6_Size = 1.2 MB
+
+Resources_CPU_Label = CPU Utilization
+Resources_CPU_Value = 14.2% (1.2 / 4 Cores)
+Resources_RAM_Label = RAM Usage
+Resources_RAM_Value = 2.8 GB (2.8 / 8.0 GB)
+Resources_Network_Label = Network IO
+Resources_Network_Value = 10 Gbps (48 MB/s In / 112 MB/s Out)
+
+Backups_Title = AUTOMATED SNAPSHOTS
+Backups_CreateButton = Create Snapshot Now
+Backups_Item1_Name = backup-2026-07-21-0400.tar.gz
+Backups_Item1_Details = 3 hours ago • 1.2 GB
+Backups_Item1_Status = Completed
+Backups_Item2_Name = backup-2026-07-20-0400.tar.gz
+Backups_Item2_Details = 1 day ago • 1.2 GB
+Backups_Item2_Status = Completed
+Backups_Item3_Name = backup-2026-07-19-0400.tar.gz
+Backups_Item3_Details = 2 days ago • 1.1 GB
+Backups_Item3_Status = Completed
+
+Startup_JavaLabel = JAVA STARTUP COMMAND
+Startup_JavaCommand = java -Xms1024M -Xmx4096M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -jar server.jar nogui
+Startup_JarLabel = SERVER JAR FILE
+Startup_JarValue = paper-1.21.8.jar
+
+--------------------------------------------------------------------------------
+
+[PRICING]
+Badge = TRANSPARENT ENTERPRISE PRICING
+TitleLine1 = Predictable Pricing.
+TitleLine2 = Zero Hidden Fees.
+Subtitle = Scale effortlessly from a single game server to global multi-region cloud clusters.
+
+Toggle_Monthly = Monthly Billing
+Toggle_Annual = Annual Billing (SAVE 20%)
+
+Plan1_Name = Starter Node
+Plan1_Tagline = Ideal for small community servers and lightweight bots.
+Plan1_PriceMonthly = $9/month
+Plan1_PriceAnnual = $7/month
+Plan1_Spec_CPU = 2 Dedicated Threads (Ryzen 9)
+Plan1_Spec_RAM = 4 GB DDR5 RAM
+Plan1_Spec_Storage = 50 GB Gen4 NVMe
+Plan1_Spec_Bandwidth = 1 Gbps Unmetered
+Plan1_Feature1 = Instant Sub-10s Auto Setup
+Plan1_Feature2 = Pterodactyl Game Control Panel
+Plan1_Feature3 = 3.2 Tbps Anti-DDoS Mitigation
+Plan1_Feature4 = 1 Automated Daily S3 Backup
+Plan1_Feature5 = Community Discord Support
+Plan1_Button = Deploy Starter Node
+
+Plan2_Badge = MOST POPULAR CHOICE
+Plan2_Name = Pro Game Node
+Plan2_Tagline = Our most popular setup for high-player Minecraft, Palworld & Rust.
+Plan2_PriceMonthly = $48.66/month
+Plan2_PriceAnnual = $40/month
+Plan2_Spec_CPU = 4 Dedicated Cores (Ryzen 9 7950X)
+Plan2_Spec_RAM = 16 GB DDR5 RAM
+Plan2_Spec_Storage = 150 GB Gen4 NVMe
+Plan2_Spec_Bandwidth = 10 Gbps Unmetered
+Plan2_Feature1 = Everything in Starter Node
+Plan2_Feature2 = Dedicated Ryzen 9 7950X Physical Cores
+Plan2_Feature3 = 3 Automated Hourly S3 Snapshots
+Plan2_Feature4 = Priority 24/7/365 Engineer Support
+Plan2_Feature5 = Free Dedicated IPv4 Address
+Plan2_Feature6 = Custom Domain & Sub-domain Manager
+Plan2_Button = Deploy Pro Game Node
+
+Plan3_Name = Enterprise Dedicated
+Plan3_Tagline = Bare-metal performance for massive networks and corporate workloads.
+Plan3_PriceMonthly = $79/month
+Plan3_PriceAnnual = $65/month
+Plan3_Spec_CPU = 16 Cores / 32 Threads (AMD EPYC)
+Plan3_Spec_RAM = 64 GB DDR5 ECC RAM
+Plan3_Spec_Storage = 1 TB NVMe RAID-1
+Plan3_Spec_Bandwidth = 20 Gbps Unmetered
+Plan3_Feature1 = Full Root Access & Custom Hypervisor
+Plan3_Feature2 = Dedicated 3.2 Tbps Magic Transit DDoS Filter
+Plan3_Feature3 = Unlimited S3 Backups & Continuous Mirroring
+Plan3_Feature4 = Dedicated Account Manager & 15-min SLA
+Plan3_Feature5 = Multi-region Hot Standby Failover
+Plan3_Feature6 = Custom BGP IP Route Announcement
+Plan3_Button = Deploy Enterprise Dedicated
+
+--------------------------------------------------------------------------------
+
+[REVIEWS]
+Badge = VERIFIED COMMUNITY TESTIMONIALS
+Title = Loved by Server Admins & Engineers.
+Subtitle = See why thousands of gaming networks choose SenX Cloud for zero-lag infrastructure.
+
+Review1_Name = Alexandre Mercer
+Review1_Role = Lead Dev, CraftHQ Network • 1,200 Active Players
+Review1_Badge = Verified Host
+Review1_Quote = "Switched our 100+ plugin PaperMC server to SenX Ryzen 9 nodes. TPS stabilized at a constant 20.0 with 800 players online. The sub-20ms ping across Asia is unmatched."
+
+Review2_Name = Elena Rostova
+Review2_Role = Community Admin, Palworld Community • 64 Slot Cluster
+Review2_Badge = Verified Host
+Review2_Quote = "Palworld memory leaks used to crash our old host every 4 hours. SenX automated wings auto-restart daemon and 32GB DDR5 allocation solved it completely. Instant setup in 5 seconds."
+
+Review3_Name = Devon Vance
+Review3_Role = FiveM Roleplay Network • 128 Player OneSync
+Review3_Badge = Verified Host
+Review3_Quote = "The 3.2 Tbps DDoS shield saved us from targeted UDP flooding during peak Friday nights. Customer support responded in 4 minutes with custom BGP filter tuning."
+
+Review4_Name = Marcus Chen
+Review4_Role = Rust Clan Host • 250 Slot Procedural Map
+Review4_Badge = Verified Host
+Review4_Quote = "Oxide plugins load instantly. Map wipes take seconds instead of minutes on Gen4 NVMe RAID storage. Absolutely worth every single penny."
+
+--------------------------------------------------------------------------------
+
+[FOOTER]
+BrandName = SenX Cloud
+BrandDescription = Ultra-high-performance cloud infrastructure and game hosting provider powered by AMD Ryzen 9 5950X processors, Gen4 NVMe storage, and 3.2 Tbps DDoS shield.
+StatusText = All Infrastructure Nodes Operational
+
+Header_Infrastructure = Infrastructure
+Link_Minecraft = Minecraft Hosting
+Link_Palworld = Palworld Hosting
+Link_Rust = Rust Hosting
+Link_FiveM = FiveM / GTA V
+Link_VPS = High-RAM Cloud VPS
+
+Header_Resources = Resources
+Link_Status = System Status
+Link_Knowledgebase = Knowledgebase & Docs
+Link_Panel = Pterodactyl Game Panel
+Link_LookingGlass = BGP Looking Glass
+Link_SLA = SLA Guarantee (99.99%)
+
+Header_Company = Company
+Link_About = About SenX Cloud
+Link_Discord = Discord Community
+Link_GitHub = GitHub Repository
+Link_Terms = Terms of Service
+Link_Privacy = Privacy Policy
+
+CopyrightText = © 2026 SenX Cloud Inc. All rights reserved. Built for gamers and developers.
+
+--------------------------------------------------------------------------------
+
+[DEPLOYMENT_MODAL]
+HeaderTag = SenX Infrastructure Portal
+Title_Default = Client Area Portal
+Title_Deploy = Deploy Instant Server
+Subtitle = Configure your high-performance Ryzen 9 server node with sub-10s automated provisioning.
+
+Label_WorkloadType = Select Workload Type
+Workload_Minecraft = Minecraft
+Workload_Palworld = Palworld
+Workload_Rust = Rust
+Workload_VPS = Cloud VPS
+
+Label_Memory = Memory Allocation
+Memory_Option1 = 4 GB DDR5 (2 Cores) - $9/mo
+Memory_Option2 = 8 GB DDR5 (4 Cores) - $18/mo
+Memory_Option3 = 16 GB DDR5 (6 Cores) - $32/mo
+Memory_Option4 = 32 GB DDR5 (8 Cores) - $64/mo
+
+Label_Region = Edge Region Node
+Region_SG = Singapore SG-1 (12ms)
+Region_IN = Mumbai IN-West (16ms)
+Region_DE = Frankfurt DE-1 (18ms)
+Region_BD = Dhaka BD-Edge (19ms)
+Region_US = Ashburn US-East (24ms)
+
+Label_Email = Account Email Address
+Email_Placeholder = support@senxcloud.com
+
+Button_Submit = Confirm & Provision Server
+
+Success_Title = Instance Deployment Initiated!
+Success_Description = Your [Workload] instance with [RAM] in [Region] is being provisioned. Access credentials sent to [Email].
+Button_GoToPanel = Go to Server Control Panel

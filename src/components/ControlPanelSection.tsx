@@ -91,11 +91,11 @@ export const ControlPanelSection: React.FC = () => {
               <div className="flex items-center justify-between pb-2.5 border-b border-white/10 text-[11px] sm:text-xs font-mono gap-2">
                 <div className="flex items-center space-x-2">
                   <span className="text-[#A3E854] font-bold">ONLINE</span>
-                  <span className="text-white/40 hidden sm:inline">• Node: sg-ryzen9-04</span>
+                  <span className="text-white/40 hidden sm:inline">• Node: BDIX</span>
                 </div>
                 <div className="flex items-center space-x-1.5">
                   <span className="px-1.5 py-0.5 rounded bg-white/10 text-white/70 text-[10px]">25565</span>
-                  <span className="px-1.5 py-0.5 rounded bg-[#A3E854]/20 text-[#A3E854] text-[10px]">18ms</span>
+                  <span className="px-1.5 py-0.5 rounded bg-[#A3E854]/20 text-[#A3E854] text-[10px]">4ms</span>
                 </div>
               </div>
 

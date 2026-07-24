@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs font-inter text-white/60 max-w-sm leading-relaxed">
-              Ultra-high-performance cloud infrastructure and game hosting provider powered by AMD Ryzen 9 7950X processors, Gen4 NVMe storage, and 3.2 Tbps DDoS shield.
+              Ultra-high-performance cloud infrastructure and game hosting provider powered by AMD Ryzen 9 5950X processors, Gen4 NVMe storage, and 3.2 Tbps DDoS shield.
             </p>
 
             {/* Status Indicator */}
