@@ -47,7 +47,15 @@ export default function App() {
   const CLIENT_URL = 'https://client.senxcloud.com/';
 
   const handleNavClick = useCallback((item: string) => {
-    if (item === 'login' || item === 'support' || item === 'status') {
+    if (item === 'support') {
+      window.open('https://discord.gg/43QfPM286U', '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (item === 'status') {
+      window.open('https://status.orixcore.com/', '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (item === 'login') {
       window.location.href = CLIENT_URL;
       return;
     }

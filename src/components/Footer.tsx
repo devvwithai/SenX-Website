@@ -47,7 +47,7 @@ export const Footer: React.FC = React.memo(() => {
           <div className="space-y-3">
             <h4 className="text-xs font-mono uppercase text-[#A3E854] font-bold tracking-wider">Resources</h4>
             <ul className="space-y-2 text-xs font-inter text-white/60">
-              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1"><span>System Status</span><Activity className="w-3 h-3 text-[#A3E854]" /></a></li>
+              <li><a href="https://status.orixcore.com/" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1"><span>System Status</span><Activity className="w-3 h-3 text-[#A3E854]" /></a></li>
               <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Knowledgebase & Docs</a></li>
               <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Pterodactyl Game Panel</a></li>
               <li><a href="#locations" className="hover:text-[#A3E854] transition-colors">BGP Looking Glass</a></li>
@@ -60,8 +60,8 @@ export const Footer: React.FC = React.memo(() => {
             <h4 className="text-xs font-mono uppercase text-[#A3E854] font-bold tracking-wider">Company</h4>
             <ul className="space-y-2 text-xs font-inter text-white/60">
               <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Client Area & Billing</a></li>
-              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Support Portal</a></li>
-              <li><a href="https://discord.gg" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors">Discord Community</a></li>
+              <li><a href="https://discord.gg/43QfPM286U" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors">Support Portal</a></li>
+              <li><a href="https://discord.gg/43QfPM286U" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors">Discord Community</a></li>
               <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Terms of Service</a></li>
               <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Privacy Policy</a></li>
             </ul>
@@ -75,7 +75,7 @@ export const Footer: React.FC = React.memo(() => {
             © {new Date().getFullYear()} SenX Cloud Inc. All rights reserved. Built for gamers and developers.
           </div>
           <div className="flex items-center space-x-6">
-            <a href="https://discord.gg" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1">
+            <a href="https://discord.gg/43QfPM286U" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1">
               <Discord className="w-4 h-4" />
               <span>Discord</span>
             </a>

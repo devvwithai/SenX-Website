@@ -56,12 +56,12 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({ onNavClick, onGetStar
           width: scrolled ? '90%' : '100%',
           maxWidth: scrolled ? '1120px' : '100%',
           borderRadius: scrolled ? '9999px' : '0px',
-          backgroundColor: scrolled ? 'rgba(17, 19, 19, 0.75)' : 'rgba(5, 6, 6, 0.0)',
+          backgroundColor: scrolled ? 'rgba(10, 12, 11, 0.98)' : 'transparent',
           borderColor: scrolled ? 'rgba(255, 255, 255, 0.18)' : 'rgba(255, 255, 255, 0.08)',
           boxShadow: scrolled
             ? '0 20px 40px -15px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
             : '0 0px 0px rgba(0, 0, 0, 0)',
-          backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'blur(0px)',
+          backdropFilter: 'none',
         }}
         transition={{
           type: 'spring',

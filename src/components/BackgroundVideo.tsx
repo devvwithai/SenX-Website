@@ -8,7 +8,7 @@ export const BackgroundVideo: React.FC = React.memo(() => {
   const [isMuted, setIsMuted] = useState(true);
 
   // Exclusive background video URL specified by user
-  const videoSource = 'https://ztnjuprlvjakecnimtrg.supabase.co/storage/v1/object/sign/SenX-Website/From%20Klickpin.com-%20Explore%20Easy%20boho%20home%20decor%20that%20are%20trending%20right%20now%20across%20Pinterest%20boards%20for%20a%20result%20that%20feels%20elegant%20and%20share-wort.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMGE5OGFiOC0xZTg2LTQ0Y2MtYmI4OC0wM2MyNTg5YWViMTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTZW5YLVdlYnNpdGUvRnJvbSBLbGlja3Bpbi5jb20tIEV4cGxvcmUgRWFzeSBib2hvIGhvbWUgZGVjb3IgdGhhdCBhcmUgdHJlbmRpbmcgcmlnaHQgbm93IGFjcm9zcyBQaW50ZXJlc3QgYm9hcmRzIGZvciBhIHJlc3VsdCB0aGF0IGZlZWxzIGVsZWdhbnQgYW5kIHNoYXJlLXdvcnQubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NDkxNzM1NCwiZXhwIjoxODE2NDUzMzU0fQ.BBOnZ17IBmMMjjv2kCpT3DdhM_TWvR-g0Z4H0kMTqno';
+  const videoSource = 'https://ztnjuprlvjakecnimtrg.supabase.co/storage/v1/object/sign/SenX-Website/bgvideosenx.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMGE5OGFiOC0xZTg2LTQ0Y2MtYmI4OC0wM2MyNTg5YWViMTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTZW5YLVdlYnNpdGUvYmd2aWRlb3NlbngubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NTAyMDg4MCwiZXhwIjoxODE2NTU2ODgwfQ.i4f1YUNcpv_Zq5cACEjXGH86BnQwYbYC7tjQFhOrdl0';
 
   const attemptPlay = useCallback(() => {
     const video = videoRef.current;
@@ -94,7 +94,7 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           muted={isMuted}
           playsInline
           referrerPolicy="no-referrer"
-          className="min-w-[130vh] min-h-[130vw] w-[180vh] h-[180vw] max-w-none max-h-none object-cover rotate-90 transform origin-center opacity-75 will-change-transform"
+          className="w-full h-full max-w-none max-h-none object-cover opacity-75"
         >
           <source src={videoSource} type="video/mp4" />
           Your browser does not support the video tag.
@@ -121,11 +121,11 @@ export const BackgroundVideo: React.FC = React.memo(() => {
       />
 
       {/* Soft Ambient Lime Glow in Upper Core */}
-      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#A3E854]/10 rounded-full blur-[140px] pointer-events-none z-10" />
+      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#A3E854]/10 rounded-full blur-[80px] pointer-events-none z-10" />
 
       {/* Film Grain Texture Overlay */}
       <div
-        className="absolute inset-0 z-10 opacity-[0.035] mix-blend-overlay pointer-events-none"
+        className="absolute inset-0 z-10 opacity-[0.025] pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
