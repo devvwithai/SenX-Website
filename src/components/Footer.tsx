@@ -1,8 +1,13 @@
 import React from 'react';
 import { Cloud, Github, Disc as Discord, Shield, BookOpen, Activity, ArrowUpRight } from 'lucide-react';
 import { SenXLogo } from './SenXLogo';
+import { SEODirectoryFooter } from './SEODirectoryFooter';
 
-export const Footer: React.FC = React.memo(() => {
+interface FooterProps {
+  onNavigate?: (path: string) => void;
+}
+
+const FooterComponent: React.FC<FooterProps> = ({ onNavigate = (_path: string) => {} }) => {
   return (
     <footer className="relative z-20 border-t border-white/[0.08] bg-[#050606] pt-12 sm:pt-20 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-12 pb-[calc(2rem+env(safe-area-inset-bottom))]">
       <div className="max-w-7xl mx-auto">
@@ -21,7 +26,7 @@ export const Footer: React.FC = React.memo(() => {
             </div>
 
             <p className="text-xs font-inter text-white/60 max-w-sm leading-relaxed">
-              Ultra-high-performance cloud infrastructure and game hosting provider powered by AMD Ryzen 9 5950X processors, Gen4 NVMe storage, and 3.2 Tbps DDoS shield.
+              Ultra-high-performance cloud infrastructure and game hosting provider in Bangladesh powered by AMD Ryzen 9 7950X processors, Gen4 NVMe storage, and 12 Tbps DDoS shield.
             </p>
 
             {/* Status Indicator */}
@@ -35,11 +40,11 @@ export const Footer: React.FC = React.memo(() => {
           <div className="space-y-3">
             <h4 className="text-xs font-mono uppercase text-[#A3E854] font-bold tracking-wider">Infrastructure</h4>
             <ul className="space-y-2 text-xs font-inter text-white/60">
-              <li><a href="#game-hosting" className="hover:text-[#A3E854] transition-colors">Minecraft Hosting</a></li>
-              <li><a href="#game-hosting" className="hover:text-[#A3E854] transition-colors">Palworld Hosting</a></li>
-              <li><a href="#game-hosting" className="hover:text-[#A3E854] transition-colors">Rust Hosting</a></li>
-              <li><a href="#game-hosting" className="hover:text-[#A3E854] transition-colors">FiveM / GTA V</a></li>
-              <li><a href="#cloud-vps" className="hover:text-[#A3E854] transition-colors">High-RAM Cloud VPS</a></li>
+              <li><button onClick={() => onNavigate('/minecraft-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">Minecraft Hosting BD</button></li>
+              <li><button onClick={() => onNavigate('/vps-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">BDIX Cloud VPS</button></li>
+              <li><button onClick={() => onNavigate('/rust-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">Rust Hosting BD</button></li>
+              <li><button onClick={() => onNavigate('/fivem-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">FiveM GTA V BD</button></li>
+              <li><button onClick={() => onNavigate('/bot-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">Discord Bot Hosting</button></li>
             </ul>
           </div>
 
@@ -48,10 +53,10 @@ export const Footer: React.FC = React.memo(() => {
             <h4 className="text-xs font-mono uppercase text-[#A3E854] font-bold tracking-wider">Resources</h4>
             <ul className="space-y-2 text-xs font-inter text-white/60">
               <li><a href="https://status.orixcore.com/" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1"><span>System Status</span><Activity className="w-3 h-3 text-[#A3E854]" /></a></li>
-              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Knowledgebase & Docs</a></li>
-              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">Pterodactyl Game Panel</a></li>
-              <li><a href="#locations" className="hover:text-[#A3E854] transition-colors">BGP Looking Glass</a></li>
-              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">SLA Guarantee (99.99%)</a></li>
+              <li><button onClick={() => onNavigate('/knowledgebase')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">Knowledgebase & Guides</button></li>
+              <li><button onClick={() => onNavigate('/pterodactyl-hosting-bangladesh')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">Pterodactyl Game Panel</button></li>
+              <li><button onClick={() => onNavigate('/bdix-vps')} className="hover:text-[#A3E854] transition-colors text-left cursor-pointer">BDIX Looking Glass</button></li>
+              <li><a href="https://client.senxcloud.com/" className="hover:text-[#A3E854] transition-colors">SLA Guarantee (99.95%)</a></li>
             </ul>
           </div>
 
@@ -69,10 +74,15 @@ export const Footer: React.FC = React.memo(() => {
 
         </div>
 
+        {/* SEO Directory Internal Links Cluster */}
+        <div className="py-8 border-b border-white/[0.06]">
+          <SEODirectoryFooter onNavigate={onNavigate} />
+        </div>
+
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-white/40 gap-4">
           <div>
-            © {new Date().getFullYear()} SenX Cloud Inc. All rights reserved. Built for gamers and developers.
+            © {new Date().getFullYear()} SenX Cloud Inc. All rights reserved. Built for gamers and developers in Bangladesh & Worldwide.
           </div>
           <div className="flex items-center space-x-6">
             <a href="https://discord.gg/43QfPM286U" target="_blank" rel="noreferrer" className="hover:text-[#A3E854] transition-colors flex items-center space-x-1">
@@ -88,4 +98,6 @@ export const Footer: React.FC = React.memo(() => {
       </div>
     </footer>
   );
-});
+};
+
+export const Footer = React.memo(FooterComponent);

@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           className="liquid-glass inline-flex items-center space-x-2 px-3.5 sm:px-4 py-1.5 rounded-full border border-white/20 text-[11px] sm:text-xs font-mono text-[#F7F7F7] shadow-xl max-w-full"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
-          <span className="font-semibold tracking-wide truncate">NEXT-GEN CLOUD GAME HOSING</span>
+          <span className="font-semibold tracking-wide truncate">#1 GAME HOSING & BDIX VPS IN BANGLADESH</span>
         </motion.div>
 
         {/* Main Hero Headline */}
@@ -150,8 +150,8 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-inter font-black uppercase tracking-tight text-[38px] min-[390px]:text-[44px] sm:text-[64px] lg:text-[84px] leading-[0.94] sm:leading-[0.92] text-[#F7F7F7]"
         >
-          Global Infrastructure <br />
-          <span className="text-[#A3E854] block sm:inline mt-1 sm:mt-0">Reimagined.</span>
+          Minecraft Hosting & <br />
+          <span className="text-[#A3E854] block sm:inline mt-1 sm:mt-0">Cloud VPS Bangladesh.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -161,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-inter text-base sm:text-base lg:text-lg text-[#F7F7F7]/75 max-w-2xl leading-relaxed"
         >
-          Ultra-low latency game hosting, high-RAM bare metal instances, and distributed cloud computing — engineered for zero lag and absolute authority.
+          Ultra-low latency Minecraft Server Hosting in Bangladesh, BDIX KVM VPS, and 24/7 Discord Bot Servers. Powered by AMD Ryzen 9 7950X CPUs, Gen4 NVMe, and 12 Tbps DDoS shield.
         </motion.p>
 
         {/* Liquid Glass Buttons - Vertically stacked on mobile, 16px gap, min-height 52px */}

@@ -19,9 +19,23 @@ export const FAQSection: React.FC = React.memo(() => {
     {
       id: 'faq-1',
       category: 'general',
-      question: 'What is SenX Cloud and what services are provided?',
-      answer: 'SenX Cloud is a high-performance cloud infrastructure and game server hosting provider. We provide enterprise-grade game server hosting (Minecraft, Rust, Palworld, ARK, CS2), KVM Cloud VPS, bare-metal dedicated servers, and protected proxy tunnels with automated 60-second provisioning.',
-      highlights: ['60-second automated setup', 'AMD Ryzen 9 7950X CPUs', 'Pterodactyl 2.0 Panel', '99.99% Uptime SLA'],
+      question: 'What is SenX Cloud and what hosting services are provided in Bangladesh?',
+      answer: 'SenX Cloud is the leading high-performance cloud infrastructure and game server hosting provider in Bangladesh. We specialize in enterprise-grade Minecraft Hosting Bangladesh, BDIX KVM Cloud VPS, 24/7 Discord Bot Servers, Rust & FiveM hosting, and bare-metal dedicated servers with automated 60-second deployment.',
+      highlights: ['60-second automated setup', 'AMD Ryzen 9 7950X CPUs', 'Pterodactyl 2.0 Panel', 'BDIX Ultra-Low Latency'],
+    },
+    {
+      id: 'faq-1b',
+      category: 'general',
+      question: 'Why choose SenX Cloud for Minecraft Hosting in Bangladesh?',
+      answer: 'SenX Cloud offers the lowest latency (<10ms across Bangladesh ISP networks including Grameenphone, Robi, Banglalink, and local broadband), AMD Ryzen 9 7950X CPUs for 20.0 TPS performance, instant Pterodactyl 2.0 control panel, automated backups, and 24/7 localized support in Bengali and English.',
+      highlights: ['<10ms BD Ping', 'PaperMC & Forge Pre-installed', 'Full BDIX Speed', 'Bkash & Nagad Payment Accepted'],
+    },
+    {
+      id: 'faq-1c',
+      category: 'specs',
+      question: 'What is BDIX VPS hosting and how does it benefit users in Bangladesh?',
+      answer: 'BDIX (Bangladesh Internet Exchange) VPS hosting routes server traffic directly through local exchange points in Dhaka. This guarantees lightning-fast network speeds (up to 1 Gbps direct peer), sub-10ms ping, zero international routing lag, and smooth performance for local gaming, Discord bots, web apps, and enterprise databases.',
+      highlights: ['BDIX Direct Peering', 'Sub-10ms Latency in BD', '1Gbps Uplink Speeds', 'Ideal for Games & Websites'],
     },
     {
       id: 'faq-2',

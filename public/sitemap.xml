@@ -1,53 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- Core Main Page -->
   <url>
     <loc>https://senxcloud.com/</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Programmatic SEO Landing Pages (Primary Targets for BD Searches) -->
   <url>
-    <loc>https://senxcloud.com/#game-hosting</loc>
+    <loc>https://senxcloud.com/minecraft-hosting-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#bot-hosting</loc>
+    <loc>https://senxcloud.com/game-hosting-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#cloud-vps</loc>
+    <loc>https://senxcloud.com/vps-hosting-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#domains</loc>
+    <loc>https://senxcloud.com/cloud-vps-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#dedicated</loc>
+    <loc>https://senxcloud.com/bdix-vps</loc>
     <lastmod>2026-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#pricing</loc>
+    <loc>https://senxcloud.com/cheap-vps-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://senxcloud.com/#faq</loc>
+    <loc>https://senxcloud.com/minecraft-server-hosting-bangladesh</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/dedicated-server-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/windows-vps-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/linux-vps-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/fivem-hosting-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/rust-hosting-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/palworld-hosting-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/bot-hosting-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/pterodactyl-hosting-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Hyper-Local City Landing Pages -->
+  <url>
+    <loc>https://senxcloud.com/minecraft-hosting-dhaka</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/vps-hosting-dhaka</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/minecraft-hosting-chattogram</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/vps-hosting-sylhet</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Knowledge Base & Topical Authority Hub -->
+  <url>
+    <loc>https://senxcloud.com/knowledgebase</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/knowledgebase/minecraft-hosting-bangladesh-guide</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/knowledgebase/how-to-create-minecraft-server-bangladesh</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/knowledgebase/bdix-vs-singapore-vps-ping</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/knowledgebase/optimize-minecraft-papermc-tps</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://senxcloud.com/knowledgebase/pterodactyl-panel-tutorial-senxcloud</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.80</priority>
   </url>
 </urlset>

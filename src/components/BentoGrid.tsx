@@ -41,10 +41,10 @@ export const BentoGrid: React.FC = React.memo(() => {
               </span>
             </div>
             <h3 className="text-xl font-bold font-inter text-[#F7F7F7] mb-2 group-hover:text-[#A3E854] transition-colors">
-              AMD Ryzen 5950X Engine
+              AMD Ryzen 9 7950X BDIX Engine
             </h3>
             <p className="text-xs sm:text-sm font-inter text-white/60 leading-relaxed mb-6">
-              High-frequency 4.9 GHz Zen 16 cores optimized for single-thread game loop performance.
+              High-frequency 5.7 GHz Zen 4 cores with DDR5 memory, purpose-built for Minecraft Server Bangladesh and BDIX VPS single-thread game loop performance.
             </p>
           </div>
 

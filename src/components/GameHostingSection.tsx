@@ -28,14 +28,14 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     {
       id: 'minecraft',
       category: 'game',
-      name: 'Minecraft Hosting',
-      cpu: 'Ryzen 9 5950X',
-      ram: 'DDR5 Memory',
-      storage: 'NVMe SSD',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      name: 'Minecraft Hosting Bangladesh',
+      cpu: 'AMD Ryzen 9 7950X',
+      ram: 'High-Speed DDR5',
+      storage: 'Gen4 NVMe RAID-10',
+      region: 'Dhaka BDIX | Singapore | Frankfurt | USA',
       price: 1.59,
-      badge: 'INSTANT READY',
-      features: ['Paper, Spigot & Modpack Engine', 'Sub-domain Creator Included', 'Unlimited Player Slots'],
+      badge: '#1 IN BANGLADESH',
+      features: ['PaperMC, Purpur, Forge & Fabric', 'BDIX Ultra-Low Latency (<10ms)', 'Unlimited Slots & Modpacks'],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <rect x="20" y="20" width="60" height="60" rx="8" />
@@ -48,11 +48,11 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     {
       id: 'palworld',
       category: 'game',
-      name: 'Palworld Hosting',
-      cpu: 'Ryzen 5950X',
+      name: 'Palworld Server Bangladesh',
+      cpu: 'Ryzen 9 7950X',
       ram: '32GB DDR5',
       storage: 'Gen4 NVMe',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      region: 'Bangladesh BDIX | Singapore | USA',
       price: 4.49,
       badge: 'POPULAR',
       features: ['Unreal Engine 5 Anti-Crash', '32 Dedicated Player Slots', 'Daily Automated Backups'],

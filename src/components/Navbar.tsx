@@ -35,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({ onNavClick, onGetStar
     { name: 'Cloud VPS', id: 'cloud-vps' },
     { name: 'Dedicated', id: 'dedicated' },
     { name: 'Locations', id: 'locations' },
+    { name: 'Guides', id: 'knowledgebase' },
     { name: 'FAQ', id: 'faq' },
     { name: 'Support', id: 'support' },
     { name: 'Status', id: 'status', badge: 'Online' },
