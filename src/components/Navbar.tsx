@@ -32,8 +32,8 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({ onNavClick, onGetStar
 
   const navItems = useMemo(() => [
     { name: 'Game Hosting', id: 'game-hosting' },
-    { name: 'Cloud VPS', id: 'cloud-vps' },
-    { name: 'Dedicated', id: 'dedicated' },
+    { name: 'Pricing', id: 'pricing' },
+    { name: 'Control Panel', id: 'panel' },
     { name: 'Locations', id: 'locations' },
     { name: 'Guides', id: 'knowledgebase' },
     { name: 'FAQ', id: 'faq' },
@@ -218,7 +218,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({ onNavClick, onGetStar
 
             <div className="pt-6 pb-2 text-center">
               <p className="text-[11px] font-mono text-white/40">
-                SenX Cloud • Enterprise SLA 99.99%
+                SenX Cloud • Game Server Hosting Bangladesh & India
               </p>
             </div>
           </motion.div>

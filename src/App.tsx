@@ -15,10 +15,11 @@ import { ReviewsSection } from './components/ReviewsSection';
 import { FAQSection } from './components/FAQSection';
 import { SEOHead } from './components/SEOHead';
 import { Footer } from './components/Footer';
-import { ContentModal } from './components/ContentModal';
-import { SEOLandingPage } from './components/SEOLandingPage';
-import { KnowledgeBase } from './components/KnowledgeBase';
 import { MAIN_LANDING_PAGES, CITY_LOCATION_PAGES } from './data/seoData';
+
+const ContentModal = React.lazy(() => import('./components/ContentModal').then(m => ({ default: m.ContentModal })));
+const SEOLandingPage = React.lazy(() => import('./components/SEOLandingPage').then(m => ({ default: m.SEOLandingPage })));
+const KnowledgeBase = React.lazy(() => import('./components/KnowledgeBase').then(m => ({ default: m.KnowledgeBase })));
 
 export default function App() {
   const [activeModalTab, setActiveModalTab] = useState<string | null>(null);
@@ -152,55 +153,59 @@ export default function App() {
 
         {/* Main Page Content */}
         <main className="relative z-20">
-          {activeLandingData ? (
-            <SEOLandingPage
-              data={activeLandingData}
-              onNavigate={handleNavigate}
-              onGetStarted={handleGetStarted}
-            />
-          ) : isKnowledgeBase ? (
-            <KnowledgeBase
-              currentSlug={currentPath}
-              onNavigate={handleNavigate}
-              onGetStarted={handleGetStarted}
-            />
-          ) : (
-            <>
-              {/* Hero Environment */}
-              <HeroSection onGetStarted={handleGetStarted} onViewPricing={handleViewPricing} />
+          <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center text-xs font-mono text-[#A3E854]">Loading node...</div>}>
+            {activeLandingData ? (
+              <SEOLandingPage
+                data={activeLandingData}
+                onNavigate={handleNavigate}
+                onGetStarted={handleGetStarted}
+              />
+            ) : isKnowledgeBase ? (
+              <KnowledgeBase
+                currentSlug={currentPath}
+                onNavigate={handleNavigate}
+                onGetStarted={handleGetStarted}
+              />
+            ) : (
+              <>
+                {/* Hero Environment */}
+                <HeroSection onGetStarted={handleGetStarted} onViewPricing={handleViewPricing} />
 
-              {/* Social Proof Marquee & Stat Badges */}
-              <SocialProof />
+                {/* Social Proof Marquee & Stat Badges */}
+                <SocialProof />
 
-              {/* Bento Grid Feature Section */}
-              <BentoGrid />
+                {/* Bento Grid Feature Section */}
+                <BentoGrid />
 
-              {/* LED Dot-Matrix World Network Map */}
-              <LEDWorldMap />
+                {/* LED Dot-Matrix World Network Map */}
+                <LEDWorldMap />
 
-              {/* Game Hosting Section */}
-              <GameHostingSection onSelectGame={handleGetStarted} />
+                {/* Game Hosting Section */}
+                <GameHostingSection onSelectGame={handleGetStarted} />
 
-              {/* Control Panel Section */}
-              <ControlPanelSection />
+                {/* Control Panel Section */}
+                <ControlPanelSection />
 
-              {/* Pricing Section */}
-              <PricingSection onSelectPlan={handleGetStarted} />
+                {/* Pricing Section */}
+                <PricingSection onSelectPlan={handleGetStarted} />
 
-              {/* Reviews Section */}
-              <ReviewsSection />
+                {/* Reviews Section */}
+                <ReviewsSection />
 
-              {/* Search Engine & AI Answer Engine (AEO) FAQ Section */}
-              <FAQSection />
-            </>
-          )}
+                {/* Search Engine & AI Answer Engine (AEO) FAQ Section */}
+                <FAQSection />
+              </>
+            )}
+          </React.Suspense>
 
           {/* Footer with Integrated SEO Directory */}
           <Footer onNavigate={handleNavigate} />
         </main>
 
         {/* Interactive Modal Portal */}
-        <ContentModal activeTab={activeModalTab} onClose={handleCloseModal} />
+        <React.Suspense fallback={null}>
+          {activeModalTab && <ContentModal activeTab={activeModalTab} onClose={handleCloseModal} />}
+        </React.Suspense>
       </div>
     </CurrencyProvider>
   );

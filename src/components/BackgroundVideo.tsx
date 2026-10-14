@@ -14,6 +14,13 @@ export const BackgroundVideo: React.FC = React.memo(() => {
     const video = videoRef.current;
     if (!video || userPausedRef.current) return;
 
+    // Respect user data saver preference
+    const nav = navigator as any;
+    if (nav?.connection?.saveData) {
+      setIsPlaying(false);
+      return;
+    }
+
     video.muted = true;
     const playPromise = video.play();
     if (playPromise !== undefined) {
@@ -22,7 +29,6 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           setIsPlaying(true);
         })
         .catch(() => {
-          // Retry playing muted on user interaction or DOM load
           setIsPlaying(false);
         });
     }
@@ -34,26 +40,21 @@ export const BackgroundVideo: React.FC = React.memo(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Prevent unexpected pausing by auto-resuming if the video gets paused by browser heuristics
-    const handlePause = () => {
-      if (!userPausedRef.current) {
-        attemptPlay();
-      }
-    };
-
-    // Ensure video resumes when tab regains focus or iframe refreshes
+    // Pause video when document is hidden to conserve battery & CPU
     const handleVisibilityChange = () => {
-      if (!document.hidden && !userPausedRef.current) {
+      if (document.hidden) {
+        if (videoRef.current && !videoRef.current.paused) {
+          videoRef.current.pause();
+        }
+      } else if (!userPausedRef.current) {
         attemptPlay();
       }
     };
 
-    video.addEventListener('pause', handlePause);
     document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('focus', handleVisibilityChange);
 
     return () => {
-      video.removeEventListener('pause', handlePause);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('focus', handleVisibilityChange);
     };
@@ -84,7 +85,6 @@ export const BackgroundVideo: React.FC = React.memo(() => {
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0 bg-[#050606]">
-      
       {/* 1. Video Container with User Specified Video Source */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <video
@@ -93,6 +93,7 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           loop
           muted={isMuted}
           playsInline
+          preload="metadata"
           referrerPolicy="no-referrer"
           className="w-full h-full max-w-none max-h-none object-cover opacity-75"
         >
@@ -102,8 +103,6 @@ export const BackgroundVideo: React.FC = React.memo(() => {
       </div>
 
       {/* 2. Premium Overlays */}
-      
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-[#050606]/45 z-10" />
 
       {/* Bottom Gradient for Smooth Fade into Page Content */}
@@ -123,20 +122,13 @@ export const BackgroundVideo: React.FC = React.memo(() => {
       {/* Soft Ambient Lime Glow in Upper Core */}
       <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#A3E854]/10 rounded-full blur-[80px] pointer-events-none z-10" />
 
-      {/* Film Grain Texture Overlay */}
-      <div
-        className="absolute inset-0 z-10 opacity-[0.025] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
       {/* Video Control Buttons Badge */}
       <div className="fixed bottom-6 right-6 z-40 pointer-events-auto flex items-center space-x-2 bg-[#111313]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/[0.08] text-xs text-[#F7F7F7]/70 shadow-xl">
         <button
           onClick={togglePlay}
           className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
           title={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
+          aria-label={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
         >
           {isPlaying ? <Pause className="w-3.5 h-3.5 text-[#A3E854]" /> : <Play className="w-3.5 h-3.5 text-zinc-400" />}
         </button>
@@ -145,11 +137,11 @@ export const BackgroundVideo: React.FC = React.memo(() => {
           onClick={toggleMute}
           className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
           title={isMuted ? 'Unmute Background Video' : 'Mute Background Video'}
+          aria-label={isMuted ? 'Unmute Background Video' : 'Mute Background Video'}
         >
           {isMuted ? <VolumeX className="w-3.5 h-3.5 text-zinc-400" /> : <Volume2 className="w-3.5 h-3.5 text-[#A3E854]" />}
         </button>
       </div>
-
     </div>
   );
 });

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { MAIN_LANDING_PAGES, CITY_LOCATION_PAGES, KNOWLEDGE_ARTICLES } from '../data/seoData';
+import { INFRASTRUCTURE_CONFIG } from '../data/infrastructure';
 
 interface SEOHeadProps {
   currentPath?: string;
@@ -10,8 +11,8 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
     // Determine active page data if path matches
     const cleanPath = currentPath.startsWith('/') ? currentPath.substring(1) : currentPath;
     
-    let activePage = MAIN_LANDING_PAGES[cleanPath] || CITY_LOCATION_PAGES[cleanPath];
-    let activeArticle = cleanPath.startsWith('knowledgebase/') 
+    const activePage = MAIN_LANDING_PAGES[cleanPath] || CITY_LOCATION_PAGES[cleanPath];
+    const activeArticle = cleanPath.startsWith('knowledgebase/') 
       ? KNOWLEDGE_ARTICLES[cleanPath.replace('knowledgebase/', '')]
       : undefined;
 
@@ -27,27 +28,27 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
       updateMetaTag('keywords', activeArticle.keywords.join(', '));
       updateCanonical(`https://senxcloud.com/knowledgebase/${activeArticle.slug}`);
     } else {
-      document.title = 'SenX Cloud — Next-Gen Hosting Platform | Bangladesh BDIX Game Hosting & Cloud VPS';
+      document.title = 'SenX Cloud — Game Server Hosting | Minecraft Hosting Bangladesh & India';
       updateMetaTag(
         'description',
-        'SenX Cloud is #1 in Bangladesh for Minecraft Server Hosting, BDIX KVM VPS, Discord Bot Hosting & Dedicated Servers. Sub-5ms ping with AMD Ryzen 9 7950X & 12Tbps DDoS protection.'
+        `High-performance game server hosting in Bangladesh and India. Minecraft, Palworld, Rust, and FiveM servers powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} hardware with direct BDIX peering.`
       );
       updateCanonical('https://senxcloud.com/');
     }
 
     // Comprehensive JSON-LD Schemas
     const schemaGraph = [
-      // 1. Organization & LocalBusiness Entity in Bangladesh
+      // 1. Organization Entity
       {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         '@id': 'https://senxcloud.com/#organization',
-        name: 'SenX Cloud Bangladesh',
-        alternateName: 'SenX Cloud Game & VPS Hosting',
+        name: 'SenX Cloud',
+        alternateName: 'SenX Cloud Game Server Hosting',
         url: 'https://senxcloud.com',
-        logo: 'https://senxcloud.com/logo.png',
+        logo: 'https://senxcloud.com/favicon.svg',
         image: 'https://senxcloud.com/preview-og.png',
-        description: 'Premier Game Server Hosting and BDIX Cloud VPS provider in Bangladesh. Powered by AMD Ryzen 9 7950X CPUs, NVMe Gen4, sub-5ms BDIX latency, and 12Tbps DDoS protection.',
+        description: `High-performance game server hosting provider operating in Bangladesh and India. Powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} hardware, Enterprise NVMe SSD storage, and local BDIX peering.`,
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Gulshan 2, Dhaka North',
@@ -64,18 +65,15 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
         areaServed: [
           { '@type': 'Country', name: 'Bangladesh' },
           { '@type': 'Country', name: 'India' },
-          { '@type': 'AdministrativeArea', name: 'Dhaka' },
-          { '@type': 'AdministrativeArea', name: 'Chattogram' },
         ],
-        priceRange: '৳120 - ৳20000',
-        paymentAccepted: 'bKash, Nagad, Rocket, Visa, Mastercard, AMEX',
+        priceRange: '৳150 - ৳5000',
+        paymentAccepted: 'bKash, Nagad, Rocket, UPI, Visa, Mastercard',
         currenciesAccepted: 'BDT, USD, INR',
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'technical support',
-          telephone: '+8801700000000',
-          availableLanguage: ['Bengali', 'English'],
-          areaServed: 'BD',
+          availableLanguage: ['Bengali', 'English', 'Hindi'],
+          areaServed: ['BD', 'IN'],
         },
         sameAs: [
           'https://twitter.com/SenXCloud',
@@ -83,51 +81,42 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
         ],
         knowsAbout: [
           'Minecraft Server Hosting Bangladesh',
-          'BDIX VPS Hosting',
+          'Minecraft Hosting India',
           'Game Server Hosting',
-          'Cloud VPS Infrastructure',
+          'Palworld Server Hosting',
+          'Rust Server Hosting',
+          'FiveM Server Hosting',
           'Pterodactyl Panel',
-          'AMD Ryzen 9 7950X',
+          INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+          INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
         ],
       },
 
-      // 2. WebSite Schema with SearchAction
+      // 2. WebSite Schema
       {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         '@id': 'https://senxcloud.com/#website',
         url: 'https://senxcloud.com',
-        name: 'SenX Cloud Bangladesh',
-        description: 'Next-Gen Game Hosting & BDIX Cloud VPS Infrastructure in Bangladesh',
+        name: 'SenX Cloud Game Hosting',
+        description: 'High-Performance Minecraft & Game Server Hosting in Bangladesh and India',
         publisher: { '@id': 'https://senxcloud.com/#organization' },
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://senxcloud.com/?q={search_term_string}',
-          'query-input': 'required name=search_term_string',
-        },
       },
 
-      // 3. Product & AggregateOffer Schema for AEO price extraction
+      // 3. Product Schema for AEO price extraction
       {
         '@context': 'https://schema.org',
         '@type': 'Product',
-        name: activePage ? activePage.h1 : 'SenX Cloud Game & VPS Hosting Bangladesh',
+        name: activePage ? activePage.h1 : 'SenX Cloud Game Server Hosting',
         image: 'https://senxcloud.com/preview-og.png',
-        description: activePage ? activePage.metaDescription : 'Ultra-low latency game hosting and BDIX VPS in Bangladesh powered by AMD Ryzen 9 7950X.',
+        description: activePage ? activePage.metaDescription : 'High-performance game server hosting in Bangladesh and India.',
         brand: { '@type': 'Brand', name: 'SenX Cloud' },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '1580',
-          bestRating: '5',
-          worstRating: '1',
-        },
         offers: {
           '@type': 'AggregateOffer',
           priceCurrency: 'BDT',
-          lowPrice: '350',
-          highPrice: '15000',
-          offerCount: '15',
+          lowPrice: '180',
+          highPrice: '5000',
+          offerCount: '8',
           priceValidUntil: '2028-12-31',
           availability: 'https://schema.org/InStock',
         },
@@ -172,7 +161,6 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
   return null;
 });
 
-// Helper utilities for DOM meta manipulation
 function updateMetaTag(name: string, content: string) {
   let element = document.querySelector(`meta[name="${name}"]`);
   if (!element) {

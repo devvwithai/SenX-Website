@@ -188,10 +188,10 @@ export const ControlPanelSection: React.FC = React.memo(() => {
               <div className="p-4 rounded-2xl bg-black/60 border border-white/10 space-y-2">
                 <div className="flex items-center justify-between text-xs font-mono text-white/50">
                   <span className="flex items-center"><Wifi className="w-3.5 h-3.5 text-[#A3E854] mr-1.5" /> NETWORK IO</span>
-                  <span className="text-[#A3E854] font-bold">10 Gbps</span>
+                  <span className="text-[#A3E854] font-bold">Active Link</span>
                 </div>
-                <div className="text-2xl font-black font-inter text-[#F7F7F7]">48 MB/s In</div>
-                <div className="text-xs font-mono text-white/40">112 MB/s Out</div>
+                <div className="text-2xl font-black font-inter text-[#F7F7F7]">BDIX / Tier-3</div>
+                <div className="text-xs font-mono text-white/40">Low-Jitter Local Peering</div>
               </div>
             </div>
           )}

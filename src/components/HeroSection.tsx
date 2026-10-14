@@ -17,9 +17,9 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
         
         {/* ================= LEFT SIDE (3 CARDS) ================= */}
         
-        {/* LEFT 1: Top Left - Global BGP Anycast */}
+        {/* LEFT 1: Top Left - Regional Routing */}
         <motion.div
-          animate={{ y: [0, -10, 0], rotate: [0, 1, 0, -1, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute top-24 left-[6%] xl:left-[8%] pointer-events-auto"
         >
@@ -29,15 +29,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Network</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Global BGP Anycast</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">6 Edge Regions</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Direct Peering</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">India & Bangladesh</div>
             </div>
           </div>
         </motion.div>
 
-        {/* LEFT 2: Middle Left - Ryzen 9 5950X */}
+        {/* LEFT 2: Middle Left - AMD Ryzen 7 5700G */}
         <motion.div
-          animate={{ y: [0, -12, 0], rotate: [0, -1, 0, 1, 0] }}
+          animate={{ y: [0, -12, 0] }}
           transition={{ duration: 6.8, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
           className="absolute top-1/2 -translate-y-1/2 left-[1%] xl:left-[2%] pointer-events-auto"
         >
@@ -47,15 +47,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Processor</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Ryzen 9 5950X</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">4.9 GHz • DDR5 ECC</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Ryzen 7 5700G</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">High Clock • Zen 3</div>
             </div>
           </div>
         </motion.div>
 
         {/* LEFT 3: Bottom Left - Instant Provisioning */}
         <motion.div
-          animate={{ y: [0, -10, 0], rotate: [0, 1, 0, -1, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{ duration: 7.2, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
           className="absolute bottom-24 left-[6%] xl:left-[8%] pointer-events-auto hidden xl:block"
         >
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
 
         {/* RIGHT 1: Top Right - Bangladesh BDIX */}
         <motion.div
-          animate={{ y: [0, -11, 0], rotate: [0, -1, 0, 1, 0] }}
+          animate={{ y: [0, -11, 0] }}
           transition={{ duration: 6.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
           className="absolute top-24 right-[6%] xl:right-[8%] pointer-events-auto"
         >
@@ -86,14 +86,14 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Primary Node</div>
               <div className="text-xs font-bold font-inter text-[#F7F7F7]">Bangladesh BDIX</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">&lt;10ms Latency</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">Dhaka Local Peering</div>
             </div>
           </div>
         </motion.div>
 
-        {/* RIGHT 2: Middle Right - Gen4 NVMe RAID-1 */}
+        {/* RIGHT 2: Middle Right - Enterprise NVMe SSD */}
         <motion.div
-          animate={{ y: [0, -10, 0], rotate: [0, 1, 0, -1, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
           className="absolute top-1/2 -translate-y-1/2 right-[1%] xl:right-[2%] pointer-events-auto"
         >
@@ -103,15 +103,15 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Storage</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Gen4 NVMe RAID-1</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">9,500 MB/s Read</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Enterprise NVMe</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">Rapid Chunk Loading</div>
             </div>
           </div>
         </motion.div>
 
-        {/* RIGHT 3: Bottom Right - 3.2 Tbps DDoS Shield */}
+        {/* RIGHT 3: Bottom Right - DDoS Shield */}
         <motion.div
-          animate={{ y: [0, -12, 0], rotate: [0, -1, 0, 1, 0] }}
+          animate={{ y: [0, -12, 0] }}
           transition={{ duration: 6.6, repeat: Infinity, ease: 'easeInOut', delay: 1.8 }}
           className="absolute bottom-24 right-[6%] xl:right-[8%] pointer-events-auto hidden xl:block"
         >
@@ -121,8 +121,8 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
             </div>
             <div>
               <div className="text-[9px] font-mono text-white/50 uppercase">Security</div>
-              <div className="text-xs font-bold font-inter text-[#F7F7F7]">3.2 Tbps DDoS Shield</div>
-              <div className="text-[10px] font-mono text-[#A3E854]">Always-On Filter</div>
+              <div className="text-xs font-bold font-inter text-[#F7F7F7]">Anti-DDoS Shield</div>
+              <div className="text-[10px] font-mono text-[#A3E854]">Game Protocol Filter</div>
             </div>
           </div>
         </motion.div>
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           className="liquid-glass inline-flex items-center space-x-2 px-3.5 sm:px-4 py-1.5 rounded-full border border-white/20 text-[11px] sm:text-xs font-mono text-[#F7F7F7] shadow-xl max-w-full"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
-          <span className="font-semibold tracking-wide truncate">#1 GAME HOSING & BDIX VPS IN BANGLADESH</span>
+          <span className="font-semibold tracking-wide truncate">PREMIUM GAME SERVER HOSTING IN BANGLADESH & INDIA</span>
         </motion.div>
 
         {/* Main Hero Headline */}
@@ -148,10 +148,10 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-inter font-black uppercase tracking-tight text-[38px] min-[390px]:text-[44px] sm:text-[64px] lg:text-[84px] leading-[0.94] sm:leading-[0.92] text-[#F7F7F7]"
+          className="font-inter font-black uppercase tracking-tight text-[36px] min-[390px]:text-[42px] sm:text-[60px] lg:text-[80px] leading-[0.96] sm:leading-[0.92] text-[#F7F7F7]"
         >
           Minecraft Hosting & <br />
-          <span className="text-[#A3E854] block sm:inline mt-1 sm:mt-0">Cloud VPS Bangladesh.</span>
+          <span className="text-[#A3E854] block sm:inline mt-1 sm:mt-0">Game Servers BD & IN.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -159,9 +159,9 @@ export const HeroSection: React.FC<HeroSectionProps> = React.memo(({ onGetStarte
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-inter text-base sm:text-base lg:text-lg text-[#F7F7F7]/75 max-w-2xl leading-relaxed"
+          className="font-inter text-sm sm:text-base lg:text-lg text-[#F7F7F7]/75 max-w-2xl leading-relaxed"
         >
-          Ultra-low latency Minecraft Server Hosting in Bangladesh, BDIX KVM VPS, and 24/7 Discord Bot Servers. Powered by AMD Ryzen 9 7950X CPUs, Gen4 NVMe, and 12 Tbps DDoS shield.
+          Ultra-low latency Minecraft Server Hosting in Bangladesh and India, optimized for Paper, Purpur, Forge, Fabric, Palworld, and Rust. Powered by AMD Ryzen 7 5700G & Intel Xeon hardware with direct BDIX local peering.
         </motion.p>
 
         {/* Liquid Glass Buttons - Vertically stacked on mobile, 16px gap, min-height 52px */}

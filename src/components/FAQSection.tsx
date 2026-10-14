@@ -1,6 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { HelpCircle, ChevronDown, Search, Zap, Shield, Globe, Cpu, CheckCircle2, Sparkles } from 'lucide-react';
+import { INFRASTRUCTURE_CONFIG } from '../data/infrastructure';
 
 interface FAQItem {
   id: string;
@@ -19,72 +20,58 @@ export const FAQSection: React.FC = React.memo(() => {
     {
       id: 'faq-1',
       category: 'general',
-      question: 'What is SenX Cloud and what hosting services are provided in Bangladesh?',
-      answer: 'SenX Cloud is the leading high-performance cloud infrastructure and game server hosting provider in Bangladesh. We specialize in enterprise-grade Minecraft Hosting Bangladesh, BDIX KVM Cloud VPS, 24/7 Discord Bot Servers, Rust & FiveM hosting, and bare-metal dedicated servers with automated 60-second deployment.',
-      highlights: ['60-second automated setup', 'AMD Ryzen 9 7950X CPUs', 'Pterodactyl 2.0 Panel', 'BDIX Ultra-Low Latency'],
-    },
-    {
-      id: 'faq-1b',
-      category: 'general',
-      question: 'Why choose SenX Cloud for Minecraft Hosting in Bangladesh?',
-      answer: 'SenX Cloud offers the lowest latency (<10ms across Bangladesh ISP networks including Grameenphone, Robi, Banglalink, and local broadband), AMD Ryzen 9 7950X CPUs for 20.0 TPS performance, instant Pterodactyl 2.0 control panel, automated backups, and 24/7 localized support in Bengali and English.',
-      highlights: ['<10ms BD Ping', 'PaperMC & Forge Pre-installed', 'Full BDIX Speed', 'Bkash & Nagad Payment Accepted'],
-    },
-    {
-      id: 'faq-1c',
-      category: 'specs',
-      question: 'What is BDIX VPS hosting and how does it benefit users in Bangladesh?',
-      answer: 'BDIX (Bangladesh Internet Exchange) VPS hosting routes server traffic directly through local exchange points in Dhaka. This guarantees lightning-fast network speeds (up to 1 Gbps direct peer), sub-10ms ping, zero international routing lag, and smooth performance for local gaming, Discord bots, web apps, and enterprise databases.',
-      highlights: ['BDIX Direct Peering', 'Sub-10ms Latency in BD', '1Gbps Uplink Speeds', 'Ideal for Games & Websites'],
+      question: 'What game server hosting services does SenX Cloud offer?',
+      answer: 'SenX Cloud specializes exclusively in high-performance game server hosting in Bangladesh and India. Supported game server environments include Minecraft (PaperMC, Purpur, Fabric, Forge, Bedrock/Geyser), Palworld, Rust, FiveM (GTA V), and Minecraft Velocity/BungeeCord proxies with sub-60 second automated provisioning.',
+      highlights: ['Minecraft Server Hosting', 'Palworld & Rust Hosting', 'FiveM Server Hosting', 'Velocity & BungeeCord Proxies'],
     },
     {
       id: 'faq-2',
-      category: 'specs',
-      question: 'What hardware specs power SenX Cloud server nodes?',
-      answer: 'SenX Cloud nodes run exclusively on flagship AMD Ryzen 9 7950X / 7950X3D processors clocked at up to 5.7 GHz with high-speed DDR5 ECC memory (5600MHz) and PCIe Gen4 NVMe RAID-10 storage arrays delivering 7,000+ MB/s read speeds.',
-      highlights: ['AMD Ryzen 9 7950X (5.7 GHz)', 'DDR5 ECC RAM @ 5600MHz', 'Gen4 NVMe RAID-10 Storage', '10Gbps Uplink Ports'],
+      category: 'general',
+      question: 'Why is SenX Cloud the best choice for Minecraft Hosting in Bangladesh?',
+      answer: 'SenX Cloud connects directly to the Bangladesh Internet Exchange (BDIX) in Dhaka. This guarantees ultra-low ping across all Bangladeshi broadband and mobile networks (Grameenphone, Robi, Banglalink, local ISPs), high single-thread clock speed for 20.0 TPS stability, instant Pterodactyl panel setup, and convenient bKash & Nagad payment methods.',
+      highlights: ['Local BDIX Peering', '20.0 TPS Tick Performance', 'Automated Sub-60s Setup', 'bKash & Nagad Payments'],
     },
     {
       id: 'faq-3',
-      category: 'security',
-      question: 'How does SenX Cloud protect against DDoS attacks?',
-      answer: 'All SenX Cloud servers include complimentary 12Tbps+ Layer 3, Layer 4, and Layer 7 inline DDoS mitigation powered by Path.net and Corero hardware filters. Our custom filters analyze packet payloads in under 1 millisecond, mitigating volumetric and state-exhaustion attacks without latency spikes.',
-      highlights: ['12Tbps+ Filter Capacity', '<1ms Packet Inspection', 'Zero-Downtime Scrubbing', 'Game-Specific L7 Rules'],
+      category: 'specs',
+      question: 'What hardware processors power SenX Cloud game nodes?',
+      answer: `Our game server infrastructure is powered by verified enterprise hardware: ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} processors delivering high single-thread clock speeds for Minecraft tick execution, and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} multi-core processors for high-density multi-world networks, backed by Enterprise NVMe SSD storage.`,
+      highlights: [INFRASTRUCTURE_CONFIG.supportedCpus[0].model, INFRASTRUCTURE_CONFIG.supportedCpus[1].model, 'Enterprise NVMe SSD RAID', 'High-Speed ECC Memory'],
     },
     {
       id: 'faq-4',
-      category: 'general',
-      question: 'How fast is server deployment after payment?',
-      answer: 'Provisioning is 100% automated. Once your order is processed, your server container or virtual machine is deployed, configured with your requested OS or game software, and delivered to your dashboard in less than 60 seconds.',
-      highlights: ['Instant <60s Deployment', 'Automated OS Setup', 'Credentials Emailed Instantly', 'Dashboard Ready'],
+      category: 'security',
+      question: 'Where are SenX Cloud game server locations situated?',
+      answer: 'SenX Cloud operates active game server nodes in Bangladesh (Dhaka BDIX Edge) and India (Mumbai Central Facility). These nodes provide optimal regional routing for players across South Asia without relying on distant international routes.',
+      highlights: ['Bangladesh (Dhaka BDIX Edge)', 'India (Mumbai Central Facility)', 'South Asia Game Peering', 'Direct Local Routing'],
     },
     {
       id: 'faq-5',
-      category: 'billing',
-      question: 'Where are SenX Cloud datacenters located globally?',
-      answer: 'SenX Cloud operates edge datacenters in North America (Ashburn VA, Chicago IL, Oregon), Europe (Frankfurt, London, Amsterdam), Asia-Pacific (Singapore, Tokyo), and South Asia (Dhaka, Mumbai) with direct BGP peering to major ISPs.',
-      highlights: ['Ashburn & Chicago (US)', 'Frankfurt & London (EU)', 'Singapore & Tokyo (APAC)', 'Dhaka & Mumbai (South Asia)'],
+      category: 'security',
+      question: 'How does SenX Cloud protect game servers against DDoS attacks?',
+      answer: 'All SenX Cloud game servers include inline hardware DDoS filtering specifically tailored for game traffic. Our filtering rules analyze UDP protocol handshakes and scrub volumetric attack vectors commonly targeting Minecraft, Rust, and FiveM servers.',
+      highlights: ['Inline Game DDoS Mitigation', 'UDP Protocol Inspection', 'Zero Latency Spikes', 'Always-On Filtering'],
     },
     {
       id: 'faq-6',
       category: 'specs',
-      question: 'Which control panel is provided for game server management?',
-      answer: 'SenX Cloud features a customized Pterodactyl 2.0 control panel equipped with real-time resource monitors, web-based console, full SFTP file access, automated scheduled NVMe backups, and a one-click modpack and plugin installer.',
-      highlights: ['Custom Pterodactyl Panel', 'One-Click Mod Installer', 'SFTP File Manager', 'Automated Offsite Backups'],
+      question: 'Which control panel is provided for game management?',
+      answer: 'Every game server includes our customized Pterodactyl Game Wings panel. You get full access to live websocket console logs, an intuitive web file manager, full SFTP access, one-click modpack and plugin installers, automated scheduled backups, and custom sub-domain management.',
+      highlights: ['Customized Pterodactyl Panel', 'One-Click Mod & Plugin Installers', 'Live Terminal Console', 'Automated S3 Backups'],
     },
     {
       id: 'faq-7',
       category: 'billing',
-      question: 'Can I change my server plan or upgrade resources later?',
-      answer: 'Yes. You can scale CPU, RAM, NVMe storage, and bandwidth seamlessly through the SenX Client Area at any time. Scale-ups occur instantly without data loss or changing your server IP address.',
-      highlights: ['Seamless One-Click Upgrades', 'Zero Data Loss', 'Static IP Preserved', 'Pro-rated Billing'],
+      question: 'Can I upgrade my RAM or storage if my player base grows?',
+      answer: 'Yes. You can seamlessly scale your game server plan, CPU threads, and RAM allocation directly through the SenX Client Area at any time. Server upgrades take effect instantly with no data loss and your server IP and settings remain intact.',
+      highlights: ['Instant One-Click Scaling', 'Zero Data Loss', 'Server IP Preserved', 'Pro-rated Billing'],
     },
     {
       id: 'faq-8',
-      category: 'security',
-      question: 'Does SenX Cloud offer money-back guarantees or refunds?',
-      answer: 'Yes, SenX Cloud offers an unconditional 7-day money-back guarantee on all game hosting and Cloud VPS plans. If you are not satisfied with performance or ping, request a refund from support.',
-      highlights: ['7-Day Money-Back Guarantee', 'No Hidden Fees', '24/7 Support Assistance'],
+      category: 'billing',
+      question: 'Which payment methods are accepted?',
+      answer: 'We accept local Bangladeshi payment methods including bKash, Nagad, Rocket, and local internet banking, as well as Indian payment gateways (UPI, Cards, NetBanking), and international credit/debit cards.',
+      highlights: ['bKash & Nagad (Bangladesh)', 'UPI & Local Cards (India)', 'International Cards', 'Instant Automated Invoicing'],
     },
   ], []);
 
@@ -99,104 +86,51 @@ export const FAQSection: React.FC = React.memo(() => {
     });
   }, [faqs, activeCategory, searchQuery]);
 
-  // Inject FAQ Schema JSON-LD dynamically for AEO crawlers
-  useEffect(() => {
-    const faqSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      '@id': 'https://senxcloud.com/#faq-schema',
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: faq.answer,
-        },
-      })),
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'senx-faq-schema';
-    script.text = JSON.stringify(faqSchema);
-    document.head.appendChild(script);
-
-    return () => {
-      const existing = document.getElementById('senx-faq-schema');
-      if (existing && existing.parentNode) {
-        existing.parentNode.removeChild(existing);
-      }
-    };
-  }, [faqs]);
-
-  const toggleFAQ = (id: string) => {
-    setExpandedId((prev) => (prev === id ? null : id));
-  };
-
   return (
-    <section
-      id="faq"
-      aria-labelledby="faq-heading"
-      itemScope
-      itemType="https://schema.org/FAQPage"
-      className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto"
-    >
-      {/* Background Decorative Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#A3E854]/10 blur-[120px] rounded-full pointer-events-none -z-10" />
-
-      {/* Section Title & Header */}
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#A3E854]/10 border border-[#A3E854]/30 text-[#A3E854] text-xs font-semibold tracking-wide uppercase mb-4">
-          <HelpCircle className="w-4 h-4" />
-          <span>Search Engine & AI Answer Engine Index</span>
+    <section id="faq" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-5xl mx-auto">
+      {/* Section Header */}
+      <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
+        <div className="liquid-glass inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-white/20 text-xs font-mono text-[#A3E854]">
+          <HelpCircle className="w-3.5 h-3.5" />
+          <span>GAME SERVER KNOWLEDGE & FAQ</span>
         </div>
-        <h2 id="faq-heading" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
-          Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A3E854] to-emerald-400">Questions</span>
+        <h2 className="text-3xl sm:text-5xl font-black font-inter tracking-tight text-[#F7F7F7]">
+          Frequently Asked <span className="text-[#A3E854]">Questions.</span>
         </h2>
-        <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-          Direct, verified answers regarding SenX Cloud infrastructure, DDoS protection, deployment speed, hardware specs, and global datacenter edge locations.
+        <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
+          Everything you need to know about our game server hosting, BDIX peering, and hardware in Bangladesh & India.
         </p>
-      </div>
 
-      {/* Search & Filter Bar */}
-      <div className="max-w-3xl mx-auto mb-10 space-y-4">
-        {/* Search Input */}
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400" />
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search questions (e.g., Ryzen 9, DDoS, deployment, locations)..."
-            className="w-full bg-[#0D0F10] border border-white/10 rounded-xl pl-12 pr-4 py-3.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#A3E854]/60 transition-colors shadow-inner"
-            aria-label="Search FAQ questions"
-          />
-          {searchQuery && (
-            <button
-              onClick={() => setSearchQuery('')}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-zinc-400 hover:text-white"
-            >
-              Clear
-            </button>
-          )}
+        {/* Search Bar */}
+        <div className="pt-2 max-w-lg mx-auto">
+          <div className="relative flex items-center">
+            <Search className="w-4 h-4 text-white/40 absolute left-4 pointer-events-none" />
+            <input
+              type="text"
+              placeholder="Search topics (e.g., Minecraft, BDIX, Ryzen, Backups)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-[#111313]/90 border border-white/15 focus:border-[#A3E854]/70 rounded-full pl-11 pr-4 py-2.5 min-h-[44px] text-xs font-mono text-[#F7F7F7] focus:outline-none transition-colors placeholder:text-white/30"
+            />
+          </div>
         </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+        {/* Category Filter Pills */}
+        <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
           {[
-            { id: 'all', label: 'All Queries' },
-            { id: 'general', label: 'General & Setup' },
-            { id: 'specs', label: 'Hardware Specs' },
-            { id: 'security', label: 'DDoS & Security' },
-            { id: 'billing', label: 'Locations & Billing' },
+            { id: 'all', label: 'All Topics' },
+            { id: 'general', label: 'Game Hosting' },
+            { id: 'specs', label: 'Hardware & Panel' },
+            { id: 'security', label: 'Locations & DDoS' },
+            { id: 'billing', label: 'Billing & Setup' },
           ].map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`px-4 py-2 min-h-[40px] rounded-full text-xs font-mono font-medium transition-all cursor-pointer border ${
                 activeCategory === cat.id
-                  ? 'bg-[#A3E854] text-black font-semibold shadow-lg shadow-[#A3E854]/20'
-                  : 'bg-[#0D0F10] text-zinc-400 hover:text-white border border-white/5 hover:border-white/20'
+                  ? 'bg-[#A3E854] text-[#050606] font-bold border-[#A3E854]'
+                  : 'bg-white/5 text-white/70 border-white/10 hover:border-white/25 hover:text-white'
               }`}
             >
               {cat.label}
@@ -206,20 +140,10 @@ export const FAQSection: React.FC = React.memo(() => {
       </div>
 
       {/* FAQ Accordion List */}
-      <div className="max-w-3xl mx-auto space-y-3.5">
+      <div className="space-y-3 sm:space-y-4">
         {filteredFaqs.length === 0 ? (
-          <div className="text-center py-12 border border-dashed border-white/10 rounded-2xl bg-[#0D0F10]/50">
-            <HelpCircle className="w-10 h-10 text-zinc-600 mx-auto mb-3" />
-            <p className="text-zinc-400 text-sm">No matching questions found for "{searchQuery}".</p>
-            <button
-              onClick={() => {
-                setSearchQuery('');
-                setActiveCategory('all');
-              }}
-              className="mt-3 text-xs text-[#A3E854] hover:underline"
-            >
-              Reset Search Filters
-            </button>
+          <div className="text-center py-12 text-sm font-mono text-white/40">
+            No matching questions found for "{searchQuery}".
           </div>
         ) : (
           filteredFaqs.map((faq) => {
@@ -227,65 +151,54 @@ export const FAQSection: React.FC = React.memo(() => {
             return (
               <div
                 key={faq.id}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-                className="group rounded-xl border border-white/10 bg-[#0D0F10]/80 backdrop-blur-md overflow-hidden transition-all hover:border-[#A3E854]/30"
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isExpanded
+                    ? 'bg-[#111411]/90 border-[#A3E854]/40 shadow-lg'
+                    : 'bg-[#111313]/70 border-white/10 hover:border-white/20'
+                }`}
               >
-                {/* Question Button Header */}
                 <button
-                  onClick={() => toggleFAQ(faq.id)}
-                  aria-expanded={isExpanded}
-                  className="w-full flex items-start justify-between p-4 sm:p-5 text-left focus:outline-none"
+                  onClick={() => setExpandedId(isExpanded ? null : faq.id)}
+                  className="w-full px-5 sm:px-7 py-4 sm:py-5 min-h-[52px] text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
                 >
-                  <span
-                    itemProp="name"
-                    className="text-base sm:text-lg font-semibold text-white group-hover:text-[#A3E854] transition-colors pr-4"
-                  >
+                  <span className="text-sm sm:text-base font-bold font-inter text-[#F7F7F7] leading-snug">
                     {faq.question}
                   </span>
                   <div
-                    className={`mt-1 p-1 rounded-full bg-white/5 border border-white/10 transition-transform duration-300 ${
-                      isExpanded ? 'rotate-180 bg-[#A3E854]/10 border-[#A3E854]/40 text-[#A3E854]' : 'text-zinc-400'
+                    className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 border transition-transform duration-200 ${
+                      isExpanded
+                        ? 'bg-[#A3E854] text-[#050606] border-[#A3E854] rotate-180'
+                        : 'bg-white/5 text-white/60 border-white/10'
                     }`}
                   >
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
-                {/* Answer Content Block */}
-                <AnimatePresence initial={false}>
+                <AnimatePresence>
                   {isExpanded && (
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: 'easeInOut' }}
-                      itemScope
-                      itemProp="acceptedAnswer"
-                      itemType="https://schema.org/Answer"
-                      className="overflow-hidden border-t border-white/5 bg-black/30"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="px-5 sm:px-7 pb-5 sm:pb-6 text-xs sm:text-sm font-inter text-white/70 leading-relaxed border-t border-white/[0.06] pt-4"
                     >
-                      <div className="p-4 sm:p-5 text-sm text-zinc-300 leading-relaxed space-y-4">
-                        <p itemProp="text">{faq.answer}</p>
+                      <p>{faq.answer}</p>
 
-                        {/* Bullet Highlights for AEO direct retrieval */}
-                        {faq.highlights && (
-                          <div className="pt-2">
-                            <span className="text-xs uppercase tracking-wider font-semibold text-[#A3E854] block mb-2">
-                              Key Direct Answer Facts:
+                      {faq.highlights && (
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {faq.highlights.map((h, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#A3E854]/10 border border-[#A3E854]/30 text-[11px] font-mono text-[#A3E854]"
+                            >
+                              <CheckCircle2 className="w-3 h-3 shrink-0" />
+                              <span>{h}</span>
                             </span>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {faq.highlights.map((h, idx) => (
-                                <div key={idx} className="flex items-center space-x-2 text-xs text-zinc-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                                  <CheckCircle2 className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
-                                  <span>{h}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                          ))}
+                        </div>
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -293,25 +206,6 @@ export const FAQSection: React.FC = React.memo(() => {
             );
           })
         )}
-      </div>
-
-      {/* AEO Micro Summary Box for Search Crawlers & AI Summarizers */}
-      <div className="mt-12 max-w-3xl mx-auto p-5 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-[#0D0F10] to-[#A3E854]/10 border border-[#A3E854]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-        <div className="space-y-1">
-          <div className="flex items-center justify-center sm:justify-start space-x-2 text-[#A3E854] font-semibold text-xs tracking-wider uppercase">
-            <Sparkles className="w-4 h-4" />
-            <span>AI Answer Engine Verified Entity</span>
-          </div>
-          <p className="text-xs text-zinc-300">
-            SenX Cloud is verified on major Answer Engines (ChatGPT, Perplexity, Gemini) with 99.99% uptime SLA and 12Tbps+ DDoS protection.
-          </p>
-        </div>
-        <a
-          href="https://client.senxcloud.com/"
-          className="shrink-0 text-xs font-bold px-4 py-2.5 rounded-xl bg-[#A3E854] text-black hover:bg-[#b8f572] transition-colors shadow-lg shadow-[#A3E854]/20"
-        >
-          Explore Hosting Nodes
-        </a>
       </div>
     </section>
   );

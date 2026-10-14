@@ -20,7 +20,7 @@ export const KnowledgeBase: React.FC<KnowledgeBaseProps> = ({ currentSlug, onNav
     ? KNOWLEDGE_ARTICLES[currentSlug.replace('/knowledgebase/', '')]
     : undefined;
 
-  const categories = ['All', 'Minecraft Guides', 'VPS & Infrastructure', 'BDIX & Latency', 'Tutorials'];
+  const categories = ['All', 'Minecraft Guides', 'Game Infrastructure', 'Tutorials'];
 
   const articlesList = Object.values(KNOWLEDGE_ARTICLES).filter((article) => {
     const matchesSearch = article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -156,10 +156,10 @@ export const KnowledgeBase: React.FC<KnowledgeBaseProps> = ({ currentSlug, onNav
         {/* Action Callout */}
         <div className="my-16 p-8 rounded-2xl bg-gradient-to-r from-[#0F1211] via-[#151C17] to-[#0F1211] border border-[#A3E854]/30 text-center">
           <h3 className="text-2xl font-black font-jakarta text-white mb-2">
-            Ready to experience sub-5ms Minecraft & VPS hosting in Bangladesh?
+            Ready to experience low-latency Minecraft & game server hosting?
           </h3>
           <p className="text-xs font-mono text-white/60 mb-6 max-w-xl mx-auto">
-            Deploy on AMD Ryzen 9 7950X hardware with instant bKash, Nagad, and Rocket activation.
+            Deploy on AMD Ryzen 7 5700G hardware with instant bKash, Nagad, and card activation.
           </p>
           <button
             onClick={onGetStarted}
@@ -203,7 +203,7 @@ export const KnowledgeBase: React.FC<KnowledgeBaseProps> = ({ currentSlug, onNav
           Expert Technical Guides & Documentation
         </h1>
         <p className="text-base text-white/70 font-inter">
-          Master Minecraft server optimization, BDIX networking, Pterodactyl management, and Linux VPS configuration.
+          Master Minecraft server optimization, BDIX networking, Pterodactyl management, and game performance tuning.
         </p>
       </div>
 
@@ -215,7 +215,7 @@ export const KnowledgeBase: React.FC<KnowledgeBaseProps> = ({ currentSlug, onNav
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search guides (e.g. Minecraft TPS, BDIX Ping, PaperMC, VPS setup)..."
+            placeholder="Search guides (e.g. Minecraft TPS, BDIX Ping, PaperMC, Modpacks)..."
             className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 font-inter text-sm focus:outline-none focus:border-[#A3E854] transition-colors"
           />
         </div>

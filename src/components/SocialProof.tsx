@@ -60,40 +60,30 @@ const MarqueeRow: React.FC<MarqueeRowProps> = React.memo(({ items, direction, sp
 
 export const SocialProof: React.FC = React.memo(() => {
   const stats = [
-    { num: '99.99%', label: 'SLA Guaranteed Uptime' },
-    { num: '<10ms', label: 'Average Global Latency' },
-    { num: '3.2 Tbps', label: 'DDoS Shield Capacity' },
-    { num: '200+', label: 'Active Game Instances' },
+    { num: 'India & BD', label: 'BDIX & Local Peering' },
+    { num: 'Ryzen & Xeon', label: 'Enterprise CPU Nodes' },
+    { num: 'NVMe SSD', label: 'Fast World Generation' },
+    { num: 'Sub-60s', label: 'Automated Deployment' },
   ];
 
   const row1Items = [
-    { text: '99.99% UPTIME GUARANTEE', icon: <CheckCircle2 className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'GLOBAL BGP ANYCAST NETWORK', icon: <Globe className="w-3.5 h-3.5" /> },
-    { text: 'BANGLADESH BDIX CORE NODE', icon: <Server className="w-3.5 h-3.5" /> },
+    { text: 'BANGLADESH BDIX CORE NODE', icon: <Server className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'INDIA MUMBAI CORE FACILITY', icon: <Globe className="w-3.5 h-3.5" /> },
     { text: 'SUB-60s AUTOMATED SETUP', icon: <Zap className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'AMD RYZEN 5950X POWERED', icon: <Cpu className="w-3.5 h-3.5" /> },
-    { text: 'GEN4 NVMe RAID-1 (9,500 MB/s)', icon: <HardDrive className="w-3.5 h-3.5" /> },
-    { text: '3.2 TBPS ANTI-DDOS MITIGATION', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'AMD RYZEN 7 5700G POWERED', icon: <Cpu className="w-3.5 h-3.5" /> },
+    { text: 'INTEL XEON E5-2697 V4 CLUSTERS', icon: <Cpu className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'ENTERPRISE NVMe SSD STORAGE', icon: <HardDrive className="w-3.5 h-3.5" /> },
+    { text: 'GAME-OPTIMIZED DDOS FILTERING', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
   ];
 
   const row2Items = [
-    { text: 'FRANKFURT DE-1 CENTRAL HUB', icon: <Server className="w-3.5 h-3.5" /> },
-    { text: 'MUMBAI CORE FACILITY', icon: <Globe className="w-3.5 h-3.5" /> },
-    { text: 'DHAKA REGIONAL EDGE', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'ASHBURN US-EAST PIPELINE', icon: <Server className="w-3.5 h-3.5" /> },
-    { text: '10 GBPS DIRECT UNMETERED', icon: <Zap className="w-3.5 h-3.5" /> },
-    { text: 'SUB-1MS NETWORK JITTER', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'ENTERPRISE ECC DDR5 MEMORY', icon: <Cpu className="w-3.5 h-3.5" /> },
-  ];
-
-  const row3Items = [
-    { text: 'AUTOMATED HOURLY BACKUPS', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
-    { text: 'PTERODACTYL GAME WINGS', icon: <Sparkles className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'ONE-CLICK GAME SERVER DEPLOY', icon: <Zap className="w-3.5 h-3.5" /> },
-    { text: 'CUSTOM DOMAIN DNS ROUTING', icon: <Globe className="w-3.5 h-3.5" /> },
-    { text: 'ZERO DOWNTIME CLUSTER MIGRATION', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
-    { text: 'REST API & CLI CONTROLLER', icon: <Cpu className="w-3.5 h-3.5" /> },
-    { text: '24/7/365 PRIORITY SUPPORT', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+    { text: 'PTERODACTYL GAME CONTROL PANEL', icon: <Sparkles className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'MINECRAFT PAPER & PURPUR READY', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+    { text: 'PALWORLD & RUST DEDICATED SLOTS', icon: <Server className="w-3.5 h-3.5" /> },
+    { text: 'FIVEM TXADMIN INTEGRATION', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'ONE-CLICK MODPACK INSTALLERS', icon: <Zap className="w-3.5 h-3.5" /> },
+    { text: 'AUTOMATED SCHEDULED S3 BACKUPS', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+    { text: '24/7 TICKET & DISCORD SUPPORT', icon: <CheckCircle2 className="w-3.5 h-3.5" />, highlight: true },
   ];
 
   return (
@@ -110,7 +100,7 @@ export const SocialProof: React.FC = React.memo(() => {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="senx-glass p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-white/[0.08] text-center bg-[#111313]/60 group hover:border-[#A3E854]/40 transition-colors"
             >
-              <div className="text-xl sm:text-3xl font-black font-inter text-[#A3E854] tracking-tight">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black font-inter text-[#A3E854] tracking-tight">
                 {item.num}
               </div>
               <div className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-white/50 mt-1">
@@ -124,20 +114,17 @@ export const SocialProof: React.FC = React.memo(() => {
         <div className="text-center mb-6 sm:mb-8">
           <p className="text-[11px] sm:text-xs font-mono text-white/50 uppercase tracking-wider sm:tracking-widest flex items-center justify-center space-x-2 px-2">
             <Sparkles className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
-            <span className="truncate">Powering top esports & developers globally</span>
+            <span className="truncate">High-performance gaming infrastructure across India & Bangladesh</span>
           </p>
         </div>
 
-        {/* 3 Independent Infinite Marquee Rows */}
+        {/* 2 Streamlined Infinite Marquee Rows */}
         <div className="relative w-full overflow-hidden flex flex-col space-y-3 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           {/* Row 1: Left -> Right */}
           <MarqueeRow items={row1Items} direction="left-to-right" speed={38} />
 
           {/* Row 2: Right -> Left */}
-          <MarqueeRow items={row2Items} direction="right-to-left" speed={32} />
-
-          {/* Row 3: Left -> Right */}
-          <MarqueeRow items={row3Items} direction="left-to-right" speed={42} />
+          <MarqueeRow items={row2Items} direction="right-to-left" speed={34} />
         </div>
       </div>
     </section>

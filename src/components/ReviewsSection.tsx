@@ -9,31 +9,31 @@ export const ReviewsSection: React.FC = React.memo(() => {
       role: 'Lead Dev, CraftHQ Network',
       server: '1,200 Active Players',
       rating: 5,
-      comment: 'Switched our 100+ plugin PaperMC server to SenX Ryzen 9 nodes. TPS stabilized at a constant 20.0 with 800 players online. The sub-20ms ping across Asia is unmatched.',
+      comment: 'Switched our 100+ plugin PaperMC server to SenX AMD Ryzen 7 5700G nodes. TPS stabilized at a constant 20.0 with all players online. The low ping across Bangladesh and India is unmatched.',
       avatar: 'AM',
     },
     {
       name: 'Elena Rostova',
       role: 'Community Admin, Palworld Community',
-      server: '64 Slot Cluster',
+      server: '32 Slot Guild',
       rating: 5,
-      comment: 'Palworld memory leaks used to crash our old host every 4 hours. SenX automated wings auto-restart daemon and 32GB DDR5 allocation solved it completely. Instant setup in 5 seconds.',
+      comment: 'Palworld memory leaks used to crash our old host. SenX automated wings daemon and NVMe storage solved it completely. Instant setup in under 60 seconds.',
       avatar: 'ER',
     },
     {
       name: 'Devon Vance',
       role: 'FiveM Roleplay Network',
-      server: '128 Player OneSync',
+      server: '64 Player OneSync',
       rating: 5,
-      comment: 'The 3.2 Tbps DDoS shield saved us from targeted UDP flooding during peak Friday nights. Customer support responded in 4 minutes with custom BGP filter tuning.',
+      comment: 'The inline game DDoS filtering protected us from targeted UDP floods on Friday night. Support answered quickly and helped adjust our txAdmin settings.',
       avatar: 'DV',
     },
     {
       name: 'Marcus Chen',
       role: 'Rust Clan Host',
-      server: '250 Slot Procedural Map',
+      server: '100 Slot Community Map',
       rating: 5,
-      comment: 'Oxide plugins load instantly. Map wipes take seconds instead of minutes on Gen4 NVMe RAID storage. Absolutely worth every single penny.',
+      comment: 'Oxide plugins load cleanly. Map wipes take seconds on Enterprise NVMe SSD storage. Excellent performance for our player base.',
       avatar: 'MC',
     },
   ], []);
@@ -47,10 +47,10 @@ export const ReviewsSection: React.FC = React.memo(() => {
           <span>VERIFIED COMMUNITY TESTIMONIALS</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-black font-inter text-[#F7F7F7]">
-          Loved by Server Admins & <span className="text-[#A3E854]">Engineers.</span>
+          Loved by Server Admins & <span className="text-[#A3E854]">Communities.</span>
         </h2>
         <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
-          See why thousands of gaming networks choose SenX Cloud for zero-lag infrastructure.
+          See why community creators across Bangladesh and India choose SenX Cloud for low-latency game hosting.
         </p>
       </div>
 

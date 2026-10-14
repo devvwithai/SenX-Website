@@ -7,20 +7,20 @@ interface SEODirectoryFooterProps {
 
 export const SEODirectoryFooter: React.FC<SEODirectoryFooterProps> = ({ onNavigate }) => {
   return (
-    <section className="relative z-20 border-t border-white/10 bg-[#080909] py-12 px-4 sm:px-6 lg:px-8 font-inter text-white">
+    <section className="relative z-20 border-t border-white/10 bg-[#080909] py-10 px-4 sm:px-6 lg:px-8 font-inter text-white">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-sm font-mono uppercase tracking-wider text-[#A3E854] font-bold mb-6 flex items-center space-x-2">
-          <span>🇧🇩 SenX Cloud Bangladesh Regional & SEO Directory</span>
+          <span>🎮 SenX Cloud Game Server & Regional Directory</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-inter text-white/60">
-          {/* Main Services */}
+          {/* Game Hosting Solutions */}
           <div>
             <h4 className="font-mono text-white font-semibold mb-3 uppercase text-[11px] text-[#A3E854]">
-              Bangladesh Hosting Services
+              Game Server Solutions (BD & IN)
             </h4>
             <ul className="space-y-1.5">
-              {Object.values(MAIN_LANDING_PAGES).slice(0, 7).map((page) => (
+              {Object.values(MAIN_LANDING_PAGES).slice(0, 6).map((page) => (
                 <li key={page.slug}>
                   <button
                     onClick={() => onNavigate(`/${page.slug}`)}
@@ -33,10 +33,10 @@ export const SEODirectoryFooter: React.FC<SEODirectoryFooterProps> = ({ onNaviga
             </ul>
           </div>
 
-          {/* Regional & City Locations */}
+          {/* Regional Game Nodes */}
           <div>
             <h4 className="font-mono text-white font-semibold mb-3 uppercase text-[11px] text-[#A3E854]">
-              Programmatic Cities & Locations
+              Regional Nodes & Games
             </h4>
             <ul className="space-y-1.5">
               {Object.values(CITY_LOCATION_PAGES).map((page) => (
@@ -49,7 +49,7 @@ export const SEODirectoryFooter: React.FC<SEODirectoryFooterProps> = ({ onNaviga
                   </button>
                 </li>
               ))}
-              {Object.values(MAIN_LANDING_PAGES).slice(7).map((page) => (
+              {Object.values(MAIN_LANDING_PAGES).slice(6).map((page) => (
                 <li key={page.slug}>
                   <button
                     onClick={() => onNavigate(`/${page.slug}`)}
@@ -62,10 +62,10 @@ export const SEODirectoryFooter: React.FC<SEODirectoryFooterProps> = ({ onNaviga
             </ul>
           </div>
 
-          {/* Knowledgebase Articles */}
+          {/* Guides & Documentation */}
           <div>
             <h4 className="font-mono text-white font-semibold mb-3 uppercase text-[11px] text-[#A3E854]">
-              Topical Guides & Documentation
+              Game Guides & Documentation
             </h4>
             <ul className="space-y-1.5">
               {Object.values(KNOWLEDGE_ARTICLES).map((art) => (

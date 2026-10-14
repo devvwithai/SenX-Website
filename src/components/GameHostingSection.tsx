@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Gamepad2, Server, Cpu, Shield, ArrowRight, Check, Zap, Layers, Globe } from 'lucide-react';
+import { Gamepad2, Shield, ArrowRight, Check, Zap, Sparkles } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { useCurrency } from '../context/CurrencyContext';
+import { INFRASTRUCTURE_CONFIG } from '../data/infrastructure';
 
 interface ProductItem {
   id: string;
-  category: 'game' | 'vps' | 'dedicated' | 'proxy';
+  category: 'minecraft' | 'games' | 'proxy';
   name: string;
-  tagline?: string;
   cpu: string;
   ram: string;
   storage: string;
@@ -20,22 +20,27 @@ interface ProductItem {
 }
 
 export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) => void }> = React.memo(({ onSelectGame }) => {
-  const [activeCategory, setActiveCategory] = useState<'game' | 'vps' | 'dedicated' | 'proxy'>('game');
+  const [activeCategory, setActiveCategory] = useState<'all' | 'minecraft' | 'games' | 'proxy'>('all');
   const { formatPrice } = useCurrency();
 
   const products: ProductItem[] = useMemo(() => [
-    // GAME HOSTING PRODUCTS
+    // MINECRAFT SERVERS
     {
-      id: 'minecraft',
-      category: 'game',
+      id: 'minecraft-bd',
+      category: 'minecraft',
       name: 'Minecraft Hosting Bangladesh',
-      cpu: 'AMD Ryzen 9 7950X',
-      ram: 'High-Speed DDR5',
-      storage: 'Gen4 NVMe RAID-10',
-      region: 'Dhaka BDIX | Singapore | Frankfurt | USA',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      ram: 'High-Speed RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'Dhaka BDIX Local Peering',
       price: 1.59,
       badge: '#1 IN BANGLADESH',
-      features: ['PaperMC, Purpur, Forge & Fabric', 'BDIX Ultra-Low Latency (<10ms)', 'Unlimited Slots & Modpacks'],
+      features: [
+        'PaperMC, Purpur, Forge & Fabric Support',
+        'Direct BDIX Local Peering (<10ms Ping)',
+        'Unlimited Player Slots & Modpacks',
+        'Pterodactyl Game Wings Panel',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <rect x="20" y="20" width="60" height="60" rx="8" />
@@ -46,16 +51,68 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       ),
     },
     {
+      id: 'minecraft-in',
+      category: 'minecraft',
+      name: 'Minecraft Hosting India',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      ram: 'High-Speed RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'Mumbai Central Facility',
+      price: 1.59,
+      badge: 'LOW LATENCY INDIA',
+      features: [
+        'Optimized for 20.0 TPS Stability',
+        'National NIXI Peering Route',
+        'One-Click Plugin & World Installer',
+        'Automated Offsite S3 Snapshots',
+      ],
+      silhouetteSvg: (
+        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
+          <rect x="20" y="20" width="60" height="60" rx="8" />
+          <rect x="35" y="40" width="30" height="20" fill="none" stroke="currentColor" strokeWidth="3" />
+        </svg>
+      ),
+    },
+    {
+      id: 'bedrock',
+      category: 'minecraft',
+      name: 'Bedrock & Geyser Crossplay',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      ram: 'High-Speed RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'India & Bangladesh',
+      price: 1.79,
+      features: [
+        'GeyserMC & Floodgate Pre-configured',
+        'Seamless Java & Bedrock Mobile Crossplay',
+        'Automatic World Saves',
+        'Custom Sub-Domain Included',
+      ],
+      silhouetteSvg: (
+        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
+          <rect x="25" y="40" width="50" height="40" rx="4" />
+          <polygon points="50,15 80,40 20,40" />
+        </svg>
+      ),
+    },
+
+    // MULTIPLAYER GAME SERVERS
+    {
       id: 'palworld',
-      category: 'game',
-      name: 'Palworld Server Bangladesh',
-      cpu: 'Ryzen 9 7950X',
-      ram: '32GB DDR5',
-      storage: 'Gen4 NVMe',
-      region: 'Bangladesh BDIX | Singapore | USA',
+      category: 'games',
+      name: 'Palworld Server BD & IN',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      ram: 'Up to 32GB RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'India & Bangladesh BDIX',
       price: 4.49,
       badge: 'POPULAR',
-      features: ['Unreal Engine 5 Anti-Crash', '32 Dedicated Player Slots', 'Daily Automated Backups'],
+      features: [
+        'Unreal Engine Dedicated Server Ready',
+        'Up to 32 Player Co-op & Guild Support',
+        'Daily Automated Backups',
+        'Inline Anti-DDoS Mitigation',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <circle cx="50" cy="40" r="25" />
@@ -65,15 +122,20 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     },
     {
       id: 'rust',
-      category: 'game',
-      name: 'Rust Hosting',
-      cpu: 'Ryzen 9950X',
-      ram: '16GB DDR5',
-      storage: 'RAID-1 NVMe',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 10.38,
+      category: 'games',
+      name: 'Rust Server Hosting',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      ram: 'High-Capacity RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'India & Bangladesh BDIX',
+      price: 8.99,
       badge: 'HIGH PERFORMANCE',
-      features: ['Oxide & Carbon Plugin Host', '3.2 Tbps Rust DDoS Shield', 'Instant Wipe Scheduler'],
+      features: [
+        'Oxide & Carbon Plugin Support',
+        'Scheduled Wipe & Map Generator',
+        'UDP Game Attack Filtering',
+        'Full SFTP File & Config Access',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <polygon points="50,15 85,85 15,85" />
@@ -82,157 +144,44 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     },
     {
       id: 'fivem',
-      category: 'game',
-      name: 'FiveM / GTA V',
-      cpu: 'AMD EPYC',
-      ram: '16GB DDR5',
-      storage: 'NVMe SSD',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
+      category: 'games',
+      name: 'FiveM / GTA V Server',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
+      ram: 'High-Capacity RAM',
+      storage: 'Enterprise NVMe SSD',
+      region: 'India & Bangladesh BDIX',
       price: 7.99,
-      features: ['Pre-configured txAdmin Panel', 'OneSync Infinity Ready', 'Unlimited MySQL Databases'],
+      badge: 'COMMUNITY READY',
+      features: [
+        'txAdmin Web Panel Pre-Installed',
+        'OneSync Infinity Ready',
+        'Managed MySQL Database Included',
+        'Automated Server Crash Restarts',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <path d="M 20,60 Q 50,20 80,60 Q 50,90 20,60 Z" />
         </svg>
       ),
     },
-    {
-      id: 'bedrock',
-      category: 'game',
-      name: 'Bedrock Hosting',
-      cpu: 'Ryzen 7950X',
-      ram: '4GB DDR5',
-      storage: 'NVMe SSD',
-      region: 'Global Anycast',
-      price: 1.59,
-      features: ['tModLoader 1-Click Installer', 'Auto Save World Daemon', 'Crossplay Enabled'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <rect x="25" y="40" width="50" height="40" rx="4" />
-          <polygon points="50,15 80,40 20,40" />
-        </svg>
-      ),
-    },
-    {
-      id: 'bot',
-      category: 'game',
-      name: 'Bot Hosting',
-      cpu: 'Ryzen 7950X',
-      ram: '8GB DDR5',
-      storage: 'NVMe SSD',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 0.19,
-      features: ['ValheimPlus Mod Host', 'Dedicated Crossplay Node', 'Daily World Snapshot'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <polygon points="50,10 90,50 50,90 10,50" />
-        </svg>
-      ),
-    },
 
-    // CLOUD VPS PRODUCTS
+    // GAME PROXIES & NETWORK SHIELDS
     {
-      id: 'vps-starter',
-      category: 'vps',
-      name: 'Ryzen 9 Cloud VPS',
-      cpu: '8 Dedicated Cores',
-      ram: '32GB DDR5 ECC',
-      storage: '200GB Gen4 NVMe',
-      region: 'Global Anycast',
-      price: 48.66,
-      badge: 'FAST PROVISIONING',
-      features: ['KVM Virtualization Architecture', 'Full Root Access & Custom ISO', 'Weekly Automated Snapshots'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <rect x="15" y="25" width="70" height="18" rx="4" />
-          <rect x="15" y="55" width="70" height="18" rx="4" />
-        </svg>
-      ),
-    },
-    {
-      id: 'vps-pro',
-      category: 'vps',
-      name: 'High-RAM Compute VPS',
-      cpu: '1 Dedicated Cores',
-      ram: '1GB DDR5 ECC',
-      storage: '10GB Gen4 NVMe',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 4.05,
-      badge: 'BEST VALUE',
-      features: ['Dedicated IPv4 + /64 IPv6 Subnet', '3.2 Tbps DDoS Scrubbing Included', 'Custom BGP Route Injection'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <circle cx="50" cy="50" r="30" />
-        </svg>
-      ),
-    },
-    {
-      id: 'vps-ultra',
-      category: 'vps',
-      name: 'Ultra NVMe VPS',
-      cpu: '10 Dedicated Cores',
-      ram: '32GB DDR5 ECC',
-      storage: '60GB RAID-1 NVMe',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 28.38,
-      badge: 'HEAVY WORKLOAD',
-      features: ['20 Gbps Unmetered Port Speed', 'Hot Standby Replica Node', 'REST API Control Integration'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <polygon points="15,20 85,20 50,80" />
-        </svg>
-      ),
-    },
-
-    // DEDICATED SERVERS
-    {
-      id: 'dedi-ryzen',
-      category: 'dedicated',
-      name: 'AMD Ryzen 9950X Bare Metal',
-      cpu: '16 Cores / 32 Threads',
-      ram: '64GB DDR5 ECC',
-      storage: '2x 1TB NVMe RAID',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 162.19,
-      badge: 'BARE METAL',
-      features: ['100% Dedicated Unshared Hardware', 'IPMI / Out-of-band KVM Over IP', 'Custom Network BGP Peering'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <rect x="20" y="20" width="60" height="60" rx="4" />
-        </svg>
-      ),
-    },
-    {
-      id: 'dedi-epyc',
-      category: 'dedicated',
-      name: 'Dual AMD EPYC Monster',
-      cpu: '64 Cores / 128 Threads',
-      ram: '256GB DDR5 ECC',
-      storage: '4x 2TB Gen4 RAID-10',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 405.47,
-      badge: 'ENTERPRISE',
-      features: ['Extreme Multi-Thread Throughput', '25 Gbps Dual Uplink Redundancy', '15-Minute Guaranteed Hardware SLA'],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <circle cx="35" cy="50" r="20" />
-          <circle cx="65" cy="50" r="20" />
-        </svg>
-      ),
-    },
-
-    // PROXY HOSTING
-    {
-      id: 'proxy-bgp',
+      id: 'proxy-minecraft',
       category: 'proxy',
-      name: 'Minecraft Proxy',
-      cpu: 'Global Anycast',
-      ram: 'Velocity & BungeeCord',
-      storage: 'DDoS Protected',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 0.80,
+      name: 'Minecraft Velocity & BungeeCord',
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
+      ram: 'High-Efficiency Allocations',
+      storage: 'Enterprise NVMe',
+      region: 'India & Bangladesh',
+      price: 0.99,
       badge: 'LOW LATENCY',
-      features: ['Velocity & BungeeCord Ready', 'Layer 3/4 Anti-DDoS Protection', 'Sub-1ms Anycast Edge Routing'],
+      features: [
+        'Velocity & BungeeCord Hub Ready',
+        'Player Routing & Cross-Server Bridge',
+        'L3/L4/L7 Protocol Protection',
+        'Sub-Millisecond Edge Peering',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <path d="M 50,15 L 85,35 L 85,65 L 50,85 L 15,65 L 15,35 Z" />
@@ -240,16 +189,21 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       ),
     },
     {
-      id: 'proxy-game',
+      id: 'proxy-game-shield',
       category: 'proxy',
       name: 'L7 Game Firewall Proxy',
-      cpu: 'Packet Filter Core',
-      ram: 'Zero-Copy Engine',
-      storage: 'Rule Engine',
-      region: 'Bangladesh | India | Singapore | Frankfurt | USA',
-      price: 10.00,
-      badge: 'CUSTOM RULES',
-      features: ['UDP Protocol Handshake Validation', 'Waterwall Packet Inspector', 'Real-Time Attack Analytics'],
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
+      ram: 'Dedicated Filter Core',
+      storage: 'Rule Engine Storage',
+      region: 'India & Bangladesh',
+      price: 9.99,
+      badge: 'ANTI-DDOS SHIELD',
+      features: [
+        'UDP Protocol Handshake Validation',
+        'Payload Malformation Scrubbing',
+        'Real-Time Traffic Inspection',
+        'Guaranteed Legitimate Player Passes',
+      ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
           <polygon points="50,10 90,90 10,90" />
@@ -258,35 +212,33 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
     },
   ], []);
 
-  const filteredProducts = useMemo(() => products.filter((p) => p.category === activeCategory), [products, activeCategory]);
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === 'all') return products;
+    return products.filter((p) => p.category === activeCategory);
+  }, [products, activeCategory]);
 
   return (
     <section id="game-hosting" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
-      {/* Anchor targets for smooth navbar scrolling */}
-      <div id="cloud-vps" className="absolute -top-24" />
-      <div id="dedicated" className="absolute -top-24" />
-      <div id="proxy-hosting" className="absolute -top-24" />
-
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
         <div className="liquid-glass inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-white/20 text-xs font-mono text-[#A3E854]">
           <Gamepad2 className="w-3.5 h-3.5" />
-          <span>SENX CLOUD INFRASTRUCTURE CATALOG</span>
+          <span>GAME SERVER INFRASTRUCTURE</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-black font-inter tracking-tight text-[#F7F7F7]">
-          Ultra-Performance <span className="text-[#A3E854]">Product Suite.</span>
+          Game Server <span className="text-[#A3E854]">Catalog.</span>
         </h2>
         <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
-          Powered by high-frequency AMD Ryzen 9 5950X cores, Gen4 NVMe arrays, and 3.2 Tbps BGP DDoS mitigation.
+          Ultra-low latency game servers powered by AMD Ryzen 7 5700G & Intel Xeon hardware in India and Bangladesh with direct local BDIX peering.
         </p>
 
         {/* Product Category Selector Tabs */}
         <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           {[
-            { id: 'game', label: 'Game Hosting', icon: Gamepad2 },
-            { id: 'vps', label: 'Cloud VPS', icon: Layers },
-            { id: 'dedicated', label: 'Dedicated Servers', icon: Server },
-            { id: 'proxy', label: 'Proxy Hosting', icon: Shield },
+            { id: 'all', label: 'All Products', icon: Sparkles },
+            { id: 'minecraft', label: 'Minecraft Servers', icon: Gamepad2 },
+            { id: 'games', label: 'Multiplayer Games', icon: Gamepad2 },
+            { id: 'proxy', label: 'Game Proxies & Shields', icon: Shield },
           ].map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;
@@ -294,7 +246,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id as any)}
-                className={`px-4 sm:px-5 py-2.5 rounded-full border text-xs font-mono font-bold uppercase transition-all duration-300 flex items-center space-x-2 cursor-pointer ${
+                className={`px-4 sm:px-5 py-2.5 min-h-[44px] rounded-full border text-xs font-mono font-bold uppercase transition-all duration-200 flex items-center space-x-2 cursor-pointer ${
                   isActive
                     ? 'bg-[#A3E854] text-[#050606] border-[#A3E854] shadow-lg shadow-[#A3E854]/25 scale-105'
                     : 'bg-white/5 border-white/10 text-white/70 hover:text-white hover:border-white/30 hover:bg-white/10'
@@ -315,18 +267,18 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
         >
           {filteredProducts.map((product) => (
             <motion.div
               key={product.id}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
               className="liquid-glass-card p-5 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/15 hover:border-[#A3E854]/40 relative overflow-hidden group flex flex-col justify-between"
             >
               {/* Background Product Silhouette Artwork */}
-              <div className="absolute -right-6 -bottom-6 w-48 h-48 pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity duration-500">
+              <div className="absolute -right-6 -bottom-6 w-48 h-48 pointer-events-none opacity-20 group-hover:opacity-35 transition-opacity duration-300">
                 {product.silhouetteSvg}
               </div>
 
@@ -378,13 +330,12 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
                   </span>
                 </div>
 
-                {/* Aceternity UI Magnetic Button for Product Card CTA */}
                 <MagneticButton
                   onClick={() => onSelectGame(product.name)}
                   variant="lime"
-                  className="w-full sm:w-auto min-h-[52px] sm:min-h-0 px-5 py-3 sm:py-2.5 text-xs font-bold font-inter tracking-wide uppercase flex items-center justify-center space-x-1.5"
+                  className="w-full sm:w-auto min-h-[50px] sm:min-h-0 px-5 py-3 sm:py-2.5 text-xs font-bold font-inter tracking-wide uppercase flex items-center justify-center space-x-1.5"
                 >
-                  <span>Configure {product.name.split(' ')[0]}</span>
+                  <span>Deploy {product.name.split(' ')[0]}</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </MagneticButton>
               </div>

@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Check, Zap, Sparkles, ArrowRight } from 'lucide-react';
 import { MagneticButton } from './MagneticButton';
 import { useCurrency } from '../context/CurrencyContext';
+import { INFRASTRUCTURE_CONFIG } from '../data/infrastructure';
 
 interface PricingPlan {
   id: string;
@@ -27,67 +28,67 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
   const plans: PricingPlan[] = useMemo(() => [
     {
       id: 'starter',
-      name: 'Starter Node BD',
-      tagline: 'Ideal for Minecraft server Bangladesh, Discord bots, and lightweight dev environments.',
-      monthlyPrice: 9,
-      annualPrice: 7,
+      name: 'Starter Game Node',
+      tagline: 'Ideal for vanilla and lightweight modded Minecraft servers in Bangladesh & India.',
+      monthlyPrice: 5,
+      annualPrice: 4,
       specs: {
-        cpu: '2 Dedicated Threads (Ryzen 9 7950X)',
-        ram: '4 GB DDR5 RAM',
-        storage: '50 GB Gen4 NVMe',
-        bandwidth: '1 Gbps Unmetered BDIX',
+        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} (2 Dedicated Threads)`,
+        ram: '4 GB High-Speed RAM',
+        storage: '50 GB Enterprise NVMe',
+        bandwidth: 'BDIX & Local Transit',
       },
       features: [
         'Instant Sub-60s Auto Setup',
         'Pterodactyl Game Control Panel',
-        '12 Tbps Anti-DDoS Shield',
-        'BDIX Local Peering (<10ms Ping)',
-        '1 Automated Daily S3 Backup',
+        'Inline Game Anti-DDoS Mitigation',
+        'BDIX Local Peering (<10ms in BD)',
+        '1 Automated Daily S3 Backup Slot',
         '24/7 Discord & Ticket Support',
       ],
     },
     {
       id: 'pro',
-      name: 'Pro Game Node BD',
-      tagline: 'Most popular for high-player Minecraft BD, Palworld, FiveM & BDIX VPS.',
-      monthlyPrice: 24,
-      annualPrice: 19,
+      name: 'Pro Game Community Node',
+      tagline: 'Most popular for active Minecraft SMP networks, Palworld, FiveM & Rust communities.',
+      monthlyPrice: 15,
+      annualPrice: 12,
       recommended: true,
       specs: {
-        cpu: '4 Dedicated Cores (Ryzen 9 7950X)',
-        ram: '16 GB DDR5 RAM',
-        storage: '150 GB Gen4 NVMe',
-        bandwidth: '10 Gbps Unmetered BDIX',
+        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} (4 High-Clock Cores)`,
+        ram: '12 GB High-Speed RAM',
+        storage: '120 GB Enterprise NVMe',
+        bandwidth: 'High-Speed BDIX & Local Transit',
       },
       features: [
-        'Everything in Starter Node',
-        'Dedicated Ryzen 9 7950X Physical Cores',
-        'Sub-10ms Ping across Bangladesh ISPs',
-        '3 Automated Hourly S3 Snapshots',
+        'Everything in Starter Game Node',
+        'High Single-Thread Clock Speeds',
+        '20.0 TPS Main Game Loop Stability',
+        '3 Automated S3 Snapshot Slots',
         'Priority 24/7/365 Engineer Support',
-        'Free Dedicated IPv4 Address',
         'Custom Domain & Sub-domain Manager',
+        'One-Click Modpack & Plugin Installers',
       ],
     },
     {
       id: 'enterprise',
-      name: 'Enterprise Dedicated BD',
-      tagline: 'Bare-metal performance for large gaming networks, BDIX VPS clusters, and corporate workloads.',
-      monthlyPrice: 79,
-      annualPrice: 65,
+      name: 'Enterprise Game Network Node',
+      tagline: 'High-density multi-server game networks, Bungee/Velocity clusters, and heavy modded servers.',
+      monthlyPrice: 39,
+      annualPrice: 32,
       specs: {
-        cpu: '16 Cores / 32 Threads (AMD EPYC)',
-        ram: '64 GB DDR5 ECC RAM',
-        storage: '1 TB NVMe RAID-1',
-        bandwidth: '20 Gbps Unmetered',
+        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} (Enterprise Compute)`,
+        ram: '32 GB ECC RAM',
+        storage: '300 GB NVMe RAID',
+        bandwidth: 'High-Speed Local Peering',
       },
       features: [
-        'Full Root Access & Custom Hypervisor',
-        'Dedicated 3.2 Tbps Magic Transit DDoS Filter',
-        'Unlimited S3 Backups & Continuous Mirroring',
-        'Dedicated Account Manager & 15-min SLA',
-        'Multi-region Hot Standby Failover',
-        'Custom BGP IP Route Announcement',
+        'Multi-Server BungeeCord / Velocity Ready',
+        'Inline Game-Specific Protocol Scrubbing',
+        'Unlimited S3 Backups & Archive Access',
+        'Dedicated Support Assistance',
+        'Managed MySQL Databases Included',
+        'Full SFTP Access & Custom JAR Support',
       ],
     },
   ], []);
@@ -98,14 +99,14 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
       <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3 sm:space-y-4">
         <div className="liquid-glass inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border border-white/20 text-xs font-mono text-[#A3E854]">
           <Zap className="w-3.5 h-3.5" />
-          <span>TRANSPARENT ENTERPRISE PRICING</span>
+          <span>TRANSPARENT GAME SERVER PRICING</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-black font-inter tracking-tight text-[#F7F7F7]">
           Predictable Pricing.<br />
           <span className="text-[#A3E854]">Zero Hidden Fees.</span>
         </h2>
         <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
-          Scale effortlessly from a single game server to global multi-region cloud clusters.
+          Scale effortlessly from a private survival server to large multiplayer networks in Bangladesh and India.
         </p>
 
         {/* Annual / Monthly Billing Toggle */}
@@ -116,6 +117,7 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
           <button
             onClick={() => setIsAnnual(!isAnnual)}
             className="w-14 h-8 rounded-full bg-white/10 border border-white/20 p-1 transition-colors relative cursor-pointer"
+            aria-label="Toggle annual billing"
           >
             <div
               className={`w-6 h-6 rounded-full bg-[#A3E854] transition-transform ${
@@ -139,82 +141,80 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
           return (
             <motion.div
               key={plan.id}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
-              className={`liquid-glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border relative flex flex-col justify-between transition-all ${
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className={`rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative transition-all ${
                 plan.recommended
-                  ? 'border-[#A3E854] shadow-2xl shadow-[#A3E854]/20 lg:-translate-y-2'
-                  : 'border-white/15 hover:border-white/30'
+                  ? 'bg-[#111411]/90 border-2 border-[#A3E854] shadow-[0_0_35px_rgba(163,232,84,0.12)]'
+                  : 'bg-[#111313]/70 border border-white/15 hover:border-white/30'
               }`}
             >
               {plan.recommended && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-[#A3E854] text-[#050606] font-mono text-[9px] sm:text-[10px] font-black uppercase tracking-wider shadow-lg flex items-center space-x-1 whitespace-nowrap">
-                  <Sparkles className="w-3 h-3 fill-current" />
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#A3E854] text-[#050606] text-[10px] font-mono font-black uppercase tracking-wider flex items-center space-x-1.5 shadow-lg">
+                  <Sparkles className="w-3 h-3" />
                   <span>MOST POPULAR CHOICE</span>
                 </div>
               )}
 
               <div>
-                <div className="mb-5 sm:mb-6 mt-1 sm:mt-0">
+                <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl sm:text-2xl font-black font-inter text-[#F7F7F7]">{plan.name}</h3>
-                  <p className="text-xs font-inter text-white/60 mt-1 min-h-[32px] leading-relaxed">{plan.tagline}</p>
                 </div>
+                <p className="text-xs font-inter text-white/60 mb-6 leading-relaxed min-h-[36px]">
+                  {plan.tagline}
+                </p>
 
-                {/* Price Display */}
-                <div className="mb-5 sm:mb-6 pb-5 sm:pb-6 border-b border-white/10">
-                  <div className="flex items-baseline space-x-1">
-                    <span className="text-4xl sm:text-5xl font-black font-inter text-[#A3E854]">
-                      {formatPrice(price)}
-                    </span>
-                    <span className="text-xs sm:text-sm font-mono text-white/50">/month</span>
-                  </div>
+                {/* Price block */}
+                <div className="flex items-baseline space-x-1 mb-6 pb-6 border-b border-white/10">
+                  <span className="text-3xl sm:text-4xl font-black font-inter text-[#A3E854]">
+                    {formatPrice(price)}
+                  </span>
+                  <span className="text-xs font-mono text-white/50">/month</span>
                   {isAnnual && (
-                    <span className="text-[10px] font-mono text-[#A3E854] block mt-1">
-                      Billed annually ({formatPrice(price * 12)}/yr)
+                    <span className="ml-2 text-[10px] font-mono text-[#A3E854] bg-[#A3E854]/10 px-2 py-0.5 rounded border border-[#A3E854]/20">
+                      Billed Annually
                     </span>
                   )}
                 </div>
 
-                {/* Specs Box */}
-                <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-black/40 border border-white/10 font-mono text-xs space-y-2 mb-5 sm:mb-6">
-                  <div className="flex items-center justify-between text-white/80 gap-2">
-                    <span className="text-white/40">CPU:</span>
-                    <span className="font-bold text-[#A3E854] truncate text-right">{plan.specs.cpu}</span>
+                {/* Hardware Specs Checklist */}
+                <div className="space-y-2.5 mb-6 text-xs font-mono">
+                  <div className="flex items-center text-white/80">
+                    <span className="text-white/40 w-24 shrink-0">CPU:</span>
+                    <span className="font-semibold text-[#F7F7F7] truncate">{plan.specs.cpu}</span>
                   </div>
-                  <div className="flex items-center justify-between text-white/80 gap-2">
-                    <span className="text-white/40">RAM:</span>
-                    <span className="truncate text-right">{plan.specs.ram}</span>
+                  <div className="flex items-center text-white/80">
+                    <span className="text-white/40 w-24 shrink-0">RAM:</span>
+                    <span className="font-semibold text-[#F7F7F7]">{plan.specs.ram}</span>
                   </div>
-                  <div className="flex items-center justify-between text-white/80 gap-2">
-                    <span className="text-white/40">Storage:</span>
-                    <span className="truncate text-right">{plan.specs.storage}</span>
+                  <div className="flex items-center text-white/80">
+                    <span className="text-white/40 w-24 shrink-0">Storage:</span>
+                    <span className="font-semibold text-[#F7F7F7]">{plan.specs.storage}</span>
                   </div>
-                  <div className="flex items-center justify-between text-white/80 gap-2">
-                    <span className="text-white/40">Network:</span>
-                    <span className="truncate text-right">{plan.specs.bandwidth}</span>
+                  <div className="flex items-center text-white/80">
+                    <span className="text-white/40 w-24 shrink-0">Network:</span>
+                    <span className="font-semibold text-[#A3E854]">{plan.specs.bandwidth}</span>
                   </div>
                 </div>
 
-                {/* Feature Checklist */}
-                <div className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-8">
-                  {plan.features.map((feat, i) => (
-                    <div key={i} className="flex items-center space-x-2.5 sm:space-x-3 text-xs font-inter text-white/80">
-                      <div className="p-0.5 rounded-full bg-[#A3E854]/20 text-[#A3E854] shrink-0">
-                        <Check className="w-3.5 h-3.5" />
-                      </div>
-                      <span>{feat}</span>
+                {/* Features List */}
+                <div className="space-y-2.5 mb-8 pt-4 border-t border-white/10">
+                  {plan.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center space-x-2 text-xs font-inter text-white/70">
+                      <Check className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
+                      <span>{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Magnetic Action Button */}
+              {/* Order CTA Button */}
               <MagneticButton
                 onClick={() => onSelectPlan(plan.name)}
                 variant={plan.recommended ? 'lime' : 'glass'}
-                className="w-full min-h-[52px] py-3.5 text-xs font-black uppercase tracking-wider flex items-center justify-center space-x-2"
+                className="w-full min-h-[50px] py-3.5 text-xs font-black uppercase tracking-wider justify-center space-x-2"
               >
-                <span>Deploy {plan.name}</span>
+                <span>Deploy {plan.name.split(' ')[0]} Server</span>
                 <ArrowRight className="w-4 h-4" />
               </MagneticButton>
             </motion.div>

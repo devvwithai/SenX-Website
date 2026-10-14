@@ -235,8 +235,8 @@ export const SEOLandingPage: React.FC<SEOLandingPageProps> = ({ data, onNavigate
             <thead className="bg-white/5 font-mono uppercase text-[#A3E854] border-b border-white/10">
               <tr>
                 <th className="p-4 font-bold">Feature / Metric</th>
-                <th className="p-4 font-bold text-[#A3E854] bg-[#A3E854]/10">SenX Cloud Bangladesh</th>
-                <th className="p-4 font-bold text-white/60">Generic Singapore Host</th>
+                <th className="p-4 font-bold text-[#A3E854] bg-[#A3E854]/10">SenX Cloud (BD & IN)</th>
+                <th className="p-4 font-bold text-white/60">Distant International Host</th>
                 <th className="p-4 font-bold text-white/60">Traditional Local Host</th>
               </tr>
             </thead>
@@ -245,8 +245,8 @@ export const SEOLandingPage: React.FC<SEOLandingPageProps> = ({ data, onNavigate
                 <tr key={idx} className="hover:bg-white/5 transition-colors">
                   <td className="p-4 font-semibold text-white font-mono">{row.feature}</td>
                   <td className="p-4 font-bold text-[#A3E854] bg-[#A3E854]/5">{row.senxCloud}</td>
-                  <td className="p-4 text-white/50">{row.genericSingapore}</td>
-                  <td className="p-4 text-white/50">{row.traditionalBd}</td>
+                  <td className="p-4 text-white/50">{row.internationalHost}</td>
+                  <td className="p-4 text-white/50">{row.traditionalHost}</td>
                 </tr>
               ))}
             </tbody>
