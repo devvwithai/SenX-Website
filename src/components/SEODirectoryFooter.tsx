@@ -1,4 +1,5 @@
 import React from 'react';
+import { Gamepad2 } from 'lucide-react';
 import { MAIN_LANDING_PAGES, CITY_LOCATION_PAGES, KNOWLEDGE_ARTICLES } from '../data/seoData';
 
 interface SEODirectoryFooterProps {
@@ -10,7 +11,8 @@ export const SEODirectoryFooter: React.FC<SEODirectoryFooterProps> = ({ onNaviga
     <section className="relative z-20 border-t border-white/10 bg-[#080909] py-10 px-4 sm:px-6 lg:px-8 font-inter text-white">
       <div className="max-w-7xl mx-auto">
         <h3 className="text-sm font-mono uppercase tracking-wider text-[#A3E854] font-bold mb-6 flex items-center space-x-2">
-          <span>🎮 SenX Cloud Game Server & Regional Directory</span>
+          <Gamepad2 className="w-4 h-4 text-[#A3E854] shrink-0" />
+          <span>SenX Cloud Game Server & Regional Directory</span>
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-inter text-white/60">

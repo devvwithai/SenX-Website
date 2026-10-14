@@ -35,8 +35,8 @@ export const FAQSection: React.FC = React.memo(() => {
       id: 'faq-3',
       category: 'specs',
       question: 'What hardware processors power SenX Cloud game nodes?',
-      answer: `Our game server infrastructure is powered by verified enterprise hardware: ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} processors delivering high single-thread clock speeds for Minecraft tick execution, and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} multi-core processors for high-density multi-world networks, backed by Enterprise NVMe SSD storage.`,
-      highlights: [INFRASTRUCTURE_CONFIG.supportedCpus[0].model, INFRASTRUCTURE_CONFIG.supportedCpus[1].model, 'Enterprise NVMe SSD RAID', 'High-Speed ECC Memory'],
+      answer: 'Our game server infrastructure is powered by verified enterprise hardware: in Bangladesh (Dhaka BDIX), nodes run on AMD Ryzen 7 5700G high-clock processors and Intel Xeon E5-2697 v4 multi-core processors. In India (Mumbai Central), nodes run on Intel Xeon Platinum 8269CY enterprise processors, backed across all locations by Enterprise NVMe SSD storage.',
+      highlights: ['AMD Ryzen 7 5700G (Bangladesh)', 'Intel Xeon E5-2697 v4 (Bangladesh)', 'Intel Xeon Platinum 8269CY (India)', 'Enterprise NVMe SSD RAID'],
     },
     {
       id: 'faq-4',
@@ -56,8 +56,8 @@ export const FAQSection: React.FC = React.memo(() => {
       id: 'faq-6',
       category: 'specs',
       question: 'Which control panel is provided for game management?',
-      answer: 'Every game server includes our customized Pterodactyl Game Wings panel. You get full access to live websocket console logs, an intuitive web file manager, full SFTP access, one-click modpack and plugin installers, automated scheduled backups, and custom sub-domain management.',
-      highlights: ['Customized Pterodactyl Panel', 'One-Click Mod & Plugin Installers', 'Live Terminal Console', 'Automated S3 Backups'],
+      answer: 'Every game server includes our customized Pterodactyl Game Wings panel. You get full access to live websocket console logs, an intuitive web file manager, full SFTP access, one-click modpack and plugin installers, daily cloud backups, and custom sub-domain management.',
+      highlights: ['Customized Pterodactyl Panel', 'One-Click Mod & Plugin Installers', 'Live Terminal Console', 'Daily Cloud Backup'],
     },
     {
       id: 'faq-7',

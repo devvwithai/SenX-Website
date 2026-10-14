@@ -5,15 +5,15 @@ export type CurrencyCode = 'USD' | 'BDT' | 'INR';
 export interface CurrencyConfig {
   code: CurrencyCode;
   symbol: string;
-  flag: string;
+  countryCode: 'US' | 'BD' | 'IN';
   name: string;
   rate: number;
 }
 
 export const CURRENCIES: Record<CurrencyCode, CurrencyConfig> = {
-  USD: { code: 'USD', symbol: '$', flag: '🇺🇸', name: 'US Dollar', rate: 1 },
-  BDT: { code: 'BDT', symbol: '৳', flag: '🇧🇩', name: 'Bangladeshi Taka', rate: 118 },
-  INR: { code: 'INR', symbol: '₹', flag: '🇮🇳', name: 'Indian Rupee', rate: 83.5 },
+  USD: { code: 'USD', symbol: '$', countryCode: 'US', name: 'US Dollar', rate: 1 },
+  BDT: { code: 'BDT', symbol: '৳', countryCode: 'BD', name: 'Bangladeshi Taka', rate: 118 },
+  INR: { code: 'INR', symbol: '₹', countryCode: 'IN', name: 'Indian Rupee', rate: 83.5 },
 };
 
 interface CurrencyContextType {

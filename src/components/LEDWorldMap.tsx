@@ -57,12 +57,32 @@ for (let r = 0; r < ROWS; r++) {
   }
 }
 
+// Crisp vector flag badges for consistent rendering across platforms
+const LocationFlag: React.FC<{ id: string; className?: string }> = ({ id, className = "w-4 h-3" }) => {
+  if (id === 'bangladesh') {
+    return (
+      <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="Bangladesh Flag">
+        <rect width="20" height="12" fill="#006a4e" />
+        <circle cx="9" cy="6" r="4" fill="#f42a41" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="India Flag">
+      <rect width="20" height="4" y="0" fill="#ff9933" />
+      <rect width="20" height="4" y="4" fill="#ffffff" />
+      <rect width="20" height="4" y="8" fill="#138808" />
+      <circle cx="10" cy="6" r="1.5" fill="#000080" />
+    </svg>
+  );
+};
+
 export const LEDWorldMap: React.FC = React.memo(() => {
   // Two Active Game Hosting Datacenter Locations: Bangladesh & India
   const locations: DatacenterLocation[] = [
     {
       id: 'bangladesh',
-      flag: '🇧🇩',
+      flag: 'BD',
       shortCode: 'BD-DHK',
       name: 'Bangladesh (Dhaka BDIX Edge)',
       city: 'Dhaka',
@@ -77,14 +97,14 @@ export const LEDWorldMap: React.FC = React.memo(() => {
     },
     {
       id: 'india',
-      flag: '🇮🇳',
+      flag: 'IN',
       shortCode: 'IN-BOM',
       name: 'India (Mumbai Central Facility)',
       city: 'Mumbai',
       country: 'India',
       lat: 19.0760,
       lng: 72.8777,
-      cpu: 'AMD Ryzen 7 5700G / Intel Xeon E5-2697 v4',
+      cpu: 'Intel Xeon Platinum 8269CY',
       storage: 'Enterprise NVMe SSD RAID',
       network: 'Tier-3 National Transit',
       status: 'Online',
@@ -294,8 +314,9 @@ export const LEDWorldMap: React.FC = React.memo(() => {
                     </div>
 
                     {/* Permanent Location Tag Label */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-0.5 rounded bg-black/80 border border-white/20 text-[10px] font-mono text-white whitespace-nowrap">
-                      {loc.flag} {loc.city}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-2 py-0.5 rounded bg-black/80 border border-white/20 text-[10px] font-mono text-white whitespace-nowrap flex items-center gap-1.5">
+                      <LocationFlag id={loc.id} />
+                      <span>{loc.city}</span>
                     </div>
                   </div>
                 );
@@ -325,7 +346,7 @@ export const LEDWorldMap: React.FC = React.memo(() => {
                     : 'bg-white/[0.04] text-white/70 border-white/10 hover:border-white/30 hover:text-white'
                 }`}
               >
-                <span>{loc.flag}</span>
+                <LocationFlag id={loc.id} />
                 <span>{loc.name}</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-black/30 font-normal">
                   {loc.shortCode}
@@ -352,8 +373,8 @@ export const LEDWorldMap: React.FC = React.memo(() => {
                 
                 {/* Datacenter Header */}
                 <div className="sm:col-span-2 lg:col-span-2 flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#A3E854]/10 border border-[#A3E854]/30 flex items-center justify-center text-xl shrink-0">
-                    {hoveredLocation.flag}
+                  <div className="w-10 h-10 rounded-xl bg-[#A3E854]/10 border border-[#A3E854]/30 flex items-center justify-center shrink-0">
+                    <LocationFlag id={hoveredLocation.id} className="w-6 h-4" />
                   </div>
                   <div>
                     <h4 className="text-sm font-bold font-inter text-[#F7F7F7]">

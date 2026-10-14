@@ -72,6 +72,7 @@ export const SocialProof: React.FC = React.memo(() => {
     { text: 'SUB-60s AUTOMATED SETUP', icon: <Zap className="w-3.5 h-3.5" />, highlight: true },
     { text: 'AMD RYZEN 7 5700G POWERED', icon: <Cpu className="w-3.5 h-3.5" /> },
     { text: 'INTEL XEON E5-2697 V4 CLUSTERS', icon: <Cpu className="w-3.5 h-3.5" />, highlight: true },
+    { text: 'INTEL XEON PLATINUM 8269CY (INDIA)', icon: <Cpu className="w-3.5 h-3.5" /> },
     { text: 'ENTERPRISE NVMe SSD STORAGE', icon: <HardDrive className="w-3.5 h-3.5" /> },
     { text: 'GAME-OPTIMIZED DDOS FILTERING', icon: <ShieldCheck className="w-3.5 h-3.5" />, highlight: true },
   ];
@@ -82,7 +83,7 @@ export const SocialProof: React.FC = React.memo(() => {
     { text: 'PALWORLD & RUST DEDICATED SLOTS', icon: <Server className="w-3.5 h-3.5" /> },
     { text: 'FIVEM TXADMIN INTEGRATION', icon: <Activity className="w-3.5 h-3.5" />, highlight: true },
     { text: 'ONE-CLICK MODPACK INSTALLERS', icon: <Zap className="w-3.5 h-3.5" /> },
-    { text: 'AUTOMATED SCHEDULED S3 BACKUPS', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
+    { text: 'DAILY CLOUD BACKUP SLOTS', icon: <CheckCircle2 className="w-3.5 h-3.5" /> },
     { text: '24/7 TICKET & DISCORD SUPPORT', icon: <CheckCircle2 className="w-3.5 h-3.5" />, highlight: true },
   ];
 

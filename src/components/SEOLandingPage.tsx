@@ -3,7 +3,7 @@ import {
   Zap, Cpu, ShieldCheck, CreditCard, Terminal, Globe, HardDrive, 
   Server, Sliders, Gauge, Shield, Radio, Box, CheckCircle, 
   DollarSign, Users, Code, Headphones, ArrowLeft, Check, 
-  ExternalLink, ChevronRight, Star, Sparkles, Layers 
+  ExternalLink, ChevronRight, Star, Sparkles, Layers, BookOpen 
 } from 'lucide-react';
 import { SEOLandingPageData } from '../data/seoData';
 import { useCurrency } from '../context/CurrencyContext';
@@ -156,8 +156,9 @@ export const SEOLandingPage: React.FC<SEOLandingPageProps> = ({ data, onNavigate
               Currently showing prices in <span className="text-[#A3E854] font-bold">{currencyConfig.code} ({currencyConfig.symbol})</span>
             </p>
           </div>
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#A3E854]/10 text-[#A3E854] border border-[#A3E854]/20 w-fit">
-            ⚡ Unmetered BDIX Traffic
+          <span className="text-xs font-mono px-3 py-1 rounded-full bg-[#A3E854]/10 text-[#A3E854] border border-[#A3E854]/20 w-fit inline-flex items-center space-x-1.5">
+            <Zap className="w-3.5 h-3.5" />
+            <span>Unmetered BDIX Traffic</span>
           </span>
         </div>
 
@@ -321,9 +322,10 @@ export const SEOLandingPage: React.FC<SEOLandingPageProps> = ({ data, onNavigate
           ))}
           <button
             onClick={() => onNavigate('/knowledgebase')}
-            className="px-3 py-1.5 rounded-lg bg-[#A3E854]/20 text-xs font-mono text-[#A3E854] border border-[#A3E854]/40 hover:bg-[#A3E854]/30 transition-all cursor-pointer font-bold"
+            className="px-3 py-1.5 rounded-lg bg-[#A3E854]/20 text-xs font-mono text-[#A3E854] border border-[#A3E854]/40 hover:bg-[#A3E854]/30 transition-all cursor-pointer font-bold inline-flex items-center space-x-1.5"
           >
-            📚 Knowledge Center & Tutorials
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>Knowledge Center & Tutorials</span>
           </button>
         </div>
       </section>

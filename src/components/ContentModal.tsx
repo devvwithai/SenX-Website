@@ -137,9 +137,14 @@ export const ContentModal: React.FC<ContentModalProps> = React.memo(({ activeTab
                       onChange={(e) => setRegion(e.target.value)}
                       className="w-full bg-black/60 border border-white/10 rounded-xl px-3.5 py-3 text-xs font-mono text-white focus:outline-none focus:border-[#A3E854] min-h-[44px]"
                     >
-                      <option value="Bangladesh (Dhaka BDIX Edge)">🇧🇩 Bangladesh (Dhaka BDIX Edge)</option>
-                      <option value="India (Mumbai Central Facility)">🇮🇳 India (Mumbai Central Facility)</option>
+                      <option value="Bangladesh (Dhaka BDIX Edge)">Bangladesh (Dhaka BDIX Edge)</option>
+                      <option value="India (Mumbai Central Facility)">India (Mumbai Central Facility)</option>
                     </select>
+                    <div className="mt-1.5 text-[10px] font-mono text-[#A3E854]">
+                      {region.includes('Bangladesh') 
+                        ? 'Hardware: AMD Ryzen 7 5700G & Intel Xeon E5-2697 v4 (BDIX)'
+                        : 'Hardware: Intel Xeon Platinum 8269CY (Mumbai Facility)'}
+                    </div>
                   </div>
                 </div>
 

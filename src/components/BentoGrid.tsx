@@ -1,6 +1,25 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Cpu, HardDrive, Zap, ShieldAlert, Globe, Server, Code, RefreshCw } from 'lucide-react';
+import { Cpu, HardDrive, Zap, ShieldAlert, Globe, Server, RefreshCw, Check } from 'lucide-react';
+
+const LocationFlag: React.FC<{ country: 'BD' | 'IN'; className?: string }> = ({ country, className = "w-4 h-2.5" }) => {
+  if (country === 'BD') {
+    return (
+      <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="Bangladesh Flag">
+        <rect width="20" height="12" fill="#006a4e" />
+        <circle cx="9" cy="6" r="4" fill="#f42a41" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="India Flag">
+      <rect width="20" height="4" y="0" fill="#ff9933" />
+      <rect width="20" height="4" y="4" fill="#ffffff" />
+      <rect width="20" height="4" y="8" fill="#138808" />
+      <circle cx="10" cy="6" r="1.5" fill="#000080" />
+    </svg>
+  );
+};
 
 export const BentoGrid: React.FC = React.memo(() => {
   return (
@@ -20,7 +39,7 @@ export const BentoGrid: React.FC = React.memo(() => {
         </p>
       </div>
 
-      {/* Bento Grid: 8 Cards */}
+      {/* Bento Grid: 6 Balanced Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
         {/* Card 1: Ryzen Processors (Span 2 cols on lg) */}
@@ -44,7 +63,7 @@ export const BentoGrid: React.FC = React.memo(() => {
               AMD Ryzen 7 5700G & Intel Xeon Nodes
             </h3>
             <p className="text-xs sm:text-sm font-inter text-white/60 leading-relaxed mb-6">
-              High-clock Zen 3 cores for sustained 20.0 TPS Minecraft server tick loops, backed by Intel Xeon E5 multi-core hardware for large community networks.
+              High-clock Zen 3 cores for sustained 20.0 TPS Minecraft server tick loops in Bangladesh (BDIX), backed by Intel Xeon E5 multi-core nodes and Intel Xeon Platinum 8269CY infrastructure in India.
             </p>
           </div>
 
@@ -128,7 +147,7 @@ export const BentoGrid: React.FC = React.memo(() => {
           </div>
         </motion.div>
 
-        {/* Card 4: Free Backups */}
+        {/* Card 4: Daily Cloud Backup */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -141,15 +160,21 @@ export const BentoGrid: React.FC = React.memo(() => {
               <ShieldAlert className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-bold font-inter text-[#F7F7F7] mb-2 group-hover:text-[#A3E854] transition-colors">
-              Automated S3 Backups
+              Daily Cloud Backup
             </h3>
             <p className="text-xs font-inter text-white/60 mb-4">
               Scheduled automated snapshots with 1-click restore. Keep your worlds, plugins, and configurations safely archived offsite.
             </p>
           </div>
-          <div className="p-3 rounded-2xl bg-black/50 border border-white/10 text-[10px] font-mono text-white/70">
-            ✔ Automated S3 Snapshot Slots<br />
-            ✔ 1-Click World Recovery
+          <div className="p-3 rounded-2xl bg-black/50 border border-white/10 text-[10px] font-mono text-white/80 space-y-1.5">
+            <div className="flex items-center space-x-1.5">
+              <Check className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
+              <span>Daily Cloud Backup Slots</span>
+            </div>
+            <div className="flex items-center space-x-1.5">
+              <Check className="w-3.5 h-3.5 text-[#A3E854] shrink-0" />
+              <span>1-Click World Recovery</span>
+            </div>
           </div>
         </motion.div>
 
@@ -177,8 +202,16 @@ export const BentoGrid: React.FC = React.memo(() => {
               Direct peering at the Bangladesh Internet Exchange (BDIX) in Dhaka and Tier-3 facilities in Mumbai provides sub-millisecond local routing.
             </p>
           </div>
-          <div className="p-3 rounded-2xl bg-black/50 border border-white/10 font-mono text-xs text-[#A3E854]">
-            🇧🇩 Bangladesh (Dhaka BDIX) &nbsp;•&nbsp; 🇮🇳 India (Mumbai Central)
+          <div className="p-3 rounded-2xl bg-black/50 border border-white/10 font-mono text-xs text-[#A3E854] flex items-center gap-3 flex-wrap">
+            <span className="flex items-center gap-1.5">
+              <LocationFlag country="BD" />
+              <span>Bangladesh (Dhaka BDIX)</span>
+            </span>
+            <span className="text-white/30">•</span>
+            <span className="flex items-center gap-1.5">
+              <LocationFlag country="IN" />
+              <span>India (Mumbai Central)</span>
+            </span>
           </div>
         </motion.div>
 
@@ -203,30 +236,6 @@ export const BentoGrid: React.FC = React.memo(() => {
           </div>
           <div className="p-3 rounded-2xl bg-black/50 border border-white/10 text-[10px] font-mono text-[#A3E854]">
             [Pterodactyl Wings Customized Engine]
-          </div>
-        </motion.div>
-
-        {/* Card 7: API Access */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="liquid-glass-card p-6 rounded-3xl border border-white/15 hover:border-[#A3E854]/40 transition-all group flex flex-col justify-between"
-        >
-          <div>
-            <div className="p-3 w-fit rounded-2xl bg-[#A3E854]/10 border border-[#A3E854]/30 text-[#A3E854] mb-6">
-              <Code className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold font-inter text-[#F7F7F7] mb-2 group-hover:text-[#A3E854] transition-colors">
-              Game Server Management API
-            </h3>
-            <p className="text-xs font-inter text-white/60 mb-4">
-              Automate game server restarts, backups, and player commands via clean RESTful developer endpoints.
-            </p>
-          </div>
-          <div className="p-3 rounded-2xl bg-black/50 border border-white/10 text-[10px] font-mono text-white/80 overflow-x-auto">
-            <code>POST /api/client/servers/power</code>
           </div>
         </motion.div>
 

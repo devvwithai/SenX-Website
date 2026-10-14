@@ -1,36 +1,31 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { Volume2, VolumeX, Play, Pause } from 'lucide-react';
+import React, { useRef, useEffect, useCallback } from 'react';
 
 export const BackgroundVideo: React.FC = React.memo(() => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const userPausedRef = useRef<boolean>(false);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
 
   // Exclusive background video URL specified by user
   const videoSource = 'https://ztnjuprlvjakecnimtrg.supabase.co/storage/v1/object/sign/SenX-Website/bgvideosenx.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV8zMGE5OGFiOC0xZTg2LTQ0Y2MtYmI4OC0wM2MyNTg5YWViMTMiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTZW5YLVdlYnNpdGUvYmd2aWRlb3NlbngubXA0Iiwic2NvcGUiOiJkb3dubG9hZCIsImlhdCI6MTc4NTAyMDg4MCwiZXhwIjoxODE2NTU2ODgwfQ.i4f1YUNcpv_Zq5cACEjXGH86BnQwYbYC7tjQFhOrdl0';
 
   const attemptPlay = useCallback(() => {
     const video = videoRef.current;
-    if (!video || userPausedRef.current) return;
+    if (!video) return;
 
-    // Respect user data saver preference
+    // Respect user data saver and reduced-motion preferences
     const nav = navigator as any;
     if (nav?.connection?.saveData) {
-      setIsPlaying(false);
+      return;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       return;
     }
 
     video.muted = true;
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch(() => {
-          setIsPlaying(false);
-        });
+      playPromise.catch(() => {
+        // Autoplay policy prevented playback, video will remain quiet and idle
+      });
     }
   }, []);
 
@@ -40,13 +35,13 @@ export const BackgroundVideo: React.FC = React.memo(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Pause video when document is hidden to conserve battery & CPU
+    // Pause video when document is hidden to conserve battery & GPU
     const handleVisibilityChange = () => {
       if (document.hidden) {
         if (videoRef.current && !videoRef.current.paused) {
           videoRef.current.pause();
         }
-      } else if (!userPausedRef.current) {
+      } else {
         attemptPlay();
       }
     };
@@ -60,38 +55,15 @@ export const BackgroundVideo: React.FC = React.memo(() => {
     };
   }, [attemptPlay]);
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      userPausedRef.current = true;
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      userPausedRef.current = false;
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        attemptPlay();
-      });
-    }
-  };
-
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    const nextMuteState = !isMuted;
-    videoRef.current.muted = nextMuteState;
-    setIsMuted(nextMuteState);
-  };
-
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none select-none z-0 bg-[#050606]">
-      {/* 1. Video Container with User Specified Video Source */}
+      {/* 1. Video Container with User Specified Video Source - Always Muted & Ambient */}
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <video
           ref={videoRef}
           autoPlay
           loop
-          muted={isMuted}
+          muted
           playsInline
           preload="metadata"
           referrerPolicy="no-referrer"
@@ -121,27 +93,6 @@ export const BackgroundVideo: React.FC = React.memo(() => {
 
       {/* Soft Ambient Lime Glow in Upper Core */}
       <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#A3E854]/10 rounded-full blur-[80px] pointer-events-none z-10" />
-
-      {/* Video Control Buttons Badge */}
-      <div className="fixed bottom-6 right-6 z-40 pointer-events-auto flex items-center space-x-2 bg-[#111313]/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/[0.08] text-xs text-[#F7F7F7]/70 shadow-xl">
-        <button
-          onClick={togglePlay}
-          className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
-          title={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
-          aria-label={isPlaying ? 'Pause Background Video' : 'Play Background Video'}
-        >
-          {isPlaying ? <Pause className="w-3.5 h-3.5 text-[#A3E854]" /> : <Play className="w-3.5 h-3.5 text-zinc-400" />}
-        </button>
-        <div className="w-[1px] h-3 bg-white/10" />
-        <button
-          onClick={toggleMute}
-          className="p-1 hover:text-[#A3E854] transition-colors focus:outline-none cursor-pointer"
-          title={isMuted ? 'Unmute Background Video' : 'Mute Background Video'}
-          aria-label={isMuted ? 'Unmute Background Video' : 'Mute Background Video'}
-        >
-          {isMuted ? <VolumeX className="w-3.5 h-3.5 text-zinc-400" /> : <Volume2 className="w-3.5 h-3.5 text-[#A3E854]" />}
-        </button>
-      </div>
     </div>
   );
 });

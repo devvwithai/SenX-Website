@@ -31,7 +31,7 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
       document.title = 'SenX Cloud — Game Server Hosting | Minecraft Hosting Bangladesh & India';
       updateMetaTag(
         'description',
-        `High-performance game server hosting in Bangladesh and India. Minecraft, Palworld, Rust, and FiveM servers powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} hardware with direct BDIX peering.`
+        `High-performance game server hosting in Bangladesh and India. Minecraft, Palworld, Rust, and FiveM servers powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model}, ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model}, and ${INFRASTRUCTURE_CONFIG.supportedCpus[2].model} hardware with direct BDIX and regional peering.`
       );
       updateCanonical('https://senxcloud.com/');
     }
@@ -48,7 +48,7 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
         url: 'https://senxcloud.com',
         logo: 'https://senxcloud.com/favicon.svg',
         image: 'https://senxcloud.com/preview-og.png',
-        description: `High-performance game server hosting provider operating in Bangladesh and India. Powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} and ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} hardware, Enterprise NVMe SSD storage, and local BDIX peering.`,
+        description: `High-performance game server hosting provider operating in Bangladesh and India. Powered by ${INFRASTRUCTURE_CONFIG.supportedCpus[0].model}, ${INFRASTRUCTURE_CONFIG.supportedCpus[1].model}, and ${INFRASTRUCTURE_CONFIG.supportedCpus[2].model} hardware, Enterprise NVMe SSD storage, and local BDIX peering.`,
         address: {
           '@type': 'PostalAddress',
           streetAddress: 'Gulshan 2, Dhaka North',
@@ -89,6 +89,7 @@ export const SEOHead: React.FC<SEOHeadProps> = React.memo(({ currentPath = '/' }
           'Pterodactyl Panel',
           INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
           INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
+          INFRASTRUCTURE_CONFIG.supportedCpus[2].model,
         ],
       },
 

@@ -54,7 +54,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
       id: 'minecraft-in',
       category: 'minecraft',
       name: 'Minecraft Hosting India',
-      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[0].model,
+      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[2].model,
       ram: 'High-Speed RAM',
       storage: 'Enterprise NVMe SSD',
       region: 'Mumbai Central Facility',
@@ -64,7 +64,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
         'Optimized for 20.0 TPS Stability',
         'National NIXI Peering Route',
         'One-Click Plugin & World Installer',
-        'Automated Offsite S3 Snapshots',
+        'Daily Cloud Backup',
       ],
       silhouetteSvg: (
         <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
@@ -188,28 +188,6 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
         </svg>
       ),
     },
-    {
-      id: 'proxy-game-shield',
-      category: 'proxy',
-      name: 'L7 Game Firewall Proxy',
-      cpu: INFRASTRUCTURE_CONFIG.supportedCpus[1].model,
-      ram: 'Dedicated Filter Core',
-      storage: 'Rule Engine Storage',
-      region: 'India & Bangladesh',
-      price: 9.99,
-      badge: 'ANTI-DDOS SHIELD',
-      features: [
-        'UDP Protocol Handshake Validation',
-        'Payload Malformation Scrubbing',
-        'Real-Time Traffic Inspection',
-        'Guaranteed Legitimate Player Passes',
-      ],
-      silhouetteSvg: (
-        <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full text-white/5">
-          <polygon points="50,10 90,90 10,90" />
-        </svg>
-      ),
-    },
   ], []);
 
   const filteredProducts = useMemo(() => {
@@ -229,7 +207,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
           Game Server <span className="text-[#A3E854]">Catalog.</span>
         </h2>
         <p className="text-xs sm:text-base font-inter text-white/60 leading-relaxed">
-          Ultra-low latency game servers powered by AMD Ryzen 7 5700G & Intel Xeon hardware in India and Bangladesh with direct local BDIX peering.
+          Ultra-low latency game servers powered by AMD Ryzen 7 5700G & Intel Xeon hardware in Bangladesh and India with direct local BDIX peering.
         </p>
 
         {/* Product Category Selector Tabs */}
@@ -238,7 +216,7 @@ export const GameHostingSection: React.FC<{ onSelectGame: (productName: string) 
             { id: 'all', label: 'All Products', icon: Sparkles },
             { id: 'minecraft', label: 'Minecraft Servers', icon: Gamepad2 },
             { id: 'games', label: 'Multiplayer Games', icon: Gamepad2 },
-            { id: 'proxy', label: 'Game Proxies & Shields', icon: Shield },
+            { id: 'proxy', label: 'Game Server Proxies', icon: Shield },
           ].map((cat) => {
             const Icon = cat.icon;
             const isActive = activeCategory === cat.id;

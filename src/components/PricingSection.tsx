@@ -21,77 +21,105 @@ interface PricingPlan {
   features: string[];
 }
 
+// Crisp SVG flags for location selector
+const LocationFlag: React.FC<{ country: 'BD' | 'IN'; className?: string }> = ({ country, className = "w-4 h-2.5" }) => {
+  if (country === 'BD') {
+    return (
+      <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="Bangladesh Flag">
+        <rect width="20" height="12" fill="#006a4e" />
+        <circle cx="9" cy="6" r="4" fill="#f42a41" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 20 12" className={`rounded-[2px] overflow-hidden shrink-0 inline-block shadow-sm ${className}`} aria-label="India Flag">
+      <rect width="20" height="4" y="0" fill="#ff9933" />
+      <rect width="20" height="4" y="4" fill="#ffffff" />
+      <rect width="20" height="4" y="8" fill="#138808" />
+      <circle cx="10" cy="6" r="1.5" fill="#000080" />
+    </svg>
+  );
+};
+
 export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> = React.memo(({ onSelectPlan }) => {
   const [isAnnual, setIsAnnual] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState<'bangladesh' | 'india'>('bangladesh');
   const { formatPrice } = useCurrency();
 
-  const plans: PricingPlan[] = useMemo(() => [
-    {
-      id: 'starter',
-      name: 'Starter Game Node',
-      tagline: 'Ideal for vanilla and lightweight modded Minecraft servers in Bangladesh & India.',
-      monthlyPrice: 5,
-      annualPrice: 4,
-      specs: {
-        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} (2 Dedicated Threads)`,
-        ram: '4 GB High-Speed RAM',
-        storage: '50 GB Enterprise NVMe',
-        bandwidth: 'BDIX & Local Transit',
+  const plans: PricingPlan[] = useMemo(() => {
+    const isBD = selectedLocation === 'bangladesh';
+    return [
+      {
+        id: 'starter',
+        name: 'Starter Game Node',
+        tagline: isBD
+          ? 'Ideal for vanilla and lightweight modded Minecraft servers in Bangladesh with BDIX.'
+          : 'Ideal for vanilla and lightweight modded Minecraft servers in India with Mumbai transit.',
+        monthlyPrice: 5,
+        annualPrice: 4,
+        specs: {
+          cpu: isBD ? 'AMD Ryzen 7 5700G (2 Dedicated Threads)' : 'Intel Xeon Platinum 8269CY (2 Dedicated Threads)',
+          ram: '4 GB High-Speed RAM',
+          storage: '50 GB Enterprise NVMe',
+          bandwidth: isBD ? 'BDIX Local Peering (<10ms in BD)' : 'Tier-3 Mumbai National Peering',
+        },
+        features: [
+          'Instant Sub-60s Auto Setup',
+          'Pterodactyl Game Control Panel',
+          'Inline Game Anti-DDoS Mitigation',
+          isBD ? 'Direct BDIX Local Peering (<10ms in BD)' : 'Tier-3 Mumbai Datacenter Transit',
+          '1 Daily Cloud Backup Slot',
+          '24/7 Discord & Ticket Support',
+        ],
       },
-      features: [
-        'Instant Sub-60s Auto Setup',
-        'Pterodactyl Game Control Panel',
-        'Inline Game Anti-DDoS Mitigation',
-        'BDIX Local Peering (<10ms in BD)',
-        '1 Automated Daily S3 Backup Slot',
-        '24/7 Discord & Ticket Support',
-      ],
-    },
-    {
-      id: 'pro',
-      name: 'Pro Game Community Node',
-      tagline: 'Most popular for active Minecraft SMP networks, Palworld, FiveM & Rust communities.',
-      monthlyPrice: 15,
-      annualPrice: 12,
-      recommended: true,
-      specs: {
-        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[0].model} (4 High-Clock Cores)`,
-        ram: '12 GB High-Speed RAM',
-        storage: '120 GB Enterprise NVMe',
-        bandwidth: 'High-Speed BDIX & Local Transit',
+      {
+        id: 'pro',
+        name: 'Pro Game Community Node',
+        tagline: isBD
+          ? 'Most popular for active Minecraft SMP networks, Palworld, FiveM & Rust communities on BDIX.'
+          : 'Most popular for active Minecraft SMP networks, Palworld, FiveM & Rust communities in India.',
+        monthlyPrice: 15,
+        annualPrice: 12,
+        recommended: true,
+        specs: {
+          cpu: isBD ? 'AMD Ryzen 7 5700G (4 High-Clock Cores)' : 'Intel Xeon Platinum 8269CY (4 High-Perf Cores)',
+          ram: '12 GB High-Speed RAM',
+          storage: '120 GB Enterprise NVMe',
+          bandwidth: isBD ? 'High-Speed BDIX Local Transit' : 'High-Speed Mumbai National Peering',
+        },
+        features: [
+          'Everything in Starter Game Node',
+          isBD ? 'High Single-Thread Zen 3 Clocks' : 'High-Performance Xeon Platinum Clocks',
+          '20.0 TPS Main Game Loop Stability',
+          '3 Daily Cloud Backup Slots',
+          'Priority 24/7/365 Engineer Support',
+          'Custom Domain & Sub-domain Manager',
+          'One-Click Modpack & Plugin Installers',
+        ],
       },
-      features: [
-        'Everything in Starter Game Node',
-        'High Single-Thread Clock Speeds',
-        '20.0 TPS Main Game Loop Stability',
-        '3 Automated S3 Snapshot Slots',
-        'Priority 24/7/365 Engineer Support',
-        'Custom Domain & Sub-domain Manager',
-        'One-Click Modpack & Plugin Installers',
-      ],
-    },
-    {
-      id: 'enterprise',
-      name: 'Enterprise Game Network Node',
-      tagline: 'High-density multi-server game networks, Bungee/Velocity clusters, and heavy modded servers.',
-      monthlyPrice: 39,
-      annualPrice: 32,
-      specs: {
-        cpu: `${INFRASTRUCTURE_CONFIG.supportedCpus[1].model} (Enterprise Compute)`,
-        ram: '32 GB ECC RAM',
-        storage: '300 GB NVMe RAID',
-        bandwidth: 'High-Speed Local Peering',
+      {
+        id: 'enterprise',
+        name: 'Enterprise Game Network Node',
+        tagline: 'High-density multi-server game networks, Bungee/Velocity clusters, and heavy modded servers.',
+        monthlyPrice: 39,
+        annualPrice: 32,
+        specs: {
+          cpu: isBD ? 'Intel Xeon E5-2697 v4 (Enterprise Compute)' : 'Intel Xeon Platinum 8269CY (Enterprise High Density)',
+          ram: '32 GB ECC RAM',
+          storage: '300 GB NVMe RAID',
+          bandwidth: isBD ? 'High-Speed BDIX Peering' : 'Tier-3 Mumbai Low-Jitter Transit',
+        },
+        features: [
+          'Multi-Server BungeeCord / Velocity Ready',
+          'Inline Game-Specific Protocol Scrubbing',
+          'Unlimited Daily Cloud Backups & Archive Access',
+          'Dedicated Support Assistance',
+          'Managed MySQL Databases Included',
+          'Full SFTP Access & Custom JAR Support',
+        ],
       },
-      features: [
-        'Multi-Server BungeeCord / Velocity Ready',
-        'Inline Game-Specific Protocol Scrubbing',
-        'Unlimited S3 Backups & Archive Access',
-        'Dedicated Support Assistance',
-        'Managed MySQL Databases Included',
-        'Full SFTP Access & Custom JAR Support',
-      ],
-    },
-  ], []);
+    ];
+  }, [selectedLocation]);
 
   return (
     <section id="pricing" className="relative z-20 py-12 sm:py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto">
@@ -109,8 +137,36 @@ export const PricingSection: React.FC<{ onSelectPlan: (plan: string) => void }> 
           Scale effortlessly from a private survival server to large multiplayer networks in Bangladesh and India.
         </p>
 
+        {/* Location Selector Tabs */}
+        <div className="pt-3 flex items-center justify-center gap-2.5">
+          <button
+            type="button"
+            onClick={() => setSelectedLocation('bangladesh')}
+            className={`px-4 py-2 min-h-[44px] rounded-xl text-xs font-mono font-bold transition-all flex items-center space-x-2 border cursor-pointer ${
+              selectedLocation === 'bangladesh'
+                ? 'bg-[#A3E854] text-[#050606] border-[#A3E854] shadow-[0_0_15px_rgba(163,232,84,0.25)]'
+                : 'bg-white/5 text-white/70 border-white/10 hover:border-white/30 hover:text-white'
+            }`}
+          >
+            <LocationFlag country="BD" />
+            <span>Bangladesh — BDIX Edge</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setSelectedLocation('india')}
+            className={`px-4 py-2 min-h-[44px] rounded-xl text-xs font-mono font-bold transition-all flex items-center space-x-2 border cursor-pointer ${
+              selectedLocation === 'india'
+                ? 'bg-[#A3E854] text-[#050606] border-[#A3E854] shadow-[0_0_15px_rgba(163,232,84,0.25)]'
+                : 'bg-white/5 text-white/70 border-white/10 hover:border-white/30 hover:text-white'
+            }`}
+          >
+            <LocationFlag country="IN" />
+            <span>India — Mumbai Facility</span>
+          </button>
+        </div>
+
         {/* Annual / Monthly Billing Toggle */}
-        <div className="pt-4 sm:pt-6 flex items-center justify-center space-x-3 sm:space-x-4">
+        <div className="pt-2 flex items-center justify-center space-x-3 sm:space-x-4">
           <span className={`text-xs font-mono ${!isAnnual ? 'text-[#A3E854] font-bold' : 'text-white/50'}`}>
             Monthly Billing
           </span>
