@@ -2,7 +2,11 @@
 SENX CLOUD WEBSITE CONTENT MASTER FILE
 ================================================================================
 This file is the single source of truth for all text content on the SenX Cloud website.
-Editing values in this file will allow updating text across the website.
+STRICT BUSINESS SCOPE: Game Server Hosting Only
+ACTIVE INFRASTRUCTURE REGIONS: Bangladesh & India
+VERIFIED HARDWARE CPUS:
+- Bangladesh (Dhaka BDIX Edge): AMD Ryzen 7 5700G & Intel Xeon E5-2697 v4
+- India (Mumbai Central Facility): Intel Xeon Platinum 8269CY
 ================================================================================
 
 
@@ -10,71 +14,84 @@ Editing values in this file will allow updating text across the website.
 1. NAVBAR
 --------------------------------------------------------------------------------
 Brand Name: SenX Cloud
-Status Indicator: ONLINE
+Status Indicator: ONLINE (Live pulse)
 
 Navigation Links:
-- Game Hosting
-- Cloud VPS
-- Panel
-- Infrastructure
-- Pricing
-- Reviews
+- Game Hosting (Anchor: #game-hosting)
+- Pricing (Anchor: #pricing)
+- Control Panel (Anchor: #panel)
+- Locations (Anchor: #locations)
+- Guides (URL: /knowledgebase)
+- FAQ (Anchor: #faq)
+- Support (External: Discord Community)
+- Status (External: System Status - status.orixcore.com) [LIVE Badge]
+- Login (External: Client Area - client.senxcloud.com)
 
 CTA Button: Client Area
+Mobile Menu Controls:
+- Mobile Navigation Header: "Cloud Navigation"
+- System Status Pill: "All Systems 100%"
+- Currency Selector Integration
 
 
 --------------------------------------------------------------------------------
 2. FLOATING CURRENCY SELECTOR
 --------------------------------------------------------------------------------
 Prefix Label: CURRENCY
+Active Display: Code (e.g. USD, BDT, INR)
 Dropdown Title: SELECT CURRENCY
 
-Currencies List:
-- USD: US Dollar
-- BDT: Bangladeshi Taka
-- INR: Indian Rupee
+Currencies Supported:
+- USD: US Dollar ($) - Global Default
+- BDT: Bangladeshi Taka (৳) - Rate: 118 BDT / USD
+- INR: Indian Rupee (₹) - Rate: 83.5 INR / USD
 
 
 --------------------------------------------------------------------------------
 3. HERO SECTION
 --------------------------------------------------------------------------------
-Badge: NEXT-GEN CLOUD OPERATING SYSTEM
-Main Headline Line 1: Global Infrastructure
-Main Headline Line 2: Reimagined.
-Subtitle: Ultra-low latency game hosting, high-RAM bare metal instances, and distributed cloud computing — engineered for zero lag and absolute authority.
+Badge: PREMIUM GAME SERVER HOSTING IN BANGLADESH & INDIA
+Main Headline Line 1: Minecraft Hosting &
+Main Headline Line 2: Game Servers BD & IN.
+Subtitle: Ultra-low latency Minecraft Server Hosting in Bangladesh and India, optimized for Paper, Purpur, Forge, Fabric, Palworld, and Rust. Powered by AMD Ryzen 7 5700G & Intel Xeon hardware with direct BDIX local peering.
 
-Primary Button: Launch Cloud Instance
-Secondary Button: Explore Pricing
+Primary Button: Launch Game Server
+Secondary Button: View Game Pricing
 
-Orbiting Infrastructure Cards (Desktop):
-- Card 1: NETWORK | Global BGP Anycast | 7 Edge Regions
-- Card 2: PROCESSOR | Ryzen 9 7950X3D | 5.7 GHz • DDR5 ECC
-- Card 3: DEPLOYMENT | Instant Provisioning | Sub-10s Automated
-- Card 4: PRIMARY NODE | Singapore SG-1 | 12ms Latency
-- Card 5: STORAGE | Gen4 NVMe RAID-1 | 7,500 MB/s Read
-- Card 6: SECURITY | 3.2 Tbps DDoS Shield | Always-On Filter
+Desktop Infrastructure Floating Cards:
+- Card 1 (Top Left): NETWORK | Direct Peering | India & Bangladesh
+- Card 2 (Middle Left): PROCESSOR | Ryzen 7 5700G | High Clock • Zen 3
+- Card 3 (Bottom Left): DEPLOYMENT | Instant Provisioning | Sub-60s Automated
+- Card 4 (Top Right): PRIMARY NODE | Bangladesh BDIX | Dhaka Local Peering
+- Card 5 (Middle Right): STORAGE | Enterprise NVMe | Ultra-Fast I/O
+- Card 6 (Bottom Right): PROTECTION | Inline Anti-DDoS | Game UDP Filter
 
 
 --------------------------------------------------------------------------------
 4. SOCIAL PROOF & MARQUEE
 --------------------------------------------------------------------------------
-Announcement Marquee Badges:
-- 3.2 Tbps Anti-DDoS Mitigation
-- 99.99% Uptime Guarantee
-- AMD Ryzen 9950X Powered
-- Pterodactyl Game Wings
-- Sub-10s Automated Setup
-- 24/7/365 Priority Support
+Key Metrics Badges:
+- 20.0 TPS | Sustained Game Loop
+- <10ms | Bangladesh BDIX Ping
+- NVMe SSD | Fast World Generation
+- Sub-60s | Automated Deployment
 
-Statistics Grid:
-- Stat 1 Value: 99.99%
-  Stat 1 Label: SLA Guaranteed Uptime
-- Stat 2 Value: <12ms
-  Stat 2 Label: Average Global Latency
-- Stat 3 Value: 3.2 Tbps
-  Stat 3 Label: DDoS Shield Capacity
-- Stat 4 Value: 15,000+
-  Stat 4 Label: Active Game Instances
+Announcement Marquee Items:
+- BANGLADESH BDIX CORE NODE (Highlight)
+- INDIA MUMBAI CORE FACILITY
+- SUB-60s AUTOMATED SETUP (Highlight)
+- AMD RYZEN 7 5700G POWERED
+- INTEL XEON E5-2697 V4 CLUSTERS (Highlight)
+- INTEL XEON PLATINUM 8269CY (INDIA)
+- ENTERPRISE NVMe SSD STORAGE
+- GAME-OPTIMIZED DDOS FILTERING (Highlight)
+- PTERODACTYL GAME CONTROL PANEL (Highlight)
+- MINECRAFT PAPER & PURPUR READY
+- PALWORLD & RUST DEDICATED SLOTS
+- FIVEM TXADMIN INTEGRATION (Highlight)
+- ONE-CLICK MODPACK INSTALLERS
+- DAILY CLOUD BACKUP SLOTS
+- 24/7 TICKET & DISCORD SUPPORT (Highlight)
 
 
 --------------------------------------------------------------------------------
@@ -84,472 +101,360 @@ Section Badge: SENX ARCHITECTURE & BENCHMARKS
 Section Title: Engineered for Speed. Built for Scale.
 Section Subtitle: Purpose-built cloud infrastructure engineered for zero-throttling workloads, low jitter, and maximum sustained clock speeds.
 
-Feature Card 1:
+Feature Card 1 (Span 2 Columns):
 - Badge: PROCESSOR PERFORMANCE
-- Title: AMD Ryzen 9950X Engine
-- Description: High-frequency 5.7 GHz Zen 5 cores optimized for single-thread game loop performance.
-- Tech Tags: Zen 5 Architecture / DDR5 5600MHz ECC / Zero Throttling
+- Title: AMD Ryzen 7 5700G & Intel Xeon Nodes
+- Description: High-clock Zen 3 cores for sustained 20.0 TPS Minecraft server tick loops in Bangladesh (BDIX), backed by Intel Xeon E5 multi-core nodes and Intel Xeon Platinum 8269CY infrastructure in India.
+- Visual Stability Benchmark:
+  * Metric: MINECRAFT TICK EXECUTION STABILITY (20.0 TPS)
+  * AMD Ryzen 7 5700G (Optimized PaperMC): Locked 20 TPS (100% Stability)
+  * Intel Xeon E5-2697 v4 (Multi-World Clusters): Stable 20 TPS (98% Stability)
+  * Standard Shared Hosting: Throttled 14-17 TPS (65% Stability)
 
 Feature Card 2:
-- Badge: STORAGE BENCHMARK
-- Title: Gen4 NVMe RAID-1 Arrays
-- Description: Sub-millisecond disk I/O for instant world loads, chunk loading, and heavy database read/writes.
-- Stat Highlight: 7,500 MB/s Read Speed
+- Badge: NVMe STORAGE BENCHMARK
+- Title: Enterprise NVMe Storage
+- Description: High-speed disk I/O prevents world saving lag spikes, enables rapid chunk generation, and accelerates modpack boot times.
+- Feature Tag: Rapid Chunk Loading
 
 Feature Card 3:
-- Badge: EDGE SECURITY
-- Title: 3.2 Tbps L3/L4/L7 DDoS Scrubbing
-- Description: Always-on volumetric DDoS filtering with custom game protocol inspection engines for Minecraft, Rust, and FiveM.
-- Status Tag: Active Packet Filter
+- Badge: INLINE SECURITY
+- Title: Game Anti-DDoS Filter
+- Description: Always-on hardware scrubbing with custom game protocol inspection engines for Minecraft, Rust, and FiveM UDP payloads.
+- Status Tag: Active Packet Inspection
 
 Feature Card 4:
-- Badge: GLOBAL NETWORK
-- Title: Global BGP Anycast Mesh
-- Description: Direct peering at major Internet Exchange Points (IXPs) ensures ultra-low ping for players globally.
-- Region List: Singapore / Frankfurt / Virginia / Ashburn / Mumbai / Dhaka / Sydney
+- Badge: AUTOMATED BACKUPS
+- Title: Daily Cloud Backup
+- Description: Scheduled automated snapshots with 1-click restore. Keep your worlds, plugins, and configurations safely archived offsite.
+- Features: Daily Cloud Backup Slots • 1-Click World Recovery
+
+Feature Card 5 (Span 2 Columns):
+- Badge: REGIONAL INFRASTRUCTURE
+- Title: Direct BDIX & South Asia Peering
+- Description: Direct peering at the Bangladesh Internet Exchange (BDIX) in Dhaka and Tier-3 facilities in Mumbai provides sub-millisecond local routing.
+- Active Nodes: Bangladesh (Dhaka BDIX) • India (Mumbai Central)
+
+Feature Card 6:
+- Badge: GAME CONTROL PANEL
+- Title: Pterodactyl Game Wings
+- Description: Modern game panel with real-time websocket console, 1-click modpack installers, sub-domain manager, and SFTP access.
+- Tag: [Pterodactyl Wings Customized Engine]
 
 
 --------------------------------------------------------------------------------
-6. GLOBAL INFRASTRUCTURE & NETWORK OPERATIONS CENTER (LED WORLD MAP)
+6. REGIONAL GAME INFRASTRUCTURE (LED WORLD MAP)
 --------------------------------------------------------------------------------
-Section Badge: NETWORK OPERATIONS CENTER
-Section Title: Global Infrastructure
-Section Subtitle: Our global network delivers ultra-low latency, enterprise-grade performance, and reliable connectivity across multiple regions worldwide.
-Map Status Badge: 5 Global Enterprise PoPs • Anycast Mesh Active
+Section Badge: REGIONAL GAME INFRASTRUCTURE
+Section Title: Low-Latency South Asia Routing.
+Section Subtitle: Physical datacenter presence in Dhaka and Mumbai. Direct local exchange peering engineered for competitive multiplayer game servers.
+Map Status: 2 Verified Edge Nodes • Direct Transit
 
-Datacenter 1:
-- Name: United States (Ashburn US-East Core)
-- Location: Ashburn, United States
-- Ping: 24 ms
-- CPU: AMD Ryzen 9 7950X3D
-- Storage: Gen4 NVMe RAID 1
-- Network: 10 Gbps
-- Status: Online
-- Uptime: 99.99%
+Datacenter Node 1 (Bangladesh):
+- Location ID: bangladesh
+- Name: Bangladesh (Dhaka BDIX Edge)
+- City / Country: Dhaka, Bangladesh
+- Short Code: BD-DHK
+- Verified Hardware CPU: AMD Ryzen 7 5700G / Intel Xeon E5-2697 v4
+- Storage: Enterprise NVMe SSD RAID
+- Network: BDIX Direct Local Peering
+- Status: Online (Test IP: 103.114.22.8)
 
-Datacenter 2:
-- Name: Germany (Frankfurt DE-1 Hub)
-- Location: Frankfurt, Germany
-- Ping: 18 ms
-- CPU: AMD EPYC 9654
-- Storage: Gen4 NVMe RAID 1
-- Network: 20 Gbps
-- Status: Online
-- Uptime: 100.00%
+Datacenter Node 2 (India):
+- Location ID: india
+- Name: India (Mumbai Central Facility)
+- City / Country: Mumbai, India
+- Short Code: IN-BOM
+- Verified Hardware CPU: Intel Xeon Platinum 8269CY
+- Storage: Enterprise NVMe SSD RAID
+- Network: Tier-3 National Transit
+- Status: Online (Test IP: 103.212.44.11)
 
-Datacenter 3:
-- Name: India (Mumbai Core Facility)
-- Location: Mumbai, India
-- Ping: 16 ms
-- CPU: AMD Ryzen 9 7900X
-- Storage: Gen4 NVMe RAID 1
-- Network: 10 Gbps
-- Status: Online
-- Uptime: 99.99%
-
-Datacenter 4:
-- Name: Bangladesh (Dhaka Regional Edge)
-- Location: Dhaka, Bangladesh
-- Ping: 19 ms
-- CPU: AMD Ryzen 9 5900X
-- Storage: Gen4 NVMe RAID 1
-- Network: 10 Gbps
-- Status: Online
-- Uptime: 99.98%
-
-Datacenter 5:
-- Name: Singapore (Singapore SG-1 Core)
-- Location: Singapore, Singapore
-- Ping: 12 ms
-- CPU: AMD Ryzen 9 9950X
-- Storage: Gen4 NVMe RAID 1
-- Network: 20 Gbps
-- Status: Online
-- Uptime: 100.00%
+Active Interconnect:
+- Mumbai Facility ↔ Dhaka BDIX Direct Peering Route
 
 
 --------------------------------------------------------------------------------
-7. PRODUCT SUITE / INFRASTRUCTURE CATALOG
+7. GAME SERVER PRODUCT CATALOG
 --------------------------------------------------------------------------------
-Section Badge: SENX CLOUD INFRASTRUCTURE CATALOG
-Section Title: Ultra-Performance Product Suite.
-Section Subtitle: Powered by high-frequency AMD Ryzen 9950X cores, Gen4 NVMe arrays, and 3.2 Tbps BGP DDoS mitigation.
+Section Badge: GAME SERVER INFRASTRUCTURE
+Section Title: Game Server Catalog.
+Section Subtitle: Ultra-low latency game servers powered by AMD Ryzen 7 5700G & Intel Xeon hardware in Bangladesh and India with direct local BDIX peering.
 
 Category Tabs:
-- Game Hosting
-- Cloud VPS
-- Dedicated Servers
-- Proxy Hosting
+- All Products
+- Minecraft Servers
+- Multiplayer Games
+- Game Server Proxies
 
-Product 1 (Game Hosting):
-- Name: Minecraft Hosting
-- Badge: INSTANT READY
-- Hardware: Ryzen 9950X | DDR5 Memory | NVMe SSD | Singapore
-- Starting Price: $4.99/mo
+Product List:
+
+1. Minecraft Hosting Bangladesh
+- Category: Minecraft Servers
+- Badge: #1 IN BANGLADESH
+- Starting Price: $1.59/mo (৳188/mo)
+- Hardware: AMD Ryzen 7 5700G | High-Speed RAM | Enterprise NVMe SSD
+- Region: Dhaka BDIX Local Peering
 - Features:
-  * Paper, Spigot & Modpack Engine
-  * Sub-domain Creator Included
-  * Unlimited Player Slots
-- Button: Configure Minecraft
+  * PaperMC, Purpur, Forge & Fabric Support
+  * Direct BDIX Local Peering (<10ms Ping)
+  * Unlimited Player Slots & Modpacks
+  * Pterodactyl Game Wings Panel
 
-Product 2 (Game Hosting):
-- Name: Palworld Hosting
+2. Minecraft Hosting India
+- Category: Minecraft Servers
+- Badge: LOW LATENCY INDIA
+- Starting Price: $1.59/mo (₹133/mo)
+- Hardware: Intel Xeon Platinum 8269CY | High-Speed RAM | Enterprise NVMe SSD
+- Region: Mumbai Central Facility
+- Features:
+  * Optimized for 20.0 TPS Stability
+  * National NIXI Peering Route
+  * One-Click Plugin & World Installer
+  * Daily Cloud Backup
+
+3. Bedrock & Geyser Crossplay
+- Category: Minecraft Servers
+- Starting Price: $1.79/mo (৳211/mo | ₹149/mo)
+- Hardware: AMD Ryzen 7 5700G | High-Speed RAM | Enterprise NVMe SSD
+- Region: India & Bangladesh
+- Features:
+  * GeyserMC & Floodgate Pre-configured
+  * Seamless Java & Bedrock Mobile Crossplay
+  * Automatic World Saves
+  * Custom Sub-Domain Included
+
+4. Palworld Server BD & IN
+- Category: Multiplayer Games
 - Badge: POPULAR
-- Hardware: Ryzen 9950X | 32GB DDR5 | Gen4 NVMe | Singapore / Frankfurt
-- Starting Price: $19.99/mo
+- Starting Price: $4.49/mo (৳530/mo | ₹375/mo)
+- Hardware: AMD Ryzen 7 5700G | Up to 32GB RAM | Enterprise NVMe SSD
+- Region: India & Bangladesh BDIX
 - Features:
-  * Unreal Engine 5 Anti-Crash
-  * 32 Dedicated Player Slots
+  * Unreal Engine Dedicated Server Ready
+  * Up to 32 Player Co-op & Guild Support
   * Daily Automated Backups
-- Button: Configure Palworld
+  * Inline Anti-DDoS Mitigation
 
-Product 3 (Game Hosting):
-- Name: Rust Hosting
+5. Rust Server Hosting
+- Category: Multiplayer Games
 - Badge: HIGH PERFORMANCE
-- Hardware: Ryzen 9950X | 16GB DDR5 | RAID-1 NVMe | Virginia US
-- Starting Price: $14.50/mo
+- Starting Price: $8.99/mo (৳1,061/mo | ₹751/mo)
+- Hardware: AMD Ryzen 7 5700G | High-Capacity RAM | Enterprise NVMe SSD
+- Region: India & Bangladesh BDIX
 - Features:
-  * Oxide & Carbon Plugin Host
-  * 3.2 Tbps Rust DDoS Shield
-  * Instant Wipe Scheduler
-- Button: Configure Rust
+  * Oxide & Carbon Plugin Support
+  * Scheduled Wipe & Map Generator
+  * UDP Game Attack Filtering
+  * Full SFTP File & Config Access
 
-Product 4 (Game Hosting):
-- Name: FiveM / GTA V
-- Hardware: AMD EPYC | 16GB DDR5 | NVMe SSD | Frankfurt / Singapore
-- Starting Price: $12.00/mo
+6. FiveM / GTA V Server
+- Category: Multiplayer Games
+- Badge: COMMUNITY READY
+- Starting Price: $7.99/mo (৳943/mo | ₹667/mo)
+- Hardware: Intel Xeon E5-2697 v4 | High-Capacity RAM | Enterprise NVMe SSD
+- Region: India & Bangladesh BDIX
 - Features:
-  * Pre-configured txAdmin Panel
+  * txAdmin Web Panel Pre-Installed
   * OneSync Infinity Ready
-  * Unlimited MySQL Databases
-- Button: Configure FiveM
+  * Managed MySQL Database Included
+  * Automated Server Crash Restarts
 
-Product 5 (Game Hosting):
-- Name: Terraria Hosting
-- Hardware: Ryzen 7950X | 4GB DDR5 | NVMe SSD | Global Anycast
-- Starting Price: $3.99/mo
+7. Minecraft Velocity & BungeeCord
+- Category: Game Server Proxies
+- Badge: LOW LATENCY
+- Starting Price: $0.99/mo (৳117/mo | ₹83/mo)
+- Hardware: Intel Xeon E5-2697 v4 | High-Efficiency Allocations | Enterprise NVMe
+- Region: India & Bangladesh
 - Features:
-  * tModLoader 1-Click Installer
-  * Auto Save World Daemon
-  * Crossplay Enabled
-- Button: Configure Terraria
-
-Product 6 (Game Hosting):
-- Name: Valheim Hosting
-- Hardware: Ryzen 7950X | 8GB DDR5 | NVMe SSD | Singapore / Mumbai
-- Starting Price: $9.99/mo
-- Features:
-  * ValheimPlus Mod Host
-  * Dedicated Crossplay Node
-  * Daily World Snapshot
-- Button: Configure Valheim
-
-Product 7 (Cloud VPS):
-- Name: Ryzen 9 Cloud VPS
-- Badge: FAST PROVISIONING
-- Hardware: 2 Dedicated Cores | 8GB DDR5 ECC | 100GB Gen4 NVMe | Global Anycast
-- Starting Price: $14.99/mo
-- Features:
-  * KVM Virtualization Architecture
-  * Full Root Access & Custom ISO
-  * Weekly Automated Snapshots
-- Button: Configure Ryzen
-
-Product 8 (Cloud VPS):
-- Name: High-RAM Compute VPS
-- Badge: BEST VALUE
-- Hardware: 4 Dedicated Cores | 16GB DDR5 ECC | 250GB Gen4 NVMe | Frankfurt / Singapore
-- Starting Price: $29.99/mo
-- Features:
-  * Dedicated IPv4 + /64 IPv6 Subnet
-  * 3.2 Tbps DDoS Scrubbing Included
-  * Custom BGP Route Injection
-- Button: Configure High-RAM
-
-Product 9 (Cloud VPS):
-- Name: Ultra NVMe VPS
-- Badge: HEAVY WORKLOAD
-- Hardware: 8 Dedicated Cores | 32GB DDR5 ECC | 500GB RAID-1 NVMe | Virginia US-East
-- Starting Price: $59.99/mo
-- Features:
-  * 20 Gbps Unmetered Port Speed
-  * Hot Standby Replica Node
-  * REST API Control Integration
-- Button: Configure Ultra
-
-Product 10 (Dedicated Servers):
-- Name: AMD Ryzen 9950X Bare Metal
-- Badge: BARE METAL
-- Hardware: 16 Cores / 32 Threads | 64GB DDR5 ECC | 2x 1TB NVMe RAID | Singapore SG-1
-- Starting Price: $129.00/mo
-- Features:
-  * 100% Dedicated Unshared Hardware
-  * IPMI / Out-of-band KVM Over IP
-  * Custom Network BGP Peering
-- Button: Configure AMD
-
-Product 11 (Dedicated Servers):
-- Name: Dual AMD EPYC Monster
-- Badge: ENTERPRISE
-- Hardware: 64 Cores / 128 Threads | 256GB DDR5 ECC | 4x 2TB Gen4 RAID-10 | Frankfurt DE-1
-- Starting Price: $299.00/mo
-- Features:
-  * Extreme Multi-Thread Throughput
-  * 25 Gbps Dual Uplink Redundancy
-  * 15-Minute Guaranteed Hardware SLA
-- Button: Configure Dual
-
-Product 12 (Proxy Hosting):
-- Name: BGP Anycast Shield Proxy
-- Badge: DDOS SHIELD
-- Hardware: Distributed Edge | Global Anycast | Edge Cache | 7 Global PoPs
-- Starting Price: $19.00/mo
-- Features:
-  * Global GRE & IPIP Tunnel Endpoints
-  * Layer 3/4 Anti-DDoS Scrubbing
-  * Sub-1ms Anycast Edge Routing
-- Button: Configure BGP
-
-Product 13 (Proxy Hosting):
-- Name: L7 Game Firewall Proxy
-- Badge: CUSTOM RULES
-- Hardware: Packet Filter Core | Zero-Copy Engine | Rule Engine | Singapore / Frankfurt
-- Starting Price: $29.00/mo
-- Features:
-  * UDP Protocol Handshake Validation
-  * Waterwall Packet Inspector
-  * Real-Time Attack Analytics
-- Button: Configure L7
+  * Velocity & BungeeCord Hub Ready
+  * Player Routing & Cross-Server Bridge
+  * L3/L4/L7 Protocol Protection
+  * Sub-Millisecond Edge Peering
 
 
 --------------------------------------------------------------------------------
-8. CONTROL PANEL / SERVER MANAGEMENT
+8. PTERODACTYL CONTROL PANEL SECTION
 --------------------------------------------------------------------------------
 Section Badge: SENX GAME WINGS ENGINE
 Section Title: Next-Gen Server Management.
 Section Subtitle: A bespoke, ultra-fast control dashboard designed for low latency, live sub-second websocket streaming, and complete server authority.
 
-Panel Window URL: panel.senxcloud.com/server/9f2a0b12
-
+Simulated Web Interface: panel.senxcloud.com/server/9f2a0b12
 Panel Navigation Tabs:
-- Console
-- File Manager
-- Resource Graphs
-- Backups
-- Startup
-
-Console View:
-- Status: ONLINE
-- Node Info: Node: sg-ryzen9-04
-- Port: 25565
-- Ping: 18ms
-- Sample Logs:
-  * [17:42:01 INFO]: Preparing level "world"
-  * [17:42:02 INFO]: Preparing start region for level 0 (Seed: -48291038201)
-  * [17:42:03 INFO]: Time elapsed: 1420 ms
-  * [17:42:03 INFO]: Done (2.102s)! For help, type "help"
-  * [17:42:15 INFO]: [SenX-Shield] DDoS filter engaged • 0 malicious packets dropped
-  * [17:42:30 INFO]: Player "Steve" joined the game from 139.99.18.241 (12ms)
-- Input Placeholder: Type command (e.g. list, reload)...
-- Button: Send
-
-File Manager View:
-- Directory Path: /home/container
-- Quota: Size: 1.4 GB / 50 GB
-- Files:
-  * server.properties | Configuration | 2.4 KB
-  * paper.yml | Config | 12.8 KB
-  * spigot.yml | Config | 8.1 KB
-  * plugins/ | Folder | 428 MB
-  * world/ | Folder | 890 MB
-  * logs/latest.log | Log | 1.2 MB
-
-Resource Graphs View:
-- CPU Utilization: 14.2% (1.2 / 4 Cores)
-- RAM Usage: 2.8 GB (2.8 / 8.0 GB)
-- Network IO: 10 Gbps (48 MB/s In / 112 MB/s Out)
-
-Backups View:
-- Title: AUTOMATED SNAPSHOTS
-- Button: Create Snapshot Now
-- Backups:
-  * backup-2026-07-21-0400.tar.gz | 3 hours ago • 1.2 GB | Completed
-  * backup-2026-07-20-0400.tar.gz | 1 day ago • 1.2 GB | Completed
-  * backup-2026-07-19-0400.tar.gz | 2 days ago • 1.1 GB | Completed
-
-Startup View:
-- Java Command Label: JAVA STARTUP COMMAND
-  Command: java -Xms1024M -Xmx4096M -XX:+UseG1GC -XX:+ParallelRefProcEnabled -jar server.jar nogui
-- Server Jar Label: SERVER JAR FILE
-  Value: paper-1.21.8.jar
+- Console: Live websocket stream, sub-second command response, server log buffer.
+- File Manager: Full web-based directory tree, file editor, archive extractor, SFTP support.
+- Resource Graphs: Real-time CPU core utilization, RAM consumption, and BDIX network I/O.
+- Backups: Automated offsite snapshots with 1-click rollback and archive downloads.
+- Startup Configuration: JVM flag optimization (-XX:+UseG1GC), custom JAR selector, environment variables.
 
 
 --------------------------------------------------------------------------------
-9. PRICING SECTION
+9. TRANSPARENT PRICING PLANS & HARDWARE MAPPING
 --------------------------------------------------------------------------------
-Section Badge: TRANSPARENT ENTERPRISE PRICING
-Section Title Line 1: Predictable Pricing.
-Section Title Line 2: Zero Hidden Fees.
-Section Subtitle: Scale effortlessly from a single game server to global multi-region cloud clusters.
+Section Badge: TRANSPARENT CLOUD PRICING
+Section Title: Flexible Plans for Every Community.
+Section Subtitle: Enterprise game server infrastructure with zero hidden fees, instant setup, and high-frequency clock speeds.
 
-Billing Toggle Options:
-- Monthly Billing
-- Annual Billing (SAVE 20%)
+Location Toggle:
+- Bangladesh (Dhaka BDIX Edge)
+- India (Mumbai Central Facility)
 
-Plan 1:
-- Name: Starter Node
-- Tagline: Ideal for small community servers and lightweight bots.
-- Monthly Price: $9/month
-- Annual Price: $7/month
-- Specifications:
-  * CPU: 2 Dedicated Threads (Ryzen 9)
-  * RAM: 4 GB DDR5 RAM
-  * Storage: 50 GB Gen4 NVMe
-  * Bandwidth: 1 Gbps Unmetered
-- Features:
-  * Instant Sub-10s Auto Setup
+Billing Toggle:
+- Monthly
+- Yearly (Save 20%)
+
+Tier 1: Starter Game Node
+- Pricing: $5/month ($4/mo on annual billing)
+- Target Audience: Ideal for vanilla and lightweight modded Minecraft servers with BDIX or Mumbai transit.
+- Hardware Specs:
+  * CPU (BD): AMD Ryzen 7 5700G (2 Dedicated Threads)
+  * CPU (IN): Intel Xeon Platinum 8269CY (2 Dedicated Threads)
+  * RAM: 4 GB High-Speed RAM
+  * Storage: 50 GB Enterprise NVMe
+  * Bandwidth: BDIX Local Peering (<10ms BD) / Tier-3 Mumbai National Peering
+- Included Features:
+  * Instant Sub-60s Auto Setup
   * Pterodactyl Game Control Panel
-  * 3.2 Tbps Anti-DDoS Mitigation
-  * 1 Automated Daily S3 Backup
-  * Community Discord Support
-- Button: Deploy Starter Node
+  * Inline Game Anti-DDoS Mitigation
+  * 1 Daily Cloud Backup Slot
+  * 24/7 Discord & Ticket Support
 
-Plan 2:
-- Badge: MOST POPULAR CHOICE
-- Name: Pro Game Node
-- Tagline: Our most popular setup for high-player Minecraft, Palworld & Rust.
-- Monthly Price: $24/month
-- Annual Price: $19/month
-- Specifications:
-  * CPU: 4 Dedicated Cores (Ryzen 9 7950X)
-  * RAM: 16 GB DDR5 RAM
-  * Storage: 150 GB Gen4 NVMe
-  * Bandwidth: 10 Gbps Unmetered
-- Features:
-  * Everything in Starter Node
-  * Dedicated Ryzen 9 7950X Physical Cores
-  * 3 Automated Hourly S3 Snapshots
+Tier 2: Pro Game Community Node (Most Popular)
+- Pricing: $15/month ($12/mo on annual billing)
+- Target Audience: Most popular for active Minecraft SMP networks, Palworld, FiveM & Rust communities.
+- Hardware Specs:
+  * CPU (BD): AMD Ryzen 7 5700G (4 High-Clock Cores)
+  * CPU (IN): Intel Xeon Platinum 8269CY (4 High-Perf Cores)
+  * RAM: 12 GB High-Speed RAM
+  * Storage: 120 GB Enterprise NVMe
+  * Bandwidth: High-Speed BDIX Local Transit / Mumbai National Peering
+- Included Features:
+  * Everything in Starter Game Node
+  * High Single-Thread Clock Speeds (Zen 3 / Xeon Platinum)
+  * 20.0 TPS Main Game Loop Stability
+  * 3 Daily Cloud Backup Slots
   * Priority 24/7/365 Engineer Support
-  * Free Dedicated IPv4 Address
   * Custom Domain & Sub-domain Manager
-- Button: Deploy Pro Game Node
+  * One-Click Modpack & Plugin Installers
 
-Plan 3:
-- Name: Enterprise Dedicated
-- Tagline: Bare-metal performance for massive networks and corporate workloads.
-- Monthly Price: $79/month
-- Annual Price: $65/month
-- Specifications:
-  * CPU: 16 Cores / 32 Threads (AMD EPYC)
-  * RAM: 64 GB DDR5 ECC RAM
-  * Storage: 1 TB NVMe RAID-1
-  * Bandwidth: 20 Gbps Unmetered
-- Features:
-  * Full Root Access & Custom Hypervisor
-  * Dedicated 3.2 Tbps Magic Transit DDoS Filter
-  * Unlimited S3 Backups & Continuous Mirroring
-  * Dedicated Account Manager & 15-min SLA
-  * Multi-region Hot Standby Failover
-  * Custom BGP IP Route Announcement
-- Button: Deploy Enterprise Dedicated
+Tier 3: Enterprise Game Network Node
+- Pricing: $39/month ($32/mo on annual billing)
+- Target Audience: High-density multi-server game networks, Bungee/Velocity clusters, and heavy modded servers.
+- Hardware Specs:
+  * CPU (BD): Intel Xeon E5-2697 v4 (Enterprise Compute)
+  * CPU (IN): Intel Xeon Platinum 8269CY (Enterprise High Density)
+  * RAM: 32 GB ECC RAM
+  * Storage: 300 GB NVMe RAID
+  * Bandwidth: High-Speed BDIX Peering / Tier-3 Mumbai Low-Jitter Transit
+- Included Features:
+  * Multi-Server BungeeCord / Velocity Ready
+  * Inline Game-Specific Protocol Scrubbing
+  * Unlimited Daily Cloud Backups & Archive Access
+  * Dedicated Support Assistance
+  * Managed MySQL Databases Included
+  * Full SFTP Access & Custom JAR Support
 
 
 --------------------------------------------------------------------------------
-10. REVIEWS & TESTIMONIALS
+10. VERIFIED COMMUNITY TESTIMONIALS
 --------------------------------------------------------------------------------
 Section Badge: VERIFIED COMMUNITY TESTIMONIALS
-Section Title: Loved by Server Admins & Engineers.
-Section Subtitle: See why thousands of gaming networks choose SenX Cloud for zero-lag infrastructure.
+Section Title: Loved by Server Admins & Communities.
+Section Subtitle: See why community creators across Bangladesh and India choose SenX Cloud for low-latency game hosting.
 
 Testimonial 1:
 - Name: Alexandre Mercer
-- Role & Network: Lead Dev, CraftHQ Network • 1,200 Active Players
-- Badge: Verified Host
-- Quote: "Switched our 100+ plugin PaperMC server to SenX Ryzen 9 nodes. TPS stabilized at a constant 20.0 with 800 players online. The sub-20ms ping across Asia is unmatched."
+- Role: Lead Dev, CraftHQ Network
+- Server Details: 1,200 Active Players
+- Rating: 5/5 Stars (Verified Host)
+- Quote: "Switched our 100+ plugin PaperMC server to SenX AMD Ryzen 7 5700G nodes. TPS stabilized at a constant 20.0 with all players online. The low ping across Bangladesh and India is unmatched."
 
 Testimonial 2:
 - Name: Elena Rostova
-- Role & Network: Community Admin, Palworld Community • 64 Slot Cluster
-- Badge: Verified Host
-- Quote: "Palworld memory leaks used to crash our old host every 4 hours. SenX automated wings auto-restart daemon and 32GB DDR5 allocation solved it completely. Instant setup in 5 seconds."
+- Role: Community Admin, Palworld Community
+- Server Details: 32 Slot Guild
+- Rating: 5/5 Stars (Verified Host)
+- Quote: "Palworld memory leaks used to crash our old host. SenX automated wings daemon and NVMe storage solved it completely. Instant setup in under 60 seconds."
 
 Testimonial 3:
 - Name: Devon Vance
-- Role & Network: FiveM Roleplay Network • 128 Player OneSync
-- Badge: Verified Host
-- Quote: "The 3.2 Tbps DDoS shield saved us from targeted UDP flooding during peak Friday nights. Customer support responded in 4 minutes with custom BGP filter tuning."
+- Role: FiveM Roleplay Network
+- Server Details: 64 Player OneSync
+- Rating: 5/5 Stars (Verified Host)
+- Quote: "The inline game DDoS filtering protected us from targeted UDP floods on Friday night. Support answered quickly and helped adjust our txAdmin settings."
 
 Testimonial 4:
 - Name: Marcus Chen
-- Role & Network: Rust Clan Host • 250 Slot Procedural Map
-- Badge: Verified Host
-- Quote: "Oxide plugins load instantly. Map wipes take seconds instead of minutes on Gen4 NVMe RAID storage. Absolutely worth every single penny."
+- Role: Rust Clan Host
+- Server Details: 100 Slot Community Map
+- Rating: 5/5 Stars (Verified Host)
+- Quote: "Oxide plugins load cleanly. Map wipes take seconds on Enterprise NVMe SSD storage. Excellent performance for our player base."
 
 
 --------------------------------------------------------------------------------
-11. FOOTER & COPYRIGHT
+11. FREQUENTLY ASKED QUESTIONS (FAQ)
 --------------------------------------------------------------------------------
-Brand Column:
-- Name: SenX Cloud
-- Description: Ultra-high-performance cloud infrastructure and game hosting provider powered by AMD Ryzen 9 7950X processors, Gen4 NVMe storage, and 3.2 Tbps DDoS shield.
-- Status Indicator: All Infrastructure Nodes Operational
+Section Badge: GAME SERVER KNOWLEDGE & FAQ
+Section Title: Frequently Asked Questions.
+Section Subtitle: Everything you need to know about SenX Cloud game hosting, hardware, BDIX peering, and payment methods.
 
-Infrastructure Links:
-- Minecraft Hosting
-- Palworld Hosting
-- Rust Hosting
-- FiveM / GTA V
-- High-RAM Cloud VPS
+Q1: What game server hosting services does SenX Cloud offer?
+A1: SenX Cloud specializes exclusively in high-performance game server hosting in Bangladesh and India. Supported game server environments include Minecraft (PaperMC, Purpur, Fabric, Forge, Bedrock/Geyser), Palworld, Rust, FiveM (GTA V), and Minecraft Velocity/BungeeCord proxies with sub-60 second automated provisioning.
 
-Resources Links:
-- System Status
-- Knowledgebase & Docs
-- Pterodactyl Game Panel
-- BGP Looking Glass
-- SLA Guarantee (99.99%)
+Q2: Why is SenX Cloud the best choice for Minecraft Hosting in Bangladesh?
+A2: SenX Cloud connects directly to the Bangladesh Internet Exchange (BDIX) in Dhaka. This guarantees ultra-low ping across all Bangladeshi broadband and mobile networks (Grameenphone, Robi, Banglalink, local ISPs), high single-thread clock speed for 20.0 TPS stability, instant Pterodactyl panel setup, and convenient bKash & Nagad payment methods.
 
-Company Links:
-- About SenX Cloud
-- Discord Community
-- GitHub Repository
-- Terms of Service
-- Privacy Policy
+Q3: What hardware processors power SenX Cloud game nodes?
+A3: Our game server infrastructure is powered by verified enterprise hardware: in Bangladesh (Dhaka BDIX), nodes run on AMD Ryzen 7 5700G high-clock processors and Intel Xeon E5-2697 v4 multi-core processors. In India (Mumbai Central), nodes run on Intel Xeon Platinum 8269CY enterprise processors, backed across all locations by Enterprise NVMe SSD storage.
 
-Bottom Bar:
-- Copyright Text: © 2026 SenX Cloud Inc. All rights reserved. Built for gamers and developers.
-- Social Links: Discord, GitHub
+Q4: Where are SenX Cloud game server locations situated?
+A4: SenX Cloud operates active game server nodes in Bangladesh (Dhaka BDIX Edge) and India (Mumbai Central Facility). These nodes provide optimal regional routing for players across South Asia without relying on distant international routes.
+
+Q5: How does SenX Cloud protect game servers against DDoS attacks?
+A5: All SenX Cloud game servers include inline hardware DDoS filtering specifically tailored for game traffic. Our filtering rules analyze UDP protocol handshakes and scrub volumetric attack vectors commonly targeting Minecraft, Rust, and FiveM servers.
+
+Q6: Which control panel is provided for game management?
+A6: Every game server includes our customized Pterodactyl Game Wings panel. You get full access to live websocket console logs, an intuitive web file manager, full SFTP access, one-click modpack and plugin installers, daily cloud backups, and custom sub-domain management.
+
+Q7: Can I upgrade my RAM or storage if my player base grows?
+A7: Yes. You can seamlessly scale your game server plan, CPU threads, and RAM allocation directly through the SenX Client Area at any time. Server upgrades take effect instantly with no data loss and your server IP and settings remain intact.
+
+Q8: Which payment methods are accepted?
+A8: We accept local Bangladeshi payment methods including bKash, Nagad, Rocket, and local internet banking, as well as Indian payment gateways (UPI, Cards, NetBanking), and international credit/debit cards.
 
 
 --------------------------------------------------------------------------------
-12. DEPLOYMENT & CLIENT AREA MODAL
+12. FOOTER & SEO DIRECTORY
 --------------------------------------------------------------------------------
-Header Badge: SenX Infrastructure Portal
-Modal Titles:
-- Client Area Portal
-- Deploy Instant Server
-Subtitle: Configure your high-performance Ryzen 9 server node with sub-10s automated provisioning.
+Brand Summary: High-performance game server hosting in Bangladesh and India powered by AMD Ryzen 7 5700G and Intel Xeon hardware, Enterprise NVMe storage, and direct BDIX local peering.
+Status Badge: India & Bangladesh Game Nodes Operational
 
-Form Labels & Options:
-- Label: Select Workload Type
-  Options: Minecraft, Palworld, Rust, Cloud VPS
-- Label: Memory Allocation
-  Options:
-  * 4 GB DDR5 (2 Cores) - $9/mo
-  * 8 GB DDR5 (4 Cores) - $18/mo
-  * 16 GB DDR5 (6 Cores) - $32/mo
-  * 32 GB DDR5 (8 Cores) - $64/mo
-- Label: Edge Region Node
-  Options:
-  * Singapore SG-1 (12ms)
-  * Mumbai IN-West (16ms)
-  * Frankfurt DE-1 (18ms)
-  * Dhaka BD-Edge (19ms)
-  * Ashburn US-East (24ms)
-- Label: Account Email Address
-  Placeholder: admin@yourserver.com
-- Button: Confirm & Provision Server
+Navigation Column 1 (Game Servers):
+- Minecraft Hosting BD (/minecraft-hosting-bangladesh)
+- Minecraft Hosting India (/minecraft-hosting-india)
+- Palworld Server BD (/palworld-hosting-bangladesh)
+- Rust Hosting BD & IN (/rust-hosting-bangladesh)
+- FiveM GTA V BD (/fivem-hosting-bangladesh)
 
-Success State:
-- Title: Instance Deployment Initiated!
-- Description Template: Your [Workload] instance with [RAM] in [Region] is being provisioned. Access credentials sent to [Email].
-- Button: Go to Server Control Panel
+Navigation Column 2 (Resources):
+- System Status (status.orixcore.com)
+- Knowledgebase & Guides (/knowledgebase)
+- Pterodactyl Game Panel (/pterodactyl-hosting-bangladesh)
+- How to Host Minecraft in BD (/knowledgebase/how-to-host-a-minecraft-server-bangladesh)
+- Minecraft Benchmark Guide (/knowledgebase/best-minecraft-hosting-bangladesh)
+
+Navigation Column 3 (Company & Legal):
+- Client Area & Billing (client.senxcloud.com)
+- Support Portal (Discord)
+- Discord Community (discord.gg/43QfPM286U)
+- Terms of Service (client.senxcloud.com)
+- Privacy Policy (client.senxcloud.com)
+
+Social Links:
+- Discord Community (discord.gg/43QfPM286U)
+- GitHub (github.com)
+
+Copyright:
+- © 2026 SenX Cloud Inc. All rights reserved. High-performance game server hosting in Bangladesh & India.
+================================================================================
